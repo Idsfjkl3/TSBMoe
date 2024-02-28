@@ -18780,7 +18780,7 @@ Animal.prototype.getSkinName = function() {
     case a_boaConstrictor:
     case a_hedgehog:
           case a_gaur:
-      var skinFolder = "";
+      var skinFolder = "";bv
       
       if (this.flag_usingAbility) skinName = skinFolder + skinName + "2";
       
