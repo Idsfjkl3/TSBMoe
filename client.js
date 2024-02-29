@@ -1474,6 +1474,7 @@ ability_nip = 127,
 ability_cakebomb = 129,
 ability_limitlessorb = 130,
 ability_openfins = 131,
+ability_hypnotise = 132,
   ability_none = 0;
 var infoForAbilityT = function(abilT) {
   var infoO = {};
@@ -1503,6 +1504,15 @@ var infoForAbilityT = function(abilT) {
       infoO.abilImg =
         "skins/searobin/fins0.png";
       break;
+
+		  
+                                        case ability_hypnotise:
+      infoO.abilName = "Hypnotize";
+var imgType = Math.ceil(((timestamp) % 1000)/500);
+      infoO.abilImg =
+        "skins/cuttlefish/cuttlefish" + imgType + ".png";
+      break;
+               
                                         case ability_limitlessorb:
       infoO.abilName = "Cursed Technique:\n Lapse Blue";
       infoO.abilImg =
