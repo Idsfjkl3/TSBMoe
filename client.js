@@ -401,6 +401,7 @@ a_cakemonster = 127;
 a_clownfish = 128;
 a_searobin = 129;
 a_cuttlefish = 130;
+a_catfish = 131;
 var infoForAnimalType = function (aniT) {
     var infoO = {};
     switch (aniT) {
@@ -981,6 +982,14 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
             infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n You can open your fins to speed up and detect diving animals! \n(Hint: You can walk on land!)";
             infoO.aniCol = "#231f18";
             infoO.skinName = "cuttlefish/cuttlefish";
+            break;
+
+		                                                            case a_catfish:
+            infoO.aniName = "Catfish";
+            infoO.aniDesc = "";
+            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n You can open your mouth and swallow animals!";
+            infoO.aniCol = "#231f18";
+            infoO.skinName = "catfish/catfish";
             break;
         
                                                     case a_cakemonster:
@@ -16399,6 +16408,13 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
             infoO.aniCol = "#231f18";
             infoO.skinName = "cuttlefish/cuttlefish";
             break;
+		  		                                                            case a_catfish:
+            infoO.aniName = "Catfish";
+            infoO.aniDesc = "";
+            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n You can open your mouth and swallow animals!";
+            infoO.aniCol = "#231f18";
+            infoO.skinName = "catfish/catfish";
+            break;
         
       
                                     case a_manatee:
@@ -18784,6 +18800,7 @@ Animal.prototype.getSkinName = function() {
     case a_searobin:
     case a_pike:
     case a_crab:
+    case a_catfish:
     case a_snail:
     case a_cobra:
     case a_titanboa:
