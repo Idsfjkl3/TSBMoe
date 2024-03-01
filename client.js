@@ -4901,7 +4901,6 @@ function showScreenTextWithDur(newText, newDur) {
   screenTextEndT = +new Date() + newDur;
 }
 function drawGamePlay(){
-screenIns_EndT = +new Date() + 3000;
  //draw instructions if needed
    var fadeDur = 0.1;
   var a = (screenIns_EndT - timestamp) / 1000.0 / fadeDur;
@@ -4909,10 +4908,10 @@ screenIns_EndT = +new Date() + 3000;
 
   var idealA = screenIns_EndT - timestamp > 0 ? 1.0 : 0.0;
   screenIns_A +=.1 * (a - screenIns_A)
-  //var fadeDur = 1.0;
-  //var a = (screenIns_EndT - timestamp) / 1000.0 / fadeDur;
-  //a = 0 > a ? 0 : 1 < a ? 1 : a; //clamp from 0-1
-  //screenIns_A=a;
+var fadeDur = 1.0;
+var a = (screenIns_EndT - timestamp) / 1000.0 / fadeDur;
+a = 0 > a ? 0 : 1 < a ? 1 : a; //clamp from 0-1
+screenIns_A = a;
 
    if (screenIns_A > 0.01 && !options_lowGraphics) {
           ma = 40 + 10 / screenIns_scaleF;
