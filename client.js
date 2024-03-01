@@ -4886,7 +4886,7 @@ var screenIns_EndT = +new Date() + 3000;
 var screenIns_A = 0.0;
 var screenIns_objsEdible_fullW = 100;
 var screenIns_scaleF = 2.0;
-var screenIns_drawNewPlayerIns = false;
+var screenIns_drawNewPlayerIns = true;
 
 //animal choice interface
 var aniChoice_isOpen = false;
@@ -4901,6 +4901,7 @@ function showScreenTextWithDur(newText, newDur) {
   screenTextEndT = +new Date() + newDur;
 }
 function drawGamePlay(){
+	screenIns_EndT = +new Date() + 3000;
  //draw instructions if needed
    var fadeDur = 0.1;
   var a = (screenIns_EndT - timestamp) / 1000.0 / fadeDur;
