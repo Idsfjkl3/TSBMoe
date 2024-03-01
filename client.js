@@ -28937,7 +28937,7 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
   anO.x = anO.ox = anO.nx = 0,
   anO.y = anO.oy = anO.ny = 0,
   anO.rad=anO.oRad=anO.nRad= 25
-screenIns_objsEdible.push(anO)
+//screenIns_objsEdible.push(anO)
  )
  };  
  for (t = 0; t < edibAniTypes.length; t++){
