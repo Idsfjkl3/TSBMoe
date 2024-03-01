@@ -4882,7 +4882,7 @@ var screenTextEndT = +new Date() + 0;
 
 //instructions
 var screenIns_objsEdible = []; //array of new edible objs (shown in instructions)
-var screenIns_EndT = +new Date() + 30000000;
+var screenIns_EndT = +new Date() + 3000;
 var screenIns_A = 0.0;
 var screenIns_objsEdible_fullW = 100;
 var screenIns_scaleF = 2.0;
@@ -4901,6 +4901,7 @@ function showScreenTextWithDur(newText, newDur) {
   screenTextEndT = +new Date() + newDur;
 }
 function drawGamePlay(){
+screenIns_EndT = +new Date() + 3000;
  //draw instructions if needed
    var fadeDur = 0.1;
   var a = (screenIns_EndT - timestamp) / 1000.0 / fadeDur;
