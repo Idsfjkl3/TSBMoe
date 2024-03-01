@@ -4881,7 +4881,7 @@ var screenTextCol = "white";
 var screenTextEndT = +new Date() + 0;
 
 //instructions
-var screenIns_objsEdible = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]; //array of new edible objs (shown in instructions)
+var screenIns_objsEdible = []; //array of new edible objs (shown in instructions)
 var screenIns_EndT = +new Date() + 3000;
 var screenIns_A = 0.0;
 var screenIns_objsEdible_fullW = 100;
@@ -28937,7 +28937,7 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
   anO.x = anO.ox = anO.nx = 0,
   anO.y = anO.oy = anO.ny = 0,
   anO.rad=anO.oRad=anO.nRad= 25
-//  screenIns_objsEdible.push(anO)
+screenIns_objsEdible.push(anO)
  )
  };  
  for (t = 0; t < edibAniTypes.length; t++){
