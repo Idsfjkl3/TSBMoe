@@ -4881,8 +4881,8 @@ var screenTextCol = "white";
 var screenTextEndT = +new Date() + 0;
 
 //instructions
-var screenIns_objsEdible = [3]; //array of new edible objs (shown in instructions)
-var screenIns_EndT = +new Date() + 3000;
+var screenIns_objsEdible = []; //array of new edible objs (shown in instructions)
+var screenIns_EndT = +new Date() + 30000000;
 var screenIns_A = 0.0;
 var screenIns_objsEdible_fullW = 100;
 var screenIns_scaleF = 2.0;
