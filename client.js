@@ -28928,7 +28928,7 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
               
            
         /// if not battle royal then show
-                  screenIns_objsEdible = [];
+                  //screenIns_objsEdible = [];
                 for (t = 0; t < edibleObjTypes.length; t++){
  0   < edibleObjTypes[t] && 0 == old_edibleObjTypes[t] && (
     
