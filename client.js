@@ -11635,8 +11635,20 @@ GameObj.prototype.drawHealthBar = function() {
   }
   ctx.restore(); //restore from fade
 
-  if(this.id == myPlayerID)
+  if (this.id == myPlayerID) {
     this.drawInfectionBar();
+if (this.animalType == a_catfish) {
+    this.drawCatfishBar();
+       }
+  }
+
+};
+
+GameObj.prototype.drawCatfishBar = function() {
+  if (this.specType2 > 0) {
+
+    this.drawBar("red", 1, this.specType2 * 100/3, 10);
+  }
 };
 
 GameObj.prototype.drawInfectionBar = function() {
