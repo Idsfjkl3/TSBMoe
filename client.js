@@ -18810,7 +18810,7 @@ Animal.prototype.getSkinName = function() {
           case a_gaur:
       var skinFolder = "";
       
-      if (this.flag_usingAbility) skinName = skinFolder + skinName + "2";
+      if (this.specType != 0) skinName = skinFolder + skinName + this.specType;
       
 
       break;
