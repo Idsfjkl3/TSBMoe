@@ -18801,7 +18801,6 @@ Animal.prototype.getSkinName = function() {
     case a_searobin:
     case a_pike:
     case a_crab:
-    case a_catfish:
     case a_snail:
     case a_cobra:
     case a_titanboa:
