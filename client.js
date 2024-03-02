@@ -11648,7 +11648,7 @@ GameObj.prototype.drawCatfishBar = function() {
   if (this.specType2 > 0) {
 	    var eyeS = Math.max(1.0, this.rad / 25.0);
 	     var barH = 10 + 5 * eyeS;
-	    if (this.hpBar > 99.99) {
+	    if (this.hpBarA <= 0.001) {
 	      this.drawBar("yellow", 1, this.specType2 * 100/3, 10);
 	    } else {
     this.drawBar("yellow", 1, this.specType2 * 100/3, barH);
