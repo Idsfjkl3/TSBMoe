@@ -11647,7 +11647,7 @@ if (this.animalType == a_catfish) {
 GameObj.prototype.drawCatfishBar = function() {
   if (this.specType2 > 0) {
 	    var eyeS = Math.max(1.0, this.rad / 25.0);
-	      barH = 5 * eyeS;
+	     var barH = 5 * eyeS;
   if (this.hpPer > 99.99) {
     this.drawBar("yellow", 1, this.specType2 * 100/3, 10);
   } else {
