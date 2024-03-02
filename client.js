@@ -6208,7 +6208,9 @@ if (KTestingModeON) {
         if (localhoster != null) {
 addServerDef("LOCALHOST", localhoster, reg,"80"); 
         } else {
+		    if (testServer == null) {
 addServerDef("FFA", "merry-feline-humbly.ngrok-free.app/?ModeActivate=true", reg,"80"); 
+		    }
 //addServerDef("EU", "4304-24-49-53-140.ngrok-free.app/?ModeActivate=true", reg,"80");
         }
 //addServerDef("EU", "541b-24-49-53-140.ngrok-free.app/?ModeActivate=true", reg,"80"); 
