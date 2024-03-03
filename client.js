@@ -12405,6 +12405,8 @@ this.z = 1005; //fireball just under dragon
           // grabed by pelican
           this.z = 1014; // below water splash
         }
+      } else if (this.flag_swallowed) {
+     this.z = 1013.9;
       } else {
         // if not flying then
 
@@ -19131,6 +19133,7 @@ for (var J = 0; J < cnt; J++) {
       this.flag_kamui = aniFlags.includes(47)
     this.flag_DevMode = aniFlags.includes(48)
       this.flag_inReef = aniFlags.includes(49)
+	this.flag_swallowed = aniFlags.includes(50)
         this.wins1v1 = msg.readUInt8();
 
     if (this.isAbility1v1Active && this.flag_can1v1) {
