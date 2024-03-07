@@ -1518,6 +1518,9 @@ var infoForAbilityT = function(abilT) {
                                         case ability_hypnotise:
       infoO.abilName = "Hypnotize";
 var imgType = Math.ceil(((timestamp) % 1000)/500);
+		  if (imgType == 0) {
+			  imgType = 1
+		  }
       infoO.abilImg =
         "skins/cuttlefish/cuttlefish" + imgType + ".png";
       break;
@@ -18844,6 +18847,9 @@ Animal.prototype.getSkinName = function() {
     case a_cuttlefish:
                   var skinFolder = "";
       var imgType = Math.ceil(((timestamp - this.spawnTime) % 1000)/500);
+	     if (imgType == 0) {
+		imgType = 1
+		  }
             if (this.flag_usingAbility) skinName = skinFolder + skinName + imgType;
             break;
       
