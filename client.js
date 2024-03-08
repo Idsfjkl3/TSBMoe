@@ -1484,6 +1484,7 @@ ability_cakebomb = 129,
 ability_limitlessorb = 130,
 ability_openfins = 131,
 ability_hypnotise = 132,
+	//133 (add ability later)
   ability_none = 0;
 var infoForAbilityT = function(abilT) {
   var infoO = {};
