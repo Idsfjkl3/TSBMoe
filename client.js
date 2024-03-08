@@ -1484,7 +1484,8 @@ ability_cakebomb = 129,
 ability_limitlessorb = 130,
 ability_openfins = 131,
 ability_hypnotise = 132,
-	//133 (add ability later)
+ability_swallow = 133,
+ability_waterspray = 134,
   ability_none = 0;
 var infoForAbilityT = function(abilT) {
   var infoO = {};
@@ -1509,7 +1510,21 @@ var infoForAbilityT = function(abilT) {
       }
       break;
 
-                                        case ability_openfins:
+		                                          case ability_waterspray:
+      infoO.abilName = "Water Spray";
+      infoO.abilImg =
+        "skins/" +
+        zombieFolder +
+        infoForAnimalType(myPlayerLastAniT).skinName +
+        ".png";
+      break;
+
+                                        case ability_swallow:
+      infoO.abilName = "Swallow Prey";
+      infoO.abilImg =
+        "skins/catfish/catfish2.png";
+      break;
+		                                          case ability_openfins:
       infoO.abilName = "Open Fins";
       infoO.abilImg =
         "skins/searobin/fins0.png";
