@@ -3381,6 +3381,9 @@ var isAbility1v1Active = true;
 var isSoccerEnabled = false;
 var show1v1Button = true;
 var can1v1 = false;
+	if (aniTier >= 14) {
+      can1v1 = true
+	}
 var btn1v1 = null;
 var player1v1ArenaWins = 0;
 var playerGoalsScore = 0;
@@ -5607,9 +5610,6 @@ var drawLabelValueOn = function(c, label, value, x, y) {
 };
 
 function create1v1Button() {
-	if (aniTier >= 14) {
-      can1v1 = true
-	}
   if (can1v1) {
     if (btn1v1 == null) {
       btn1v1 = new InterfaceButton(0, 0, 60, 60, "Click to 1v1", 30);
