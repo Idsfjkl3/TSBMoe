@@ -27884,7 +27884,7 @@ thisClass.prototype.isCountdownTimer = true;
 thisClass.prototype.p1ID = 0;
 thisClass.prototype.p2ID = 0;
 AbilityObj1v1Arena.prototype.setTimer = function(a) {
-	if (this.specType2 != 1) {
+	if (thisClass.prototype.specType != 1) {
   var txt =
     (this.isCountdownTimer ? "" : "FIGHT #" + this.fightNumber + "\nTIME\n") +
     "" +
@@ -27906,7 +27906,7 @@ AbilityObj1v1Arena.prototype.setTimer = function(a) {
 };
 
 AbilityObj1v1Arena.prototype.setP1 = function(a) {
-		if (this.specType2 != 1) {
+		if (thisClass.prototype.specType != 1) {
   var txt = "" + a;
 
   if (null == this.p1Name) {
@@ -27923,7 +27923,7 @@ AbilityObj1v1Arena.prototype.setP1 = function(a) {
 };
 
 AbilityObj1v1Arena.prototype.setP2 = function(a) {
-		if (this.specType2 != 1) {
+		if (thisClass.prototype.specType != 1) {
   var txt = "" + a;
   if (null == this.p2Name) {
     this.p2Name = new CachedText(12, "#FFFFFF"); //"#043400");
@@ -28127,7 +28127,7 @@ AbilityObj1v1Arena.prototype.endScreenState = -1;
 AbilityObj1v1Arena.prototype.endScreenChangeT = 0;
 
 AbilityObj1v1Arena.prototype.displayEndScreen = function() {
-		if (this.specType2 != 1) {
+		if (thisClass.prototype.specType != 1) {
   if (timestamp >= this.endScreenChangeT) {
     this.endScreenState++;
     this.endScreenChangeT = timestamp + 3000;
@@ -28153,7 +28153,7 @@ AbilityObj1v1Arena.prototype.challenger = null;
 AbilityObj1v1Arena.prototype.opponent = null;
 
 AbilityObj1v1Arena.prototype.setNames = function() {
-		if (this.specType2 != 1) {
+		if (thisClass.prototype.specType != 1) {
   var name1 = "" + this.p1;
   if (name1.length == 0) name1 = "mope2.io/1v1";
   var name2 = "" + this.p2;
