@@ -29746,6 +29746,8 @@ function worldUpd_readPlayerInfoMessage(msg) {
 
           if (aniTier >= 14) {
 can1v1 = true
+      } else {
+can1v1 = false
       }
       if (can1v1) {
         show1v1Button = aniFlags.getBool();
