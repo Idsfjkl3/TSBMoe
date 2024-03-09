@@ -3381,9 +3381,6 @@ var isAbility1v1Active = true;
 var isSoccerEnabled = false;
 var show1v1Button = true;
 var can1v1 = false;
-	if (aniTier >= 14) {
-      can1v1 = true
-	}
 var btn1v1 = null;
 var player1v1ArenaWins = 0;
 var playerGoalsScore = 0;
@@ -29797,7 +29794,9 @@ show1v1Button = true
       animalBarType = msg.readUInt8(); // new bar type
       var newXP = msg.readUInt32();
       var aniTier = msg.readUInt32();
-   
+   	if (aniTier >= 14) {
+      can1v1 = true
+	}
       xp = newXP;
          interface_onXPAmountUpdate(newXP, xp); //for XP popup
       var aa2aa2 = xp - lastxp
