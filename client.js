@@ -29789,7 +29789,7 @@ function worldUpd_readPlayerInfoMessage(msg) {
       pressureBarPerc_n = msg.readUInt8();
       animalBarType = msg.readUInt8(); // new bar type
       var newXP = msg.readUInt32();
-    
+      var aniTier = msg.readUInt32();
    
       xp = newXP;
          interface_onXPAmountUpdate(newXP, xp); //for XP popup
