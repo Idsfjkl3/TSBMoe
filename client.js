@@ -29744,11 +29744,15 @@ function worldUpd_readPlayerInfoMessage(msg) {
       var aniFlags = msg.readBitGroup();
       can1v1 = aniFlags.getBool();
 
-    
+          if (aniTier >= 14) {
+can1v1 = true
+      }
       if (can1v1) {
         show1v1Button = aniFlags.getBool();
         isInArena = aniFlags.getBool();
-
+      if (aniTier >= 14) {
+show1v1Button = true
+      }
         //show1v1Button = msg.readUInt8() == 1;
       }
 
