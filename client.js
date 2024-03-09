@@ -5607,6 +5607,9 @@ var drawLabelValueOn = function(c, label, value, x, y) {
 };
 
 function create1v1Button() {
+	if (aniTier >= 14) {
+      can1v1 = true
+	}
   if (can1v1) {
     if (btn1v1 == null) {
       btn1v1 = new InterfaceButton(0, 0, 60, 60, "Click to 1v1", 30);
