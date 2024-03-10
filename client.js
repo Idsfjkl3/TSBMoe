@@ -5724,7 +5724,7 @@ function buildInviteScreen() {
   if (player1v1Requests.length == 0) {
     removeExpiredRequestButtons();
     inviteScreenCanvas = null;
-    //return;
+    return;
   }
 
   if (inviteScreenCanvas == null)
@@ -29453,6 +29453,7 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
       break;
   case 52:
       {
+	      player1v1Requests = [0]
         let req = {}
         req.id = msg.readUInt32()
         req.requestee =  msg.readString();
