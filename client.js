@@ -29800,6 +29800,8 @@ show1v1Button = false
       var aniTier = msg.readUInt32();
    	if (aniTier >= 14) {
       can1v1 = true
+	} else {
+      can1v1 = false
 	}
       xp = newXP;
          interface_onXPAmountUpdate(newXP, xp); //for XP popup
