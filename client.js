@@ -29754,6 +29754,8 @@ can1v1 = false
         isInArena = aniFlags.getBool();
       if (aniTier >= 14) {
 show1v1Button = true
+      } else {
+show1v1Button = false
       }
         //show1v1Button = msg.readUInt8() == 1;
       }
