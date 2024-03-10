@@ -5899,10 +5899,8 @@ function create1v1RequestButton(req, label) {
     var mes = new MsgWriter(3);
     mes.writeUInt8(53); // Msg_1v1Mode_RequestAction;
     mes.writeUInt8(actionType); //1=accept, 0=reject,2=ignore
-    mes.writeUInt8(this.reqID);
+    //mes.writeUInt8(this.reqID);
     wsSendMsg(mes);
-	  console.log(actionType)
-    activeRequest = false;
   };
   btn.onInterfaceReset = function() {
     this.isVisible = true;
