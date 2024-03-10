@@ -5932,6 +5932,7 @@ function create1v1RequestButton(req, label) {
     //mes.writeUInt8(this.reqID);
     wsSendMsg(mes);
         player1v1Requests = []
+	  this.removeExpiredRequestButtons()
   };
   btn.onInterfaceReset = function() {
     this.isVisible = true;
