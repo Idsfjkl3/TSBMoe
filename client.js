@@ -27602,6 +27602,7 @@ TeamMode.prototype.create1v1RequestButton = function(req, label) {
     mes.writeUInt8(actionType); //1=accept, 0=reject,2=ignore
     mes.writeUInt8(this.reqID);
     wsSendMsg(mes);
+	      removeExpiredRequestButtons();
   };
   btn.onInterfaceReset = function() {
     this.isVisible = true;
@@ -29454,7 +29455,7 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
   case 52:
       {
 	      player1v1Requests = [0]
-        let req = {}
+        let req = {};
         req.id = msg.readUInt32()
         req.requestee =  msg.readString();
          req.aniType  =  msg.readUInt8();
