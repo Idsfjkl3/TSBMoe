@@ -5931,7 +5931,7 @@ function create1v1RequestButton(req, label) {
     mes.writeUInt8(actionType); //1=accept, 0=reject,2=ignore
     //mes.writeUInt8(this.reqID);
     wsSendMsg(mes);
-	          player1v1Requests = []
+this.inviteScreenCanvas = null;
   };
   btn.onInterfaceReset = function() {
     this.isVisible = true;
