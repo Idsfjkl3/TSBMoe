@@ -5870,6 +5870,36 @@ function removeExpiredRequestButtons() {
     }
   }
 }
+
+function removeRequestButtons() {
+  if (_gameMode == null || _gameMode.interfaceButtons == null) return;
+  for (d = 0; d < _gameMode.interfaceButtons.length; d++) {
+    var aBut = _gameMode.interfaceButtons[d];
+
+    if (aBut.reqID !== undefined) {
+      var activeRequest = true;
+      var found = false;
+      for (r = 0; r < player1v1Requests.length; r++) {
+        var req = player1v1Requests[r];
+        if (req.id == aBut.reqID) {
+          found = true;
+          break;
+        }
+      }
+
+   activeRequest = false;
+
+      if (!activeRequest || isInArena) {
+        var tmp = _gameMode.interfaceButtons.indexOf(aBut);
+        if (-1 != tmp) {
+          _gameMode.interfaceButtons.splice(tmp, 1);
+        }
+      }
+    }
+  }
+}
+
+
 function create1v1RequestButton(req, label) {
   var hasFound = false;
   for (i = 0; i < _gameMode.interfaceButtons.length; i++) {
@@ -5901,7 +5931,7 @@ function create1v1RequestButton(req, label) {
     mes.writeUInt8(actionType); //1=accept, 0=reject,2=ignore
     //mes.writeUInt8(this.reqID);
     wsSendMsg(mes);
-    removeExpiredRequestButtons()
+    removeRequestButtons()
   };
   btn.onInterfaceReset = function() {
     this.isVisible = true;
