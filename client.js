@@ -23503,8 +23503,7 @@ OBD.prototype.animalInfo = function () {
 
 
 
-
-AstralDragon.prototype.drawOnTopOfSkinImg = function() {
+OBD.prototype.drawOnTopOfSkinImg = function() {
 
 
 
