@@ -29478,6 +29478,17 @@ player1v1Requests.shift();
  buildInviteScreen() 
       }
       break;
+		  
+    case 53:
+      {
+       var sound = msg.readString();
+var sound_click = getLazyLoadAudio("audio/" + sound + ".mp3");
+  if (sound_click) {
+    try {
+      sound_click.play();
+    } catch (err) {}
+  }
+      }	
       
     case 57:
       {
