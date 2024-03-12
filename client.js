@@ -23511,7 +23511,7 @@ OBD.prototype.drawOnTopOfSkinImg = function() {
   
 
   var iScale = 500 / 340.0;
-  {
+
 
 
 var max = 10
@@ -23580,7 +23580,7 @@ max2 = -10
 
  
 
-  };
+
 
 };
 
@@ -23664,18 +23664,10 @@ max2 = -10
     ctx.restore();
   }
   };
-OBD.prototype.readCustomData_onNewlyVisible = function (msg) {
-  OBD.superClass.prototype.readCustomData_onNewlyVisible.call(
-    this,
-    msg
-  ); //call superclass version of this method
-  this.lava = msg.readUInt8();
-};
 
-OBD.prototype.readCustomData_onUpdate = function (msg) {
-  OBD.superClass.prototype.readCustomData_onUpdate.call(this, msg); //call superclass version of this method
-  this.lava = msg.readUInt8();
-};
+
+
+
 function OBD() {
   this.lava = 0;
   OBD.superClass.call(this, o_animal);
