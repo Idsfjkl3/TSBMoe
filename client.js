@@ -1441,7 +1441,6 @@ var ability_dive = 100,
   ability_freezeprey = 76,
   ability_kickinair = 77,
   ability_thunderbirdAttack = 78,
-    ability_thunder
    ability_stingscorp= 79,
    ability_pterodactyl= 80,
     ability_spear = 81;
