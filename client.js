@@ -710,7 +710,7 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
 		            case a_obd:
             infoO.aniName = "Ruby Devil";
             infoO.aniDesc = "";
-            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n (You're powerful!) \n You can upgrade your abilities every reached milestones!;
+            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n (You're powerful!) \n You can upgrade your abilities every reached milestones!";
             infoO.aniCol = "black";
             infoO.skinName = "obd/1/bd1_body";
             break;
