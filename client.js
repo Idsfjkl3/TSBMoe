@@ -23452,7 +23452,6 @@ GameObjType.setCustomClassForGameObjType(Duckling, o_animal, a_duckling);
 
 
 
-
 var superClass = Animal;
 OBD.prototype = Object.create(superClass.prototype); //properly inherit prototype of superclass
 OBD.prototype.constructor = OBD;
@@ -23504,7 +23503,8 @@ OBD.prototype.animalInfo = function () {
 
 
 
-OBD.prototype.drawOnTopOfSkinImg = function() {
+
+AstralDragon.prototype.drawOnTopOfSkinImg = function() {
 
 
 
@@ -23512,7 +23512,7 @@ OBD.prototype.drawOnTopOfSkinImg = function() {
   
 
   var iScale = 500 / 340.0;
-
+  {
 
 
 var max = 10
@@ -23581,17 +23581,102 @@ max2 = -10
 
  
 
-
+  };
 
 };
 
 
 
   
- 
+  OBD.prototype.drawSkinCustomization = function() {
+
+  var lava = this.lava; //waterBarPerc_n;
+  var minLowLava = 50;
+  //console.log("lava: " + lava)
 
 
+  if (!this.flag_usingAbility) return;
 
+  if (this.flag_flying && !this.flag_isGrabbed) {
+    ctx.save();
+    var tSinceSpawn = (timestamp - this.spawnTime) / 1000.0;
+    var frame = getAnimFrame(tSinceSpawn, 2.1, 0.4, 1.5);
+    var frameW = getAnimFrame(tSinceSpawn, 2.1, -8, 1.5);
+    var frameY = getAnimFrame(tSinceSpawn, 2.1, 0.4, 1.5);
+    var frameY2 = getAnimFrame(tSinceSpawn, 2.1, 0.3, 1.5);
+    var theImg = getLoadedImg("img/blackdragon_wing1.png");
+    var rad = this.rad * 0.6;
+    if (theImg) {
+      ctx.save();
+      //var fac0to1 = Math.min(1.0, (timestamp - this.spawnTime) / 300.0);
+
+      var extraRotate = -(-0.3 + frame) * toRadians(90.0); //spin animation
+
+      //clip to sliwly show the claw
+
+      ctx.rotate(extraRotate);
+      var imX = 0,
+        imY = this.rad;
+      var imW = rad * 2.0 * 0.8,
+        imH = rad * 2.0 + 5 * frameW; // * fac0to1;
+      var imAnchorX = -0.65; //+   frameY/3
+      imAnchorY = 1.75 - (frameY + frameY / 4 - frameY2); //top-left= 0,0, bottom-right=1,1 (canvas coords)
+
+      ctx.drawImage(
+        theImg,
+        imX + imW * -imAnchorX,
+        imY + imH * -imAnchorY,
+        imW,
+        imH
+      );
+
+      ctx.restore();
+    }
+
+    var theImg = getLoadedImg("img/blackdragon_wing2.png");
+    if (theImg) {
+      ctx.save();
+      //var fac0to1 = Math.min(1.0, (timestamp - this.spawnTime) / 300.0);
+
+      //console.log("getAnimFrame:" + frame);
+      var extraRotate = -(-0.3 + frame) * toRadians(-90.0); //spin animation
+
+      //clip to sliwly show the claw
+
+      ctx.rotate(extraRotate);
+      var imX = 0,
+        imY = this.rad;
+      var imW = rad * 2.0 * 0.8,
+        imH = rad * 2.0 + 5 * frameW;
+      var imAnchorX = 1.65; //-   frameY/2
+      imAnchorY = 1.75 - (frameY + frameY / 4) + frameY2; //top-left= 0,0, bottom-right=1,1 (canvas coords)
+
+      ctx.drawImage(
+        theImg,
+        imX + imW * -imAnchorX,
+        imY + imH * -imAnchorY,
+        imW,
+        imH
+      );
+
+      ctx.restore();
+    }
+
+    ctx.restore();
+  }
+  };
+OBD.prototype.readCustomData_onNewlyVisible = function (msg) {
+  OBD.superClass.prototype.readCustomData_onNewlyVisible.call(
+    this,
+    msg
+  ); //call superclass version of this method
+  this.lava = msg.readUInt8();
+};
+
+OBD.prototype.readCustomData_onUpdate = function (msg) {
+  OBD.superClass.prototype.readCustomData_onUpdate.call(this, msg); //call superclass version of this method
+  this.lava = msg.readUInt8();
+};
 function OBD() {
   this.lava = 0;
   OBD.superClass.call(this, o_animal);
@@ -23599,6 +23684,7 @@ function OBD() {
 window.OBD = OBD;
 //add this file as a class! (make sure to call require!)
 GameObjType.setCustomClassForGameObjType(OBD, o_animal, a_obd);
+
 
 
 ///////
