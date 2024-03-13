@@ -402,6 +402,7 @@ a_clownfish = 128;
 a_searobin = 129;
 a_cuttlefish = 130;
 a_catfish = 131;
+a_obd = 132;
 var infoForAnimalType = function (aniT) {
     var infoO = {};
     switch (aniT) {
@@ -704,6 +705,14 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
             infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n " + infoO.aniName + "s drink lava instead of water! " + infoO.aniName + "s only heal on healing stones/lava!";
             infoO.aniCol = "black";
             infoO.skinName = "blackdragon/blackdragon";
+            break;
+
+		            case a_obd:
+            infoO.aniName = "Black Dragon";
+            infoO.aniDesc = "";
+            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n " + infoO.aniName + "s drink lava instead of water! " + infoO.aniName + "s only heal on healing stones/lava!";
+            infoO.aniCol = "black";
+            infoO.skinName = "obd/1/obd";
             break;
 
         case a_giantSpider:
