@@ -12949,7 +12949,6 @@ AbilityObj.prototype.customDraw = function(batchDrawOutline) {
       break;
     case ability_finalhit:
     {
-        console.log(this.specType)
         ctx.save();
         var oldA = ctx.globalAlpha;
 
@@ -12961,6 +12960,11 @@ AbilityObj.prototype.customDraw = function(batchDrawOutline) {
  
         var theImg = getLoadedImg("skins/kingdragon/" + this.specType +
         "/tail.png");
+	    if (this.specType >= 200) {
+            var tailtype = this.specType - 200
+	var theImg = getLoadedImg("skins/obd/" + tailtype +
+        "/tailslap1.png")
+	    }
         if (theImg) {
           var fac0to1 = Math.min(1.0, (timestamp - this.spawnTime) / 200.0);
 
