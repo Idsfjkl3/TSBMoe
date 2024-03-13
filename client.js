@@ -12963,7 +12963,7 @@ AbilityObj.prototype.customDraw = function(batchDrawOutline) {
 	    if (this.specType >= 200) {
             var tailtype = this.specType - 200
 	var theImg = getLoadedImg("skins/obd/" + tailtype +
-        "/tailslap1.png")
+        "/tail.png")
 	    }
         if (theImg) {
           var fac0to1 = Math.min(1.0, (timestamp - this.spawnTime) / 200.0);
