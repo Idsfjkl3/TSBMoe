@@ -25657,7 +25657,9 @@ Fire.prototype.customDraw = function(batchDrawOutline) {
       amp * Math.sin(((2.0 * Math.PI) / period) * (timestamp / 1000.0));
 
     var imNum = Math.trunc(timestamp / 120) % 5;
-
+	  if (this.specType == 32) {
+    imNum = Math.trunc(timestamp / 120) % 2;
+	  }
     var theImg = getLoadedImg("img/fire/"+this.specType+"/0.png");
     if (theImg) {
       var imX = 0,
@@ -25749,6 +25751,9 @@ FireBall.prototype.customDraw = function(batchDrawOutline) {
       amp * Math.sin(((2.0 * Math.PI) / period) * (timestamp / 1000.0));
 
     var imNum = Math.trunc(timestamp / 120) % 5;
+	  if (this.specType == 32) {
+    imNum = Math.trunc(timestamp / 120) % 2;
+	  }
     //console.log("fire: " + imNum);
     //mope/img/fireball/10/
     //astral123
