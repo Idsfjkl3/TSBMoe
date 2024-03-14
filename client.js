@@ -25625,6 +25625,7 @@ Fire.prototype.customDraw = function(batchDrawOutline) {
 
     var imNum = Math.trunc(timestamp / 120) % 5;
 	  if (this.specType == 32) {
+this.doesDrawEffectScale = this.drawEffectScale_Slow = false
     imNum = Math.trunc(timestamp / 300) % 2;
 	  }
     var theImg = getLoadedImg("img/fire/"+this.specType+"/" + imNum + ".png");
@@ -25757,6 +25758,7 @@ FireBall.prototype.customDraw = function(batchDrawOutline) {
 
     var imNum = Math.trunc(timestamp / 120) % 5;
 	  if (this.specType == 32) {
+		  this.doesDrawEffectScale = this.drawEffectScale_Slow = false
     imNum = Math.trunc(timestamp / 300) % 2;
 	  }
     //console.log("fire: " + imNum);
