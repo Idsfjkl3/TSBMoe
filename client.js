@@ -25757,7 +25757,7 @@ FireBall.prototype.customDraw = function(batchDrawOutline) {
 
     var imNum = Math.trunc(timestamp / 120) % 5;
 	  if (this.specType == 32) {
-    imNum = Math.trunc(timestamp / 120) % 2;
+    imNum = Math.trunc(timestamp / 300) % 2;
 	  }
     //console.log("fire: " + imNum);
     //mope/img/fireball/10/
