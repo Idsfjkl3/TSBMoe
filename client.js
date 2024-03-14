@@ -3181,7 +3181,7 @@ var AbilityButton = function () {
 
         var imNum = Math.trunc(timestamp / 120) % 5;
 	      	  if (gameObjsByID[myPlayerID].specType2 == 32) {
-    imNum = Math.trunc(timestamp / 120) % 2;
+    imNum = Math.trunc(timestamp / 300) % 2;
 	  }
         //var theImg = getLoadedImg(imNum == 1 ? "img/fire.png" : "img/fire2.png");
          if (gameObjsByID[myPlayerID]) {
@@ -25624,7 +25624,9 @@ Fire.prototype.customDraw = function(batchDrawOutline) {
       amp * Math.sin(((2.0 * Math.PI) / period) * (timestamp / 1000.0));
 
     var imNum = Math.trunc(timestamp / 120) % 5;
-
+	  if (this.specType == 32) {
+    imNum = Math.trunc(timestamp / 300) % 2;
+	  }
     var theImg = getLoadedImg("img/fire/"+this.specType+"/" + imNum + ".png");
     if (theImg) {
       var imX = 0,
@@ -25661,7 +25663,7 @@ Fire.prototype.customDraw = function(batchDrawOutline) {
 
     var imNum = Math.trunc(timestamp / 120) % 5;
 	  if (this.specType == 32) {
-    imNum = Math.trunc(timestamp / 120) % 2;
+    imNum = Math.trunc(timestamp / 300) % 2;
 	  }
     var theImg = getLoadedImg("img/fire/"+this.specType+"/0.png");
     if (theImg) {
