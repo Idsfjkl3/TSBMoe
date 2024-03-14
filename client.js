@@ -3180,6 +3180,9 @@ var AbilityButton = function () {
       if (this.abil_Type == ability_fireShoot || this.abil_Type == ability_fireShoot2) {
 
         var imNum = Math.trunc(timestamp / 120) % 5;
+	      	  if (gameObjsByID[myPlayerID].specType2 == 32) {
+    imNum = Math.trunc(timestamp / 120) % 2;
+	  }
         //var theImg = getLoadedImg(imNum == 1 ? "img/fire.png" : "img/fire2.png");
          if (gameObjsByID[myPlayerID]) {
         var theImg = getLoadedImg("img/fireball/" + gameObjsByID[myPlayerID].specType2 + "/" +imNum + ".png");
