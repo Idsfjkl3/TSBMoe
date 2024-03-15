@@ -19734,8 +19734,8 @@ KingDragon.prototype.sF = 0.02;
 KingDragon.prototype.drawWings = function () {
   
   if (this.flag_flying) {
-KingDragon.prototype.flapAngleDiff = 60;
-KingDragon.prototype.flapAngle = 60;
+KingDragon.prototype.flapAngleDiff = 40;
+KingDragon.prototype.flapAngle = 10;
   } else {
 KingDragon.prototype.flapAngleDiff = 3;
 KingDragon.prototype.flapAngle = 3;
