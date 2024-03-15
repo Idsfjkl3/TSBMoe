@@ -19733,7 +19733,13 @@ KingDragon.prototype.flapDur = 2;
 KingDragon.prototype.sF = 0.02;
 KingDragon.prototype.drawWings = function () {
   
-  
+  if (this.flag_flying) {
+KingDragon.prototype.flapAngleDiff = 6;
+KingDragon.prototype.flapAngle = 3;
+  } else {
+KingDragon.prototype.flapAngleDiff = 3;
+KingDragon.prototype.flapAngle = 3;
+  }
   
     null == this.leftWingAnim && (this.leftWingAnim = new _0x1abe2b(this, this.flapDur, _0x1abe2b.wave,{
             'v1': 0x5
