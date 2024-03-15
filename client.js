@@ -1494,6 +1494,7 @@ ability_openfins = 131,
 ability_hypnotise = 132,
 ability_swallow = 133,
 ability_waterspray = 134,
+ability_shotgunfire = 135,
   ability_none = 0;
 var infoForAbilityT = function(abilT) {
   var infoO = {};
@@ -2090,6 +2091,10 @@ var imgType = Math.ceil(((timestamp) % 1000)/500);
         "2.png";
       break;
     case ability_fireShoot:
+      infoO.abilName = "Fire";
+      infoO.abilImg = "img/fire.png";
+      break;
+    case ability_shotgunfire:
       infoO.abilName = "Fire";
       infoO.abilImg = "img/fire.png";
       break;
@@ -3177,7 +3182,7 @@ var AbilityButton = function () {
       //ability img
       var abilityInfo = infoForAbilityT(this.abil_Type);
 
-      if (this.abil_Type == ability_fireShoot || this.abil_Type == ability_fireShoot2) {
+      if (this.abil_Type == ability_fireShoot || this.abil_Type == ability_fireShoot2 || this.abil_Type == ability_shotgunfire) {
 
         var imNum = Math.trunc(timestamp / 120) % 5;
 	      	  if (gameObjsByID[myPlayerID].specType2 == 32) {
