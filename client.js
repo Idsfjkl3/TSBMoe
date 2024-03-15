@@ -19733,7 +19733,7 @@ KingDragon.prototype.flapDur = 2;
 KingDragon.prototype.sF = 0.02;
 KingDragon.prototype.drawWings = function () {
   
-  if (this.flag_flying) {
+  if (this.flag_flying && !this.flag_isGrabbed) {
 KingDragon.prototype.flapAngleDiff = 20;
 KingDragon.prototype.flapAngle = 40;
   } else {
@@ -19781,6 +19781,7 @@ KingDragon.prototype.flapAngle = 3;
     }
 };
 KingDragon.prototype.drawSkinCustomization = function () {
+	    this.drawWings();
     var _0x3659ec = 1.4705882352941,
         _0x10a292 = getAnimFrame((timestamp - this.spawnTime) / 1000, 5, 1, 1),
         _0x3fb426 = getLoadedImg('skins/kingdragon/'+this.animalSpecies +'/nostrils.png');
@@ -19802,7 +19803,6 @@ KingDragon.prototype.drawSkinCustomization = function () {
         _0x3fb426 = getLoadedImg('skins/kingdragon/'+this.animalSpecies +'/bone2.png');
         0x3 > this.tailState && _0x3fb426 && (ctx.save(), ctx.globalAlpha = 1 - _0x10a292, _0x445d4d = this.rad - this.outlineW, ctx.drawImage(_0x3fb426, -_0x445d4d * _0x3659ec, -_0x445d4d * _0x3659ec, 2 * _0x445d4d * _0x3659ec, 2 * _0x445d4d * _0x3659ec), ctx.restore());
     }
-    this.drawWings();
 };
 KingDragon.prototype.getSkinName = function () {
         return './kingdragon/' + this.animalSpecies + '/kingdragon_body';
