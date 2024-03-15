@@ -2095,7 +2095,7 @@ var imgType = Math.ceil(((timestamp) % 1000)/500);
       infoO.abilImg = "img/fire.png";
       break;
     case ability_shotgunfire:
-      infoO.abilName = "Fire";
+      infoO.abilName = "Shotgun\nFire";
       infoO.abilImg = "img/fire.png";
       break;
     case ability_yetiTransform:
