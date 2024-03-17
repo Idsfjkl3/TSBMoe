@@ -20616,15 +20616,7 @@ AstralTrex.prototype.updateZ = function () {
 
 
 
-AstralTrex.prototype.getSkinName = function() {
-  var skin =
-    "astraldragon/astraldragon_body"
 
-
-
-
-  return skin;
-};
 
 
 AstralTrex.prototype.drawOnTopOfSkinImg = function() {
