@@ -6284,7 +6284,7 @@ if (KTestingModeON) {
 addServerDef("LOCALHOST", localhoster, reg,"80"); 
         } else {
 		    if (testServer == null) {
-addServerDef("FFA", "toucan-charming-mentally.ngrok-free.app/?ModeActivate=true", reg,"80"); 
+addServerDef("FFA", "coral-pleased-kangaroo.ngrok-free.app/?ModeActivate=true", reg,"80"); 
 		    }
 //addServerDef("EU", "4304-24-49-53-140.ngrok-free.app/?ModeActivate=true", reg,"80");
         }
