@@ -20659,13 +20659,14 @@ max2 = -10
       }
         ctx.save();
         var rad = this.rad;
-        ctx.drawImage(
+     var overSizeOffset = rad / 2;
+      ctx.drawImage(
           theRim,
-          -rad * iScale,
-          -rad * iScale * 0.99,
-          2 * rad * iScale,
-          2 * rad * iScale 
-        );
+        -rad - overSizeOffset,
+        -rad - overSizeOffset,
+        2 * rad * iScale,
+        2 * rad * (iScale * 1.2)
+      );
         ctx.restore();
       }
     
