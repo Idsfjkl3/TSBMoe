@@ -403,6 +403,7 @@ a_searobin = 129;
 a_cuttlefish = 130;
 a_catfish = 131;
 a_obd = 132;
+a_astraltrex = 133;
 var infoForAnimalType = function (aniT) {
     var infoO = {};
     switch (aniT) {
@@ -884,6 +885,14 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
             infoO.skinName = "slug/0/slug";
             break;
         
+
+		                                            case a_astraltrex:
+            infoO.aniName = "Celestial Trex!";
+            infoO.aniDesc = "";
+            infoO.upgradeText = "UPGRADED to Celestial Trex!";
+            infoO.aniCol = "#FF9000";
+            infoO.skinName = "astraltrex/astraltrex";
+            break;
                                         case a_astraldragon:
             infoO.aniName = "Astral Dragon!";
             infoO.aniDesc = "";
@@ -16382,6 +16391,17 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
       infoO.aniCol = "#FF9000";
       infoO.skinName = "astraldragon";
       break;
+
+		                                 case a_astraltrex:
+      infoO.aniName = "Celestial Trex!";
+      infoO.aniDesc = "";
+     /* infoO.upgradeText =
+        "UPGRADED to Astral Dragon!\n Astral Dragons can shoot a burning comet that explodes on impact! \n They can also fly high by pressing q and shoot stars at opponents! (15s cooldown)"; */
+            infoO.upgradeText =
+        "UPGRADED to Celestial Trex!\nA majestic space dragon. Unleash your inner powers and the will of ᚦᛖ ᛊᛖᚢᛖᚾᚦ ᛟᚾᛖ. \n Astral Dragons can shoot a burning comet that causes a mini supernova! \n They can also fly high by pressing q and shoot stars at opponents! (15s cooldown)";
+      infoO.aniCol = "#FF9000";
+      infoO.skinName = "astraltrex/astraltrex";
+      break;
       
                    case a_leopardseal:
       infoO.aniName = "Leopard Seal";
@@ -17942,7 +17962,16 @@ Animal.prototype.basicDrawSkinImg = function() {
         2 * rad * iScale,
         2 * rad * iScale
       );
-                      } else if (this.animalType == a_cachalot || this._animalType == a_cachalot) { 
+                      } else if (this.animalType == a_astraltrex || this._animalType == a_astraltrex) { 
+      overSizeOffset = rad / 2;
+      ctx.drawImage(
+        this.loadedSkinImg,
+        -rad - overSizeOffset,
+        -rad - overSizeOffset,
+        2 * rad * iScale,
+        2 * rad * (iScale * 1.2)
+      ); 
+	                          } else if (this.animalType == a_cachalot || this._animalType == a_cachalot) { 
       overSizeOffset = rad / 2;
       ctx.drawImage(
         this.loadedSkinImg,
@@ -18895,6 +18924,7 @@ Animal.prototype.getSkinName = function() {
             break;
     case a_pufferFish:
     case a_muskox:
+    case a_astraltrex:
     case a_swordfish:
     case a_turtle:
     case a_searobin:
@@ -20564,6 +20594,126 @@ GameObjType.setCustomClassForGameObjType(Bigfoot, o_animal, a_bigfoot);
 ///////
 // file: js_src/gameobj/animal/santa.js
 ///////
+
+
+
+
+
+
+
+
+
+
+var superClass = Animal;
+AstralTrex.prototype = Object.create(superClass.prototype); //properly inherit prototype of superclass
+AstralTrex.prototype.constructor = AstralTrex;
+AstralTrex.superClass = superClass; //'class' var
+
+AstralTrex.prototype.updateZ = function () {
+  this.z = this.flag_underWater ? -100 : this.flag_flying ? this.z = 10001 : this.flag_isInArena ? this.z = 1000 : this.flag_inTree ? this.z = 1301 + this.rad : this.z =(1010 + this.rad);
+};
+
+
+
+
+AstralTrex.prototype.getSkinName = function() {
+  var skin =
+    "astraldragon/astraldragon_body"
+
+
+
+
+  return skin;
+};
+
+
+AstralTrex.prototype.drawOnTopOfSkinImg = function() {
+
+
+
+  var skins = "skins";
+  
+
+  var iScale = 500 / 340.0;
+  {
+
+
+var max = 10
+var max2 =-3
+
+if (this.flag_flying) {
+max = 45
+max2 = -10
+}
+      var tSinceSpawn = (timestamp - this.spawnTime) / 1000.0;
+ var frame =  getAnimFrame(tSinceSpawn,2.1, .4, 1.5);
+    
+             var theRim = getLoadedImg(
+        skins + "/astraltrex/" + "/rim" + ".png"
+      );
+      if (theRim) {
+                        var period = 8.0; //periodic func with time
+    var p_min = 0.3,
+      p_max = 1.0;
+    var amp = 0.5 * (p_max - p_min);
+      if  (!this.flag_underWater && !this.flag_eff_invincible) {
+    ctx.globalAlpha *=
+      p_min +
+      amp +
+      amp *
+        Math.sin(
+          ((2.0 * Math.PI) / period) * ((timestamp - this.spawnTime) / 1000.0)
+      );
+      }
+        ctx.save();
+        var rad = this.rad;
+        ctx.drawImage(
+          theRim,
+          -rad * iScale,
+          -rad * iScale * 0.99,
+          2 * rad * iScale,
+          2 * rad * iScale 
+        );
+        ctx.restore();
+      }
+    
+                    if  (!this.flag_underWater && !this.flag_eff_invincible) {
+                    ctx.globalAlpha = 0.5;
+          }
+    
+
+    if (this.flag_invisible && this.id == myPlayerID) {
+      
+                          ctx.globalAlpha = 0.5
+    } else {
+         if (this.flag_invisible && this.id != myPlayerID) {
+                          ctx.globalAlpha = 0;
+    } else {
+                         if  (!this.flag_underWater && !this.flag_eff_invincible) {
+                    ctx.globalAlpha = 1;
+          } 
+
+    }
+
+    }
+
+    
+
+
+
+
+ 
+
+  };
+
+};
+function AstralTrex() {
+  AstralTrex.superClass.call(this, o_animal);
+}
+window.AstralTrex = AstralTrex;
+//add this file as a class! (make sure to call require!)
+GameObjType.setCustomClassForGameObjType(AstralTrex, o_animal, a_astraltrex)
+
 
 
 
