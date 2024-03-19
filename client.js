@@ -8215,8 +8215,8 @@ console.log(rps)
 	     var time = (timestamp - this.spawnTime)
 	     var deathtime = 300
         if (theImg) {
-          var rad = this.rad * (1.0 + time/2.5);
-          ctx.globalAlpha = 1 * (deathtime - time)
+          var rad = this.rad * (1.0 + time/500);
+          ctx.globalAlpha = 1 * (deathtime - time)/deathtime
           ctx.save();
           ctx.rotate(this.rPer * Math.PI * 2.0);
           ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad);
