@@ -8212,8 +8212,10 @@ console.log(rps)
         var theImg = getLoadedImg(
           "img/impact.png"
         );
+	     var time (timestamp - this.spawnTime) / 1000.0
         if (theImg) {
-          var rad = this.rad * 1.0;
+          var rad = this.rad * (1.0 + time/1.5);
+          ctx.globalAlpha = 1 * (800 - time)
           ctx.save();
           ctx.rotate(this.rPer * Math.PI * 2.0);
           ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad);
