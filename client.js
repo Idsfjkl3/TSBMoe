@@ -162,6 +162,7 @@ o_cakesplat = 115;
 o_cakesplash = 116;
 o_biome_reef = 117;
 o_atoll = 118;
+o_impact = 119;
 //o_hat = 99;
 var GameObjType = {
   //makes it easy to add new subclasses- each class will add itself!
@@ -8205,6 +8206,22 @@ console.log(rps)
         }
       }
       break;
+		  
+		      case o_impact:
+      {
+        var theImg = getLoadedImg(
+          "img/impact.png"
+        );
+        if (theImg) {
+          var rad = this.rad * 1.0;
+          ctx.save();
+          ctx.rotate(this.rPer * Math.PI * 2.0);
+          ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad);
+          //console.log("drawing banana");
+          ctx.restore();
+        }
+      }
+      break;
     case o_coconut:
       {
         //draw banana img
@@ -12433,7 +12450,7 @@ case o_cakesplash:
           case o_lavaDrop:
       this.z = 2000; // splashes on top of all objects
       break;
-
+          case o_impact:
     case o_waterDrop:
       this.z = 1015; // splashes on top of all objects
       break;
