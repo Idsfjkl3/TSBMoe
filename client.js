@@ -8216,7 +8216,7 @@ console.log(rps)
 	     var deathtime = 300
         if (theImg) {
           var rad = this.rad * (1.0 + time/500);
-          ctx.globalAlpha = 1 * (deathtime - time)/deathtime
+          ctx.globalAlpha = 1 * Math.max((deathtime - time)/deathtime, 0)
           ctx.save();
           ctx.rotate(this.rPer * Math.PI * 2.0);
           ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad);
