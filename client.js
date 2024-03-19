@@ -404,6 +404,7 @@ a_cuttlefish = 130;
 a_catfish = 131;
 a_obd = 132;
 a_astraltrex = 133;
+a_horseshoe = 134;
 var infoForAnimalType = function (aniT) {
     var infoO = {};
     switch (aniT) {
@@ -997,11 +998,18 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
                                                                             case a_cuttlefish:
             infoO.aniName = "Cuttlefish";
             infoO.aniDesc = "";
-            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n You can open your fins to speed up and detect diving animals! \n(Hint: You can walk on land!)";
+            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n You can open your fins to speed up and detect diving animals!";
             infoO.aniCol = "#231f18";
             infoO.skinName = "cuttlefish/cuttlefish";
             break;
 
+		    		                                                            case a_horseshoe:
+            infoO.aniName = "Horseshoe Crab";
+            infoO.aniDesc = "";
+            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n You can block attacks at the front but watch out for your backside! \n(Hint: You can walk on land!) ";
+            infoO.aniCol = "#231f18";
+            infoO.skinName = "horseshoecrab";
+            break;
 		                                                            case a_catfish:
             infoO.aniName = "Catfish";
             infoO.aniDesc = "";
@@ -16528,7 +16536,13 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
             infoO.aniCol = "#231f18";
             infoO.skinName = "catfish/catfish";
             break;
-
+		    		                                                            case a_horseshoe:
+            infoO.aniName = "Horseshoe Crab";
+            infoO.aniDesc = "";
+            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n You can block attacks at the front but watch out for your backside! \n(Hint: You can walk on land!) ";
+            infoO.aniCol = "#231f18";
+            infoO.skinName = "horseshoecrab";
+            break;
 		  		            case a_obd:
             infoO.aniName = "Black Dragon";
             infoO.aniDesc = "";
