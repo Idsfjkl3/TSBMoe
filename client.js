@@ -1,4 +1,4 @@
-var gamever = 99;
+var gamever = 100;
 var KTestingModeON = true;
 var KTestingBetaMode = true && !KTestingModeON;
 var ACTIVATEOURGAMEMODE = false
