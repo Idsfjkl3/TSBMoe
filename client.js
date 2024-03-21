@@ -406,6 +406,7 @@ a_catfish = 131;
 a_obd = 132;
 a_astraltrex = 133;
 a_horseshoe = 134;
+a_testsnake = 135;
 var infoForAnimalType = function (aniT) {
     var infoO = {};
     switch (aniT) {
@@ -1010,6 +1011,15 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
             infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n You can block attacks at the front but watch out for your backside! \n(Hint: You can walk on land!) ";
             infoO.aniCol = "#231f18";
             infoO.skinName = "horseshoecrab";
+            break;
+		    
+		    
+		    		                                                            case a_testsnake:
+            infoO.aniName = "Death Worm";
+            infoO.aniDesc = "";
+            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n You can block attacks at the front but watch out for your backside! \n(Hint: You can walk on land!) ";
+            infoO.aniCol = "#231f18";
+            infoO.skinName = "testsnake/testsnake";
             break;
 		                                                            case a_catfish:
             infoO.aniName = "Catfish";
@@ -16563,6 +16573,15 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
             infoO.aniCol = "#231f18";
             infoO.skinName = "horseshoecrab";
             break;
+
+		  		    		                                                            case a_testsnake:
+            infoO.aniName = "Death Worm";
+            infoO.aniDesc = "";
+            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n You can block attacks at the front but watch out for your backside! \n(Hint: You can walk on land!) ";
+            infoO.aniCol = "#231f18";
+            infoO.skinName = "testsnake/testsnake";
+            break;
+		  
 		  		            case a_obd:
             infoO.aniName = "Black Dragon";
             infoO.aniDesc = "";
@@ -18980,6 +18999,10 @@ Animal.prototype.getSkinName = function() {
           case a_catfish:
       var skinFolder = "";
       if (this.specType != 0) skinName = skinFolder + skinName + this.specType;
+		        break;
+		            case a_testsnake:
+      var skinFolder = "";
+      if (this.specType2 == 1) skinName = skinFolder + skinName + 2;
 		        break;
       
     case a_cuttlefish:
