@@ -8067,11 +8067,11 @@ console.log(rps)
         }
         
         if (theImg) {
+		          ctx.rotate(this.angle);
           if (this.specType == 2) {
             ctx.rotate(rotation1);
           }
           var rad = this.rad;
-          ctx.rotate(this.rPer * Math.PI * 2.0);
 		if (this.specType == 1) {
           ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad * (1 + this.specType2/70));
 		} else {
