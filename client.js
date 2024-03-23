@@ -8073,7 +8073,7 @@ console.log(rps)
           }
           var rad = this.rad;
 		if (this.specType == 1) {
-          ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad * (1 + this.specType2/70));
+          ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad * (1 + this.specType2/50));
 		} else {
           ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad);
 		}
