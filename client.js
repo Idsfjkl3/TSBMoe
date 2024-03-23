@@ -13925,7 +13925,7 @@ case ability_thunderbirdAttack:
         }
         if (theImg) {
           var rad = this.rad;
-          ctx.rotate(this.rPer * Math.PI * 2.0);
+          ctx.rotate(this.angle);
           ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad);
           //console.log("drawing banana");
         }
