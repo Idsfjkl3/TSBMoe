@@ -12527,7 +12527,7 @@ this.z = 1005; //fireball just under dragon
 
         if (
           this.flag_underWater ||
-          (this.flag_usingAbility && this.animalType == a_mole)
+          (this.flag_usingAbility && (this.animalType == a_mole || this.animalType == a_testsnake))
         ) {
           this.z = -100; //above lake and lake island
         } else {
@@ -17086,7 +17086,7 @@ Animal.prototype.customDraw = function(batchDrawOutline) {
   var idealOp =
     this.flag_underWater ||
     (this.flag_usingAbility &&
-      (this.animalType == a_mole ||
+      ((this.animalType == a_mole || this.animalType == a_testsnake) ||
 
         this.isTransforming&& this.animalType == a_yeti || this.flag_stealth))
       ? 0.0
@@ -17348,7 +17348,7 @@ if (this.rad < 20) {
     !(
       this.dead ||
       this.flag_underWater ||
-      (this.animalType == a_mole && this.flag_usingAbility)
+      ((this.animalType == a_mole || this.animalType == a_testsnake) && this.flag_usingAbility)
     )
   )
     if (gameMode == gameMode_teamMode && this.teamID != 0) {
@@ -17586,7 +17586,7 @@ Animal.prototype.drawUnderSkinImgOutline = function() {
 
   if (
     this.flag_underWater ||
-    (this.flag_usingAbility && this.animalType == a_mole)
+    (this.flag_usingAbility && (this.animalType == a_mole || this.animalType == a_testsnake))
   ) {
     ctx.save();
     ctx.globalAlpha = 1.0 - this.underwaterA; //bubbles appear as animal fades
