@@ -8121,7 +8121,7 @@ console.log(rps)
   ctx.save();
   ctx.globalAlpha = 0.3;
   ctx.beginPath();
-  ctx.arc(0, 0, this.rad * 0.7 - this.rad/100, 0, 2 * Math.PI, false);
+  ctx.arc(0, 0, this.rad * 0.7 - 100, 0, 2 * Math.PI, false);
   ctx.arc(0, 0, this.rad * 0.7, 0, 2 * Math.PI, true);
   ctx.fillStyle = "#32ff00";
   ctx.closePath();
