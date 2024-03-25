@@ -163,6 +163,7 @@ o_cakesplash = 116;
 o_biome_reef = 117;
 o_atoll = 118;
 o_impact = 119;
+o_battleroyale = 120;
 //o_hat = 99;
 var GameObjType = {
   //makes it easy to add new subclasses- each class will add itself!
@@ -8081,7 +8082,46 @@ console.log(rps)
         }
       }
       break;
-      
+             case o_battleroyale:
+      {
+  ctx.save();
+  ctx.globalAlpha = 0.3;
+  ctx.beginPath();
+  ctx.arc(0, 0, this.rad + 2, 0, 2 * Math.PI, false);
+  ctx.arc(0, 0, this.rad, 0, 2 * Math.PI, true);
+  ctx.fillStyle = "#FF1616";
+  ctx.closePath();
+  ctx.fill();
+  ctx.restore();
+
+  ctx.save();
+  ctx.globalAlpha = 0.095;
+
+  ctx.beginPath();
+  ctx.arc(0, 0, this.rad, 0, 2 * Math.PI, false);
+  ctx.arc(0, 0, this.rad - 20, 0, 2 * Math.PI, true);
+  ctx.fillStyle = "#FF4242";
+  ctx.closePath();
+  ctx.fill();
+  // ctx.globalAlpha = 0.15;
+  // ctx.strokeStyle = "red";
+  // ctx.stroke();
+  ctx.restore();
+
+  ctx.save();
+  ctx.globalAlpha = 0.3;
+  ctx.beginPath();
+  ctx.arc(0, 0, this.rad - 20, 0, 2 * Math.PI, false);
+  ctx.arc(0, 0, this.rad - 20 - 2, 0, 2 * Math.PI, true);
+  ctx.fillStyle = "#FF0000";
+  ctx.closePath();
+  ctx.fill();
+  ctx.restore();
+
+
+        }
+
+            break;
           case o_cakesplash:
       {
         ctx.save();
@@ -12399,7 +12439,9 @@ case o_cakesplash:
     case o_hill:
       this.z = 999;
       break;
-      
+case o_battleroyale:
+      this.z = 100002;
+      break;
       case o_fir:
       this.z = 1300;
       break;
