@@ -8118,7 +8118,7 @@ console.log(rps)
   ctx.fill();
   ctx.restore();
 	      
-  ctx.save();
+/*  ctx.save();
   ctx.globalAlpha = 0.3;
   ctx.beginPath();
   ctx.arc(0, 0, this.specType2, 0, 2 * Math.PI, false);
@@ -8126,7 +8126,7 @@ console.log(rps)
   ctx.fillStyle = "#32ff00";
   ctx.closePath();
   ctx.fill();
-  ctx.restore();
+  ctx.restore(); */
 
 
         }
