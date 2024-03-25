@@ -8099,7 +8099,7 @@ console.log(rps)
 
   ctx.beginPath();
   ctx.arc(0, 0, this.rad, 0, 2 * Math.PI, false);
-  ctx.arc(0, 0, this.specType, 0, 2 * Math.PI, true);
+  ctx.arc(0, 0, this.rad * 0.9, 0, 2 * Math.PI, true);
   ctx.fillStyle = "#FF4242";
   ctx.closePath();
   ctx.fill();
@@ -8111,22 +8111,22 @@ console.log(rps)
   ctx.save();
   ctx.globalAlpha = 0.3;
   ctx.beginPath();
-  ctx.arc(0, 0, this.specType, 0, 2 * Math.PI, false);
-  ctx.arc(0, 0, this.specType - 2, 0, 2 * Math.PI, true);
+  ctx.arc(0, 0, this.rad * 0.9, 0, 2 * Math.PI, false);
+  ctx.arc(0, 0, this.rad * 0.9 - 2, 0, 2 * Math.PI, true);
   ctx.fillStyle = "#FF0000";
   ctx.closePath();
   ctx.fill();
   ctx.restore();
 	      
-/*  ctx.save();
+  ctx.save();
   ctx.globalAlpha = 0.3;
   ctx.beginPath();
-  ctx.arc(0, 0, this.specType2, 0, 2 * Math.PI, false);
-  ctx.arc(0, 0, this.specType2 - this.rad/100, 0, 2 * Math.PI, true);
+  ctx.arc(0, 0, this.rad * 0.7 - this.rad/100, 0, 2 * Math.PI, false);
+  ctx.arc(0, 0, this.rad * 0.7, 0, 2 * Math.PI, true);
   ctx.fillStyle = "#32ff00";
   ctx.closePath();
   ctx.fill();
-  ctx.restore(); */
+  ctx.restore(); 
 
 
         }
