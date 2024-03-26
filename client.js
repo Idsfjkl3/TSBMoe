@@ -5567,11 +5567,11 @@ function drawRoyaleOnMiniMap(obj, color, radF) {
       2 * Math.PI
     );
     ctx.fill(); */
-ctx_2.globalAlpha = 0.2;
 ctx_2.fillStyle = "#FF1616";
 ctx_2.fillRect(0, 0, miniMapCanvas.width, miniMapCanvas.height)
  var oldgco = ctx_2.globalCompositeOperation
 ctx_2.globalCompositeOperation = "destination-out";
+	  ctx_2.globalAlpha = 0.3;
 ctx_2.strokeStyle = "#000";
 ctx_2.beginPath();
 ctx_2.arc(0, 0, plR * radF * (minimapW / gameW), 0, Math.PI*2);
