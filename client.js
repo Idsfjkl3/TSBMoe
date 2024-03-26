@@ -5553,10 +5553,11 @@ function drawObjOnMiniMap(obj, color, radF) {
 function drawRoyaleOnMiniMap(obj, color, radF) {
   if (obj) {
 	    var ctx_ = miniMapCanvas.getContext("2d");
+	      var plR = pixelRat * Math.max(2, obj.specType);
 	  /*
     ctx.fillStyle = color;
     ctx.beginPath();
-    var plR = pixelRat * Math.max(2, obj.rad);
+    //var plR = pixelRat * Math.max(2, obj.rad);
     ctx.arc(
       canvasW -
         (10 * pixelRat + miniMapCanvas.width * interfS) +
@@ -5569,6 +5570,11 @@ function drawRoyaleOnMiniMap(obj, color, radF) {
     ctx.fill(); */
   ctx_.fillStyle = "#FF1616";
 ctx_.fillRect(0, 0, miniMapCanvas.width, miniMapCanvas.height)
+ctx_.globalCompositeOperation = 'destination-out';
+ctx_.strokeStyle = "#000";
+ctx_.beginPath();
+ctx_.arc(0, 0, plR * radF * (minimapW / gameW), 0, Math.PI*2);
+ctx_.fill();
   }
 }
 
