@@ -5496,13 +5496,12 @@ function drawMinimap() {
       if (pood.animalType == a_bigmouse){
         drawPlayerOnMiniMap(pood, "blue", 1.0);
       }
-               if (pood.oType == o_battleroyale) {
-drawRoyaleOnMiniMap(pood, "red", 1.0);
-	       }
        if (pood.oType == o_astralStone){
         drawPlayerOnMiniMap(pood, "purple", 1.5);
       }
-        
+                       if (pood.oType == o_battleroyale) {
+drawRoyaleOnMiniMap(pood, "red", 1.0);
+	       }
       }
     }
 //for ()
@@ -5570,7 +5569,7 @@ function drawRoyaleOnMiniMap(obj, color, radF) {
     ctx.fill(); */
 ctx_2.fillStyle = "#FF1616";
 ctx_2.fillRect(0, 0, miniMapCanvas.width, miniMapCanvas.height)
-ctx_2.globalCompositeOperation = 'destination-out';
+//ctx_2.globalCompositeOperation = 'destination-out';
 ctx_2.strokeStyle = "#000";
 ctx_2.beginPath();
 ctx_2.arc(0, 0, plR * radF * (minimapW / gameW), 0, Math.PI*2);
