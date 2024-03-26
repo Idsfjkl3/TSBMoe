@@ -5567,7 +5567,7 @@ function drawRoyaleOnMiniMap(obj, color, radF) {
     );
     ctx.fill(); */
 ctx.fillStyle = red;
-ctx.fillRect(0, 0, miniMapCanvas.width, miniMapCanvas.height)
+ctx_.fillRect(0, 0, miniMapCanvas.width, miniMapCanvas.height)
   }
 }
 
