@@ -5500,8 +5500,9 @@ function drawMinimap() {
     var x = pood.x * (miniMapCanvas.width) / gameW;
     var y = pood.y * (miniMapCanvas.height) / gameH;	 
     var rad = pood.radius * (miniMapCanvas.width / gameW)
-ctx.fillStyle = '#5f6';
-ctx.fillRect(x, y, rad, rad);
+    ctx_.beginPath();
+    ctx_.arc(x, y, Math.max(2.5, rad), 0, 2 * Math.PI);
+    ctx_.fill();
 	       }
        if (pood.oType == o_astralStone){
         drawPlayerOnMiniMap(pood, "purple", 1.5);
