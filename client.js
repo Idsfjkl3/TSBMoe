@@ -5497,8 +5497,8 @@ function drawMinimap() {
         drawPlayerOnMiniMap(pood, "blue", 1.0);
       }
                if (pood.oType == o_battleroyale){
-    var x = pood.x * (miniMapCanvas.width)) / gameW;
-    var y = pood.y * (miniMapCanvas.height)) / gameH;	 
+    var x = pood.x * (miniMapCanvas.width) / gameW;
+    var y = pood.y * (miniMapCanvas.height) / gameH;	 
     var rad = pood.radius * (miniMapCanvas.width / gameW)
 ctx.fillStyle = '#5f6';
 ctx.fillRect(x, y, rad, rad);
