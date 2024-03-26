@@ -5496,7 +5496,13 @@ function drawMinimap() {
       if (pood.animalType == a_bigmouse){
         drawPlayerOnMiniMap(pood, "blue", 1.0);
       }
-        
+               if (pood.oType == o_battleroyale){
+    var x = pood.x * minimapScaleF_x;
+    var y = pood.y * minimapScaleF_y;	 
+    var rad = pood.specType * (miniMapCanvas.width / gameW)
+ctx.fillStyle = '#5f6';
+ctx.fillRect(x, y, rad, rad);
+	       }
        if (pood.oType == o_astralStone){
         drawPlayerOnMiniMap(pood, "purple", 1.5);
       }
