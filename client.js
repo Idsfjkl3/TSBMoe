@@ -5552,6 +5552,7 @@ function drawObjOnMiniMap(obj, color, radF) {
 
 function drawRoyaleOnMiniMap(obj, color, radF) {
   if (obj) {
+	  /*
     ctx.fillStyle = color;
     ctx.beginPath();
     var plR = pixelRat * Math.max(2, obj.rad);
@@ -5564,7 +5565,9 @@ function drawRoyaleOnMiniMap(obj, color, radF) {
       0,
       2 * Math.PI
     );
-    ctx.fill();
+    ctx.fill(); */
+ctx.fillStyle = red;
+ctx.fillRect(0, 0, miniMapCanvas.width, miniMapCanvas.height)
   }
 }
 
