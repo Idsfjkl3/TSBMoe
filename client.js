@@ -5496,13 +5496,8 @@ function drawMinimap() {
       if (pood.animalType == a_bigmouse){
         drawPlayerOnMiniMap(pood, "blue", 1.0);
       }
-               if (pood.oType == o_battleroyale){
-    var x = pood.x * (miniMapCanvas.width) / gameW;
-    var y = pood.y * (miniMapCanvas.height) / gameH;	 
-    var rad = pood.radius * (miniMapCanvas.width / gameW)
-    ctx_.beginPath();
-    ctx_.arc(x, y, Math.max(2.5, rad), 0, 2 * Math.PI);
-    ctx_.fill();
+               if (pood.oType == o_battleroyale) {
+drawRoyaleOnMiniMap(pood, "red", 1.0);
 	       }
        if (pood.oType == o_astralStone){
         drawPlayerOnMiniMap(pood, "purple", 1.5);
@@ -5554,6 +5549,25 @@ function drawObjOnMiniMap(obj, color, radF) {
     ctx.fill();
   }
 }
+
+function drawRoyaleOnMiniMap(obj, color, radF) {
+  if (obj) {
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    var plR = pixelRat * Math.max(2, obj.rad);
+    ctx.arc(
+      canvasW -
+        (10 * pixelRat + miniMapCanvas.width * interfS) +
+        (obj.x * (miniMapCanvas.width * interfS)) / gameW,
+      10 * pixelRat + (obj.y * (miniMapCanvas.height * interfS)) / gameH,
+      plR * radF,
+      0,
+      2 * Math.PI
+    );
+    ctx.fill();
+  }
+}
+
 
 //generate leaderboard
 function updateLeaderBoard(lbData, roomPlayers, ownRank) {
