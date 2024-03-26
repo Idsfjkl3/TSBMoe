@@ -5560,7 +5560,7 @@ function drawRoyaleOnMiniMap(obj, color, radF) {
         (10 * pixelRat + miniMapCanvas.width * interfS) +
         (obj.x * (miniMapCanvas.width * interfS)) / gameW,
       10 * pixelRat + (obj.y * (miniMapCanvas.height * interfS)) / gameH,
-      plR * radF,
+      plR * radF * (minimapW / gameW),
       0,
       2 * Math.PI
     );
