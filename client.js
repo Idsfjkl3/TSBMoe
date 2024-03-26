@@ -12178,7 +12178,7 @@ GameObj.prototype.worldUpd_readMsgNewlyVisible = function(
 GameObj.prototype.worldUpd_readMsgUpdate = function(msg) {
   var px = msg.readUInt16() / 4.0;
   var py = msg.readUInt16() / 4.0;
-  var rad = msg.readUInt16() / 10.0;
+  var rad = msg.readUInt16();
 
   this.specType = msg.readUInt16();
   this.specType2 = msg.readUInt16();
