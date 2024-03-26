@@ -5575,6 +5575,7 @@ ctx_.strokeStyle = "#000";
 ctx_.beginPath();
 ctx_.arc(0, 0, plR * radF * (minimapW / gameW), 0, Math.PI*2);
 ctx_.fill();
+ctx_.globalCompositeOperation = 'none';
   }
 }
 
