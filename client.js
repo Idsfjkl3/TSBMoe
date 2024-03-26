@@ -5174,7 +5174,12 @@ function generateMinimap(msg) {
   //parse msg, draw data on miniMap
   var minimapScaleF_x = minimapW / 200.0; // / size scaled to for msg send
   var minimapScaleF_y = minimapH / 200.0;
-  
+      for (let prooding in gameObjsByID) {
+      var pood = gameObjsByID[prooding];
+	                         if (pood.oType == o_battleroyale) {
+drawRoyaleOnMiniMap(pood, "red", 1.0);
+	       }
+    }
 console.log(minimapScaleF_x,minimapScaleF_y)
   //oceans: just send width (oceans are always at left/right sides)
   oceanWid = msg.readUInt16();
@@ -5489,7 +5494,7 @@ function drawMinimap() {
     } catch (err) {}
   }
                   }
-    
+
     for (let prooding in gameObjsByID) {
       var pood = gameObjsByID[prooding];
       if (pood) {
@@ -5500,7 +5505,7 @@ function drawMinimap() {
         drawPlayerOnMiniMap(pood, "purple", 1.5);
       }
                        if (pood.oType == o_battleroyale) {
-drawRoyaleOnMiniMap(pood, "red", 1.0);
+//drawRoyaleOnMiniMap(pood, "red", 1.0);
 	       }
       }
     }
@@ -5567,11 +5572,11 @@ function drawRoyaleOnMiniMap(obj, color, radF) {
       2 * Math.PI
     );
     ctx.fill(); */
+	  	  ctx_2.globalAlpha = 0.3;
 ctx_2.fillStyle = "#FF1616";
 ctx_2.fillRect(0, 0, miniMapCanvas.width, miniMapCanvas.height)
  var oldgco = ctx_2.globalCompositeOperation
 ctx_2.globalCompositeOperation = "destination-out";
-	  ctx_2.globalAlpha = 0.3;
 ctx_2.strokeStyle = "#000";
 ctx_2.beginPath();
 ctx_2.arc(0, 0, plR * radF * (minimapW / gameW), 0, Math.PI*2);
