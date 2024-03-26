@@ -5568,7 +5568,7 @@ function drawRoyaleOnMiniMap(obj, color, radF) {
       2 * Math.PI
     );
     ctx.fill(); */
-  ctx_.fillStyle = "#FF1616";
+ctx_.fillStyle = "#FF1616";
 ctx_.fillRect(0, 0, miniMapCanvas.width, miniMapCanvas.height)
 ctx_.globalCompositeOperation = 'destination-out';
 ctx_.strokeStyle = "#000";
