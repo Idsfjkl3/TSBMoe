@@ -5552,6 +5552,7 @@ function drawObjOnMiniMap(obj, color, radF) {
 
 function drawRoyaleOnMiniMap(obj, color, radF) {
   if (obj) {
+	    var ctx_ = miniMapCanvas.getContext("2d");
 	  /*
     ctx.fillStyle = color;
     ctx.beginPath();
