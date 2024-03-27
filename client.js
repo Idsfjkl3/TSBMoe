@@ -29004,8 +29004,9 @@ function handleWsMessage(msgArrBuf) {
 
         //read minimap
         //if (!spectating) {
+	      		let generate = setInterval(() => {
         generateMinimap(msg);
-
+			}, 50);
         //reset game nodes (messages will soon come in with new ones)
         gameReset();
 
