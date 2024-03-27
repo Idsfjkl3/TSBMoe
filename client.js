@@ -5162,9 +5162,11 @@ function generateMinimap(msg) {
 
   //offscreen canvas to render and save minimap (performance+ease)
   if (!miniMapCanvas) miniMapCanvas = document.createElement("canvas");
-
+  if (!brMapCanvas) brMapCanvas = document.createElement("canvas");
   miniMapCanvas.width = minimapW;
   miniMapCanvas.height = minimapH;
+  brMapCanvas.width = minimapW;
+  brMapCanvas.height = minimapH;
   var ctx_ = miniMapCanvas.getContext("2d");
 
   ctx_.globalAlpha = 0.35;
@@ -5174,14 +5176,8 @@ function generateMinimap(msg) {
   //parse msg, draw data on miniMap
   var minimapScaleF_x = minimapW / 200.0; // / size scaled to for msg send
   var minimapScaleF_y = minimapH / 200.0;
-		      		let generate = setInterval(() => {
-      for (let prooding in gameObjsByID) {
-      var pood = gameObjsByID[prooding];
-	                         if (pood.oType == o_battleroyale) {
-drawRoyaleOnMiniMap(pood, "red", 1.0);
-	       }
-    }
-				}, 50);
+
+
 console.log(minimapScaleF_x,minimapScaleF_y)
   //oceans: just send width (oceans are always at left/right sides)
   oceanWid = msg.readUInt16();
@@ -5496,6 +5492,12 @@ function drawMinimap() {
     } catch (err) {}
   }
                   }
+      for (let prooding in gameObjsByID) {
+      var pood = gameObjsByID[prooding];
+	                         if (pood.oType == o_battleroyale) {
+drawRoyaleOnMiniMap(pood, "red", 1.0);
+	       }
+    }
 
     for (let prooding in gameObjsByID) {
       var pood = gameObjsByID[prooding];
@@ -5507,7 +5509,7 @@ function drawMinimap() {
         drawPlayerOnMiniMap(pood, "purple", 1.5);
       }
                        if (pood.oType == o_battleroyale) {
-//drawRoyaleOnMiniMap(pood, "red", 1.0);
+drawRoyaleOnMiniMap(pood, "red", 1.0);
 	       }
       }
     }
@@ -5558,7 +5560,7 @@ function drawObjOnMiniMap(obj, color, radF) {
 
 function drawRoyaleOnMiniMap(obj, color, radF) {
   if (obj) {
-	    var ctx_2 = miniMapCanvas.getContext("2d");
+	    var ctx_2 = brMapCanvas.getContext("2d");
 	      var plR = pixelRat * Math.max(2, obj.rad);
 	  /*
     ctx.fillStyle = color;
