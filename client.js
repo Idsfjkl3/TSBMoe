@@ -5493,12 +5493,12 @@ function drawMinimap() {
     } catch (err) {}
   }
                   }
-      for (let prooding in gameObjsByID) {
+/*      for (let prooding in gameObjsByID) {
       var pood = gameObjsByID[prooding];
 	                         if (pood.oType == o_battleroyale) {
 drawRoyaleOnMiniMap(pood, "red", 1.0);
 	       }
-    }
+    } */
 
     for (let prooding in gameObjsByID) {
       var pood = gameObjsByID[prooding];
@@ -5601,7 +5601,7 @@ ctx_2.globalCompositeOperation = "source-over";
 }
 
 function drawRoyaleOnMiniMap(obj, color, radF) {
-  if (obj && brMapCanvas) {
+  if (obj) {
 	  	    var ctx_2 = brMapCanvas.getContext("2d");
     var X = obj.x * (minimapW / gameW);
     var Y = obj.y * (minimapH / gameH);
