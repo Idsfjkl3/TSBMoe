@@ -5558,8 +5558,8 @@ function drawObjOnMiniMap(obj, color, radF) {
     ctx.fill();
   }
 }
-/*
-function drawRoyaleOnMiniMap(obj, color, radF) {
+
+function drawRoyale2OnMiniMap(obj, color, radF) {
   if (obj) {
 	    var ctx_2 = brMapCanvas.getContext("2d");
 	      var plR = pixelRat * Math.max(2, obj.specType);
@@ -5599,7 +5599,7 @@ ctx_2.fill();
 ctx_2.globalCompositeOperation = "source-over";
   }
 }
-*/
+
 function drawRoyaleOnMiniMap(obj, color, radF) {
   if (obj && brMapCanvas) {
 	  	    var ctx_2 = brMapCanvas.getContext("2d");
