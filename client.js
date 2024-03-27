@@ -5606,11 +5606,8 @@ function drawRoyaleOnMiniMap(obj, color, radF) {
     ctx_2.fillStyle = color;
     ctx_2.beginPath();
     var plR = pixelRat * Math.max(2, obj.rad);
-    ctx_2.arc(
-      canvasW -
-        (10 * pixelRat + miniMapCanvas.width * interfS) +
-        (obj.x * (miniMapCanvas.width * interfS)) / gameW,
-      10 * pixelRat + (obj.y * (miniMapCanvas.height * interfS)) / gameH,
+    ctx_2.arc(obj.x  * (minimapW / gameW),
+      obj.y  * (minimapH / gameH),
       plR * radF * (minimapW / gameW),
       0,
       2 * Math.PI
