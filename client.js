@@ -5604,18 +5604,18 @@ function drawRoyaleOnMiniMap(obj, color, radF) {
   if (obj) {
 	    var ctx_2 = brMapCanvas.getContext("2d");
 	      var plR = pixelRat * Math.max(2, obj.rad);
-    var volcanoRad = obj.rad;
     var X = obj.x * (minimapW / gameW);
     var Y = obj.y * (minimapH / gameH);
-    ctx_.beginPath();
-    ctx_.arc(
+	  ctx_2.strokeStyle = "#FF1616";
+    ctx_2.beginPath();
+    ctx_2.arc(
       X,
       Y,
-      Math.max(1, volcanoRad * (minimapW / gameW)),
+      Math.max(1, obj.rad * (minimapW / gameW)),
       0,
       2 * Math.PI
     );
-    ctx_.fill();
+    ctx_2.fill();
   }
 }
 
