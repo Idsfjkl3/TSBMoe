@@ -5585,8 +5585,8 @@ ctx_2.globalCompositeOperation = "destination-out";
 	  ctx_2.globalAlpha = 1;
 ctx_2.strokeStyle = "#000";
 ctx_2.beginPath();
-//ctx_2.arc(0, 0, plR * radF * (minimapW / gameW), 0, Math.PI*2);
-	      ctx_2.arc(
+ctx_2.arc(obj.x * (minimapW / gameW), obj.y * (minimapH / gameH), plR * radF * (minimapW / gameW), 0, Math.PI*2);
+	 /*     ctx_2.arc(
       canvasW -
         (10 * pixelRat + miniMapCanvas.width * interfS) +
         (obj.x * (miniMapCanvas.width * interfS)) / gameW,
@@ -5594,7 +5594,7 @@ ctx_2.beginPath();
       plR * radF * (minimapW / gameW),
       0,
       2 * Math.PI
-    ); 
+    ); */
 ctx_2.fill();
 ctx_2.globalCompositeOperation = "source-over";
   }
