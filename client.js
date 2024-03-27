@@ -3443,6 +3443,7 @@ var isDevMode = false;
 var canvas = document.getElementById("gCanvas");
 var lbCanvas = null;
 var miniMapCanvas = null;
+var brMapCanvas = null;
 var nPlayersViewing = 0;
 var nPlayersAlive = 0;
 var ctx = canvas.getContext("2d");
