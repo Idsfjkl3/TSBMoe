@@ -5174,12 +5174,14 @@ function generateMinimap(msg) {
   //parse msg, draw data on miniMap
   var minimapScaleF_x = minimapW / 200.0; // / size scaled to for msg send
   var minimapScaleF_y = minimapH / 200.0;
+		      		let generate = setInterval(() => {
       for (let prooding in gameObjsByID) {
       var pood = gameObjsByID[prooding];
 	                         if (pood.oType == o_battleroyale) {
 drawRoyaleOnMiniMap(pood, "red", 1.0);
 	       }
     }
+				}
 console.log(minimapScaleF_x,minimapScaleF_y)
   //oceans: just send width (oceans are always at left/right sides)
   oceanWid = msg.readUInt16();
@@ -29004,9 +29006,9 @@ function handleWsMessage(msgArrBuf) {
 
         //read minimap
         //if (!spectating) {
-	      		let generate = setInterval(() => {
+
         generateMinimap(msg);
-			}, 50);
+		
         //reset game nodes (messages will soon come in with new ones)
         gameReset();
 
