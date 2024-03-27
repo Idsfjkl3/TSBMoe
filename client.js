@@ -5577,12 +5577,21 @@ ctx_2.fillStyle = "#FF1616";
 ctx_2.fillRect(0, 0, miniMapCanvas.width, miniMapCanvas.height)
  var oldgco = ctx_2.globalCompositeOperation
 ctx_2.globalCompositeOperation = "destination-out";
+	  ctx_2.globalAlpha = 1;
 ctx_2.strokeStyle = "#000";
 ctx_2.beginPath();
-ctx_2.arc(0, 0, plR * radF * (minimapW / gameW), 0, Math.PI*2);
+//ctx_2.arc(0, 0, plR * radF * (minimapW / gameW), 0, Math.PI*2);
+	      ctx_2.arc(
+      canvasW -
+        (10 * pixelRat + miniMapCanvas.width * interfS) +
+        (obj.x * (miniMapCanvas.width * interfS)) / gameW,
+      10 * pixelRat + (obj.y * (miniMapCanvas.height * interfS)) / gameH,
+      plR * radF * (minimapW / gameW),
+      0,
+      2 * Math.PI
+    );
 ctx_2.fill();
 ctx_2.globalCompositeOperation = "source-over";
-ctx_2.globalAlpha = 1;
   }
 }
 
