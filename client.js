@@ -5601,9 +5601,8 @@ ctx_2.globalCompositeOperation = "source-over";
 }
 */
 function drawRoyaleOnMiniMap(obj, color, radF) {
-  if (obj) {
-	    var ctx_2 = brMapCanvas.getContext("2d");
-	      var plR = pixelRat * Math.max(2, obj.rad);
+  if (obj && brMapCanvas) {
+	  	    var ctx_2 = brMapCanvas.getContext("2d");
     var X = obj.x * (minimapW / gameW);
     var Y = obj.y * (minimapH / gameH);
 	  ctx_2.strokeStyle = "#FF1616";
@@ -5611,7 +5610,7 @@ function drawRoyaleOnMiniMap(obj, color, radF) {
     ctx_2.arc(
       X,
       Y,
-      Math.max(1, obj.rad * (minimapW / gameW)),
+      obj.rad * (minimapW / gameW),
       0,
       2 * Math.PI
     );
