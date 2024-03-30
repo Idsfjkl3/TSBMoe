@@ -8459,7 +8459,7 @@ console.log(rps)
 
         var golden = "";
         var theImg = getLoadedImg(
-          "img/eastereggs/" + this.specType
+          "img/eastereggs/" + this.specType + ".png"
         );
         if (theImg) {
           var rad = this.rad;
