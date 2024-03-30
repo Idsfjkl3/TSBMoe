@@ -1536,6 +1536,7 @@ ability_waterspray = 134,
 ability_shotgunfire = 135,
 	//136
 ability_easterbomb = 137,
+ability_easterhop = 138,
   ability_none = 0;
 var infoForAbilityT = function(abilT) {
   var infoO = {};
@@ -1576,7 +1577,7 @@ var infoForAbilityT = function(abilT) {
       break;
 		                                          case ability_easterbomb:
 		  var eggtype = myPlayer.curBiome
-		  if (myPlayer.curBiome == 1 || myPlayer.curBiome == 9) {
+		  if (myPlayer.curBiome == 1 || myPlayer.curBiome == 8) {
                    eggtype = 1
 		  } else if (myPlayer.curBiome == 3 || myPlayer.curBiome == 4) {
                    eggtype = 3
@@ -1587,7 +1588,16 @@ var infoForAbilityT = function(abilT) {
 		  }
       infoO.abilName = "Fake Egg Bomb";
       infoO.abilImg =
-        "skins/catfish/catfish2.png";
+        "img/eastereggs/" + eggtype + ".png";
+      break;
+
+		  		                                          case ability_easterhop:
+      infoO.abilName = "Easter Hop";
+      infoO.abilImg =
+        "skins/" +
+        zombieFolder +
+        infoForAnimalType(myPlayerLastAniT).skinName +
+        ".png";
       break;
 		                                          case ability_openfins:
       infoO.abilName = "Open Fins";
