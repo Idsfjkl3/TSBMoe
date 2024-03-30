@@ -8461,8 +8461,14 @@ console.log(rps)
         var theImg = getLoadedImg(
           "img/eastereggs/" + this.specType + ".png"
         );
+	      if (this.isEdibleOutlined()) {
+	 drawCircle(0, 0, this.rad, col_edibleOutline);
+	      }
         if (theImg) {
           var rad = this.rad;
+			      if (this.isEdibleOutlined()) {
+				      rad = this.rad * 0.9;
+			      }
           ctx.save();
 
           ctx.rotate(this.rPer * Math.PI * 2.0);
@@ -12792,7 +12798,6 @@ function GameObj(oType) {
     case o_meatLarge:
     case o_raspberrynew:
     case o_egg:
-    case o_eastereggs:
     case o_ostrichEgg:
     case o_quill:
     case o_beeHive:
