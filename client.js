@@ -409,6 +409,7 @@ a_obd = 132;
 a_astraltrex = 133;
 a_horseshoe = 134;
 a_testsnake = 135;
+a_easterbunny = 136;
 var infoForAnimalType = function (aniT) {
     var infoO = {};
     switch (aniT) {
@@ -1015,6 +1016,14 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
             infoO.skinName = "horseshoecrab";
             break;
 		    
+
+		    		    		                                                            case a_easterbunny:
+            infoO.aniName = "Easter Bunny";
+            infoO.aniDesc = "";
+            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n For anyone reading this, I will ban you if you leak this OR anything in this update. ";
+            infoO.aniCol = "#231f18";
+            infoO.skinName = "easterbunny";
+            break;
 		    
 		    		                                                            case a_testsnake:
             infoO.aniName = "Death Worm";
@@ -1525,6 +1534,8 @@ ability_hypnotise = 132,
 ability_swallow = 133,
 ability_waterspray = 134,
 ability_shotgunfire = 135,
+	//136
+ability_easterbomb = 137,
   ability_none = 0;
 var infoForAbilityT = function(abilT) {
   var infoO = {};
@@ -1560,6 +1571,21 @@ var infoForAbilityT = function(abilT) {
 
                                         case ability_swallow:
       infoO.abilName = "Swallow Prey";
+      infoO.abilImg =
+        "skins/catfish/catfish2.png";
+      break;
+		                                          case ability_easterbomb:
+		  var eggtype = myPlayer.curBiome
+		  if (myPlayer.curBiome == 1 || myPlayer.curBiome == 9) {
+                   eggtype = 1
+		  } else if (myPlayer.curBiome == 3 || myPlayer.curBiome == 4) {
+                   eggtype = 3
+		  } else if (myPlayer.curBiome == 5) {
+                   eggtype = 0
+		  } else if (myPlayer.curBiome > 4) {
+                   eggtype = 0
+		  }
+      infoO.abilName = "Fake Egg Bomb";
       infoO.abilImg =
         "skins/catfish/catfish2.png";
       break;
@@ -16724,6 +16750,14 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
             infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n You can block attacks at the front but watch out for your backside! \n(Hint: You can walk on land!) ";
             infoO.aniCol = "#231f18";
             infoO.skinName = "horseshoecrab";
+            break;
+
+		  		    		    		                                                            case a_easterbunny:
+            infoO.aniName = "Easter Bunny";
+            infoO.aniDesc = "";
+            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n For anyone reading this, I will ban you if you leak this OR anything in this update. ";
+            infoO.aniCol = "#231f18";
+            infoO.skinName = "easterbunny";
             break;
 
 		  		    		                                                            case a_testsnake:
