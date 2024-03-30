@@ -4823,7 +4823,7 @@ var xpbar2 = xpNextAni - lastxp
   }
 
   create1v1Button();
-
+  createEggUI();
   if (isTouchEnabled) {
     //draw joystick
     joystickA += ((joyStickOpen ? 1.0 : 0.0) - joystickA) * 0.1;
@@ -5810,6 +5810,66 @@ function create1v1Button() {
     }
   }
 }
+
+
+
+
+function createEggUI() {
+  if (can1v1) {
+    if (btn1v1 == null) {
+      btn1v1 = new InterfaceButton(0, 0, 60, 60, "Click to 1v1", 30);
+      btn1v1.showLabeleOnHover = true;
+      btn1v1.textShadow = true;
+      btn1v1.drawTextOnHowever = function() {
+        this.drawText(this.w / 2, this.h + this.h / 2);
+      };
+
+      btn1v1.onClick = function() {
+        if (!this.clicked  ) {
+          this.isVisible = false;
+          this.clicked = true;
+          this.isHighLighted = false;
+          var mes = new MsgWriter(2);
+          mes.writeUInt8(52); // Msg_1v1Mode_invitePlayer;
+          mes.writeUInt8(0); //1=down, 0=up
+          wsSendMsg(mes);
+        }
+      };
+      btn1v1.onMouseMove = function() {};
+      btn1v1.update = function() {
+        this.x = canvasW / 2 - this.w / 2;
+        this.y = 45 * interfS + this.h / 2; //(canvasH / 2) - 250;
+        //if (gameMode == gameMode_battleRoyal) this.y += 50 * interfS;
+      };
+
+      btn1v1.onInterfaceReset = function() {
+        this.isVisible = false;
+        btn1v1 = null;
+      };
+
+      btn1v1.onAfterDraw = function() {
+        var theImg = getLoadedImg("img/eastereggs/3.png");
+        if (theImg) {
+          ctx.save();
+
+          var iw = this.w * 0.8;
+          var pad = (this.w - iw) / 2;
+          ctx.drawImage(theImg, this.x + pad, this.y + pad, iw, iw);
+          ctx.restore();
+        }
+      };
+      _gameMode.interfaceButtons.push(btn1v1);
+    } else {
+      if (btn1v1 != null) {
+        btn1v1.isVisible = show1v1Button;
+        if (btn1v1.isVisible) btn1v1.clicked = false;
+        btn1v1.draw();
+      }
+    }
+  }
+}
+
+
 
 var _displayPlayerCounter = 0;
 function displayPlayerStats() {
