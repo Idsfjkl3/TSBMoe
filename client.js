@@ -4823,7 +4823,7 @@ var xpbar2 = xpNextAni - lastxp
   }
 
   create1v1Button();
-  createEggUI();
+  createEggUI(3);
   if (isTouchEnabled) {
     //draw joystick
     joystickA += ((joyStickOpen ? 1.0 : 0.0) - joystickA) * 0.1;
@@ -5814,9 +5814,9 @@ function create1v1Button() {
 
 
 
-function createEggUI() {
+function createEggUI(eggtype) {
     if (btn1v1 == null) {
-      btn1v1 = new InterfaceButton(0, 0, 60, 60, "Click to 1v1", 30);
+      btn1v1 = new InterfaceButton(0, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
       btn1v1.showLabeleOnHover = true;
       btn1v1.textShadow = true;
       btn1v1.drawTextOnHowever = function() {
@@ -26532,7 +26532,7 @@ GameObjType.setCustomClassForGameObjType(BigCat, o_animal, a_bigCat);
 
 
 //button that appears in animal choice interface
-function InterfaceButton(x, y, w, h, txt, fontSize) {
+function InterfaceButton(x, y, w, h, txt, fontSize, color, strokecolor) {
   //button gets resized on draw (due to varying screen size)
   var pr = interfS;
   this.x = x;
@@ -26544,6 +26544,9 @@ function InterfaceButton(x, y, w, h, txt, fontSize) {
   this.isVisible = true;
   this.hoverColor = "#16932A";
   this.defaultColor = "#0aa633";
+	if (color) {
+  this.hoverColor = this.defaultColor = color;
+	}
   this.alpha = 1;
   this.txtAlpha = 1;
   this.ctx = ctx;
@@ -26606,6 +26609,9 @@ function InterfaceButton(x, y, w, h, txt, fontSize) {
       //  ctx.globalAlpha = origA * 0.75;
       this.ctx.fillStyle = this.defaultColor;
       this.ctx.strokeStyle = "#116c17";
+	    if (strokecolor) {
+      this.ctx.strokeStyle = "#strokecolor";
+	    }
       this.ctx.lineWidth = this.strokeWidth;
       this.roundRect(0, 0, this.w, this.h, 5, true, true);
       //  ctx.fillRect(0 - this.w / 2, 0 - this.h / 2, this.w, this.h);
