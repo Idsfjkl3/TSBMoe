@@ -164,6 +164,7 @@ o_biome_reef = 117;
 o_atoll = 118;
 o_impact = 119;
 o_battleroyale = 120;
+o_eastereggs = 121;
 //o_hat = 99;
 var GameObjType = {
   //makes it easy to add new subclasses- each class will add itself!
@@ -8452,7 +8453,25 @@ console.log(rps)
       break;
    
 
-   
+       case o_eastereggs:
+      {
+        //draw banana img
+
+        var golden = "";
+        var theImg = getLoadedImg(
+          "img/eastereggs/" + this.specType
+        );
+        if (theImg) {
+          var rad = this.rad;
+          ctx.save();
+
+          ctx.rotate(this.rPer * Math.PI * 2.0);
+          ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad);
+          ctx.restore();
+          //console.log("drawing banana");
+        }
+      }
+      break;
       
 
     case o_egg:
@@ -12517,6 +12536,9 @@ case o_cakesplash:
     case o_hill:
       this.z = 999;
       break;
+    case o_eastereggs:
+      this.z = 1000;
+      break;
 case o_battleroyale:
       this.z = 100002;
       break;
@@ -12770,6 +12792,7 @@ function GameObj(oType) {
     case o_meatLarge:
     case o_raspberrynew:
     case o_egg:
+    case o_eastereggs:
     case o_ostrichEgg:
     case o_quill:
     case o_beeHive:
