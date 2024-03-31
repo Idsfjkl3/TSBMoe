@@ -24511,7 +24511,7 @@ rad = this.rad - this.outlineW;
     ctx.drawImage(
       tongue,
       -rad * iScale,
-      -(rad + yOffset + frame) * iScale,
+      -(rad + yOffset - frame) * iScale,
       2 * rad * iScale,
       2 * rad * iScale
     );
