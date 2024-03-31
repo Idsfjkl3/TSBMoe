@@ -1579,6 +1579,8 @@ var infoForAbilityT = function(abilT) {
 		  var eggtype = myPlayer.curBiome
 		 if (myPlayer.curBiome == 3 || myPlayer.curBiome == 4) {
                    eggtype = 3
+		} else if (this.flag_inReef) {
+		eggtype = 8
 		  } else if (myPlayer.curBiome == 5) {
                    eggtype = 0
 		  } else if (myPlayer.curBiome > 4) {
