@@ -24497,23 +24497,6 @@ EasterBunny.prototype.drawUnderSkinImg = function() {
       2 * rad * iScale
     );
   }
-
-
-
-leg = getLoadedImg("skins/easterrabbit/leg1.png");
-
-tSinceSpawn = (timestamp - this.spawnTime) / 1000.0;
-frame = options_lowGraphics ? 0 : getAnimFrame(tSinceSpawn, 0, 3, 0);
-yOffset = options_lowGraphics ? 0 : -5;
-  if (leg) {
-    ctx.drawImage(
-       leg,
-      -rad * iScale,
-      -(rad + yOffset + frame) * iScale,
-      2 * rad * iScale,
-      2 * rad * iScale
-    );
-  }
 };
 
 function EasterBunny() {
