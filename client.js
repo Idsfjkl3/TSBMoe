@@ -3464,6 +3464,7 @@ var isSoccerEnabled = false;
 var show1v1Button = true;
 var can1v1 = false;
 var btn1v1 = null;
+var btnEGG = null;
 var player1v1ArenaWins = 0;
 var playerGoalsScore = 0;
 var serverAllTimeGoals = 0;
@@ -31930,7 +31931,7 @@ function gameReset() {
   player1v1ArenaWins = 0;
   player1v1Requests = [];
   //if (btn1v1 != null) btn1v1.isVisible = false;
-
+  btnEGG = null;
   btn1v1 = null;
   isInBonusRound = false;
   bonusRoundDur = 0;
