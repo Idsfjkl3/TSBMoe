@@ -24479,7 +24479,7 @@ EasterBunny.prototype.constructor = EasterBunny;
 EasterBunny.superClass = superClass; //'class' var
 
 EasterBunny.prototype.drawUnderSkinImg = function() {
-  if (!this.flag_usingAbility) return;
+  if (!this.flag_flying || this.flag_isGrabbed) return;
 
   var rad = this.rad - this.outlineW;
   var iScale = 500 / 340.0;
