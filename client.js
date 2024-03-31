@@ -24479,14 +24479,14 @@ EasterBunny.prototype.constructor = EasterBunny;
 EasterBunny.superClass = superClass; //'class' var
 
 EasterBunny.prototype.drawUnderSkinImg = function() {
-  if (this.flag_usingAbility) return;
+  if (!this.flag_flying || this.flag_isGrabbed) return;
 
   var rad = this.rad - this.outlineW;
   var iScale = 500 / 340.0;
   var tongue = getLoadedImg("skins/easterrabbit/leg0.png");
 
   var tSinceSpawn = (timestamp - this.spawnTime) / 1000.0;
-  var frame = options_lowGraphics ? 0 : getAnimFrame(tSinceSpawn, 0.5, 5, 0.5);
+  var frame = options_lowGraphics ? 0 : getAnimFrame(tSinceSpawn, -1, 6, -1);
   var yOffset = options_lowGraphics ? 0 : 0;
   if (tongue) {
     ctx.drawImage(
@@ -24505,7 +24505,7 @@ rad = this.rad - this.outlineW;
   tongue = getLoadedImg("skins/easterrabbit/leg1.png");
 
   var tSinceSpawn = (timestamp - this.spawnTime) / 1000.0;
-  var frame = options_lowGraphics ? 0 : getAnimFrame(tSinceSpawn, 0.5, 5, 0.5);
+  var frame = options_lowGraphics ? 0 : getAnimFrame(tSinceSpawn, -1, 6, -1);
   var yOffset = options_lowGraphics ? 0 : 0;
   if (tongue) {
     ctx.drawImage(
