@@ -4823,6 +4823,9 @@ var xpbar2 = xpNextAni - lastxp
   }
 
   create1v1Button();
+  createEggUI(0);
+  createEggUI(1);
+  createEggUI(2);
   createEggUI(3);
   if (isTouchEnabled) {
     //draw joystick
@@ -5816,7 +5819,18 @@ function create1v1Button() {
 
 function createEggUI(eggtype) {
     if (btn1v1 == null) {
+	    if (eggtype == 2) {
       btn1v1 = new InterfaceButton(0, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
+	    }
+	    	    if (eggtype == 1) {
+      btn1v1 = new InterfaceButton(-80, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
+	    }
+	    	    if (eggtype == 0) {
+      btn1v1 = new InterfaceButton(160, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
+	    }
+	    	    if (eggtype == 3) {
+      btn1v1 = new InterfaceButton(80, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
+	    }
       btn1v1.showLabeleOnHover = true;
       btn1v1.textShadow = true;
       btn1v1.drawTextOnHowever = function() {
@@ -5828,10 +5842,6 @@ function createEggUI(eggtype) {
           this.isVisible = false;
           this.clicked = true;
           this.isHighLighted = false;
-          var mes = new MsgWriter(2);
-          mes.writeUInt8(52); // Msg_1v1Mode_invitePlayer;
-          mes.writeUInt8(0); //1=down, 0=up
-          wsSendMsg(mes);
         }
       };
       btn1v1.onMouseMove = function() {};
@@ -5847,7 +5857,7 @@ function createEggUI(eggtype) {
       };
 
       btn1v1.onAfterDraw = function() {
-        var theImg = getLoadedImg("img/eastereggs/3.png");
+        var theImg = getLoadedImg("img/eastereggs/" + eggtype + ".png");
         if (theImg) {
           ctx.save();
 
