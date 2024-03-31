@@ -165,6 +165,7 @@ o_atoll = 118;
 o_impact = 119;
 o_battleroyale = 120;
 o_eastereggs = 121;
+o_bombexplosion = 122;
 //o_hat = 99;
 var GameObjType = {
   //makes it easy to add new subclasses- each class will add itself!
@@ -8483,6 +8484,32 @@ console.log(rps)
         }
       }
       break;
+
+
+		  		      case o_bombexplosion:
+      {
+        var theImg = getLoadedImg(
+          "img/bombexplosion.png"
+        );
+	                var rps = 30 / 60;
+          var rotationTms = 1000 / rps; //ms to one full movement- t=dist * v
+          var fac0to1 =
+            ((timestamp - this.spawnTime) % rotationTms) / rotationTms;
+          var rotation3 = fac0to1 * 2 * Math.PI;
+          ctx.rotate(rotation3);
+	     var time = (timestamp - this.spawnTime)
+	     var deathtime = 1200
+        if (theImg) {
+          var rad = this.rad * (1.0 + time/500);
+          ctx.globalAlpha = 1 * Math.max((deathtime - time)/deathtime, 0)
+          ctx.save();
+          ctx.rotate(this.rPer * Math.PI * 2.0);
+          ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad);
+          //console.log("drawing banana");
+          ctx.restore();
+        }
+      }
+      break;
 		  
 		      case o_impact:
       {
@@ -12755,7 +12782,7 @@ case o_battleroyale:
           case o_hidebush: //bushes hide everything
       this.z = 10000;
       break;
-      
+                case o_bombexplosion:
           case o_lavaDrop:
       this.z = 2000; // splashes on top of all objects
       break;
