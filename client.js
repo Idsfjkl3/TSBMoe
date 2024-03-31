@@ -24481,7 +24481,7 @@ EasterBunny.superClass = superClass; //'class' var
 EasterBunny.prototype.drawUnderSkinImg = function() {
   //if (!this.flag_flying || this.flag_isGrabbed) return;
 
-  var rad = this.rad - this.outlineW;
+  var rad = this.rad;
   var iScale = 500 / 340.0;
   var leg = getLoadedImg("skins/easterrabbit/leg0.png");
 
