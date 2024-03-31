@@ -30600,7 +30600,7 @@ function drawGameObjects() {
     else anObj.draw();
   }
 
-  if (_gameMode != null) _gameMode.drawCustomObjs(customInterfaceObjList);
+//  if (_gameMode != null) _gameMode.drawCustomObjs(customInterfaceObjList);
   /*
     if (typeof gameMode_interfaceDrawCustomObjects === "function")
         gameMode_interfaceDrawCustomObjects()
