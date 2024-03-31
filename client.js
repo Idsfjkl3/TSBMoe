@@ -4823,9 +4823,9 @@ var xpbar2 = xpNextAni - lastxp
   }
 
   create1v1Button();
+	  createEggUI(2);
   createEggUI(0);
   createEggUI(1);
-  createEggUI(2);
   createEggUI(3);
   if (isTouchEnabled) {
     //draw joystick
