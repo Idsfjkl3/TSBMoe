@@ -24487,7 +24487,7 @@ EasterBunny.prototype.drawUnderSkinImg = function() {
 
   var tSinceSpawn = (timestamp - this.spawnTime) / 1000.0;
   var frame = options_lowGraphics ? 0 : getAnimFrame(tSinceSpawn, 0.5, 3, 0.5);
-  var yOffset = options_lowGraphics ? 0 : 5;
+  var yOffset = options_lowGraphics ? 0 : 10;
   if (tongue) {
     ctx.drawImage(
       tongue,
