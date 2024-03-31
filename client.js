@@ -4824,9 +4824,6 @@ var xpbar2 = xpNextAni - lastxp
 
   create1v1Button();
 	  createEggUI(2);
-  createEggUI(0);
-  createEggUI(1);
-  createEggUI(3);
   if (isTouchEnabled) {
     //draw joystick
     joystickA += ((joyStickOpen ? 1.0 : 0.0) - joystickA) * 0.1;
@@ -5821,6 +5818,9 @@ function createEggUI(eggtype) {
     if (btn1v1 == null) {
 	    if (eggtype == 2) {
       btn1v1 = new InterfaceButton(0, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
+new InterfaceButton(-80, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
+new InterfaceButton(160, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
+new InterfaceButton(80, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
 	    }
 	    	    if (eggtype == 1) {
       btn1v1 = new InterfaceButton(-80, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
