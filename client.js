@@ -4823,7 +4823,10 @@ var xpbar2 = xpNextAni - lastxp
   }
 
   create1v1Button();
-	  createEggUI(2);
+		  createEggUI(0);
+		  createEggUI(1);
+	          createEggUI(2);
+	          createEggUI(3);
   if (isTouchEnabled) {
     //draw joystick
     joystickA += ((joyStickOpen ? 1.0 : 0.0) - joystickA) * 0.1;
@@ -5815,48 +5818,45 @@ function create1v1Button() {
 
 
 function createEggUI(eggtype) {
-    if (btn1v1 == null) {
+    if (btnEGG == null) {
 	    if (eggtype == 2) {
-      btn1v1 = new InterfaceButton(0, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
-new InterfaceButton(-80, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
-new InterfaceButton(160, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
-new InterfaceButton(80, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
+      btnEGG = new InterfaceButton(0, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
 	    }
 	    	    if (eggtype == 1) {
-      btn1v1 = new InterfaceButton(-80, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
+      btnEGG = new InterfaceButton(-80, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
 	    }
 	    	    if (eggtype == 0) {
-      btn1v1 = new InterfaceButton(160, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
+      btnEGG = new InterfaceButton(160, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
 	    }
 	    	    if (eggtype == 3) {
-      btn1v1 = new InterfaceButton(80, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
+      btnEGG = new InterfaceButton(80, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
 	    }
-      btn1v1.showLabeleOnHover = true;
-      btn1v1.textShadow = true;
-      btn1v1.drawTextOnHowever = function() {
+      btnEGG.showLabeleOnHover = true;
+      btnEGG.textShadow = true;
+      btnEGG.drawTextOnHowever = function() {
         this.drawText(this.w / 2, this.h + this.h / 2);
       };
 
-      btn1v1.onClick = function() {
+      btnEGG.onClick = function() {
         if (!this.clicked  ) {
           this.isVisible = false;
           this.clicked = true;
           this.isHighLighted = false;
         }
       };
-      btn1v1.onMouseMove = function() {};
-      btn1v1.update = function() {
+      btnEGG.onMouseMove = function() {};
+      btnEGG.update = function() {
         this.x = canvasW / 2 - this.w / 2;
         this.y = 45 * interfS + this.h / 2; //(canvasH / 2) - 250;
         //if (gameMode == gameMode_battleRoyal) this.y += 50 * interfS;
       };
 
-      btn1v1.onInterfaceReset = function() {
+      btnEGG.onInterfaceReset = function() {
         this.isVisible = false;
-        btn1v1 = null;
+        btnEGG = null;
       };
 
-      btn1v1.onAfterDraw = function() {
+      btnEGG.onAfterDraw = function() {
         var theImg = getLoadedImg("img/eastereggs/" + eggtype + ".png");
         if (theImg) {
           ctx.save();
@@ -5867,12 +5867,12 @@ new InterfaceButton(80, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
           ctx.restore();
         }
       };
-      _gameMode.interfaceButtons.push(btn1v1);
+      _gameMode.interfaceButtons.push(btnEGG);
     } else {
-      if (btn1v1 != null) {
-        btn1v1.isVisible = show1v1Button;
-        if (btn1v1.isVisible) btn1v1.clicked = false;
-        btn1v1.draw();
+      if (btnEGG != null) {
+        btnEGG.isVisible = show1v1Button;
+        if (btnEGG.isVisible) btnEGG.clicked = false;
+        btnEGG.draw();
       }
     }
   
