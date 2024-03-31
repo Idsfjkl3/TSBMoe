@@ -30236,7 +30236,7 @@ function worldUpdate(msg) {
   }
 
   // read safe area info here
-  //if (_gameMode != null) _gameMode.worldUpdate(msg);
+  if (_gameMode != null) _gameMode.worldUpdate(msg);
 }//end world update
 
 //read player info (eg. like camera, interface #s)
@@ -30600,7 +30600,7 @@ function drawGameObjects() {
     else anObj.draw();
   }
 
-//  if (_gameMode != null) _gameMode.drawCustomObjs(customInterfaceObjList);
+if (_gameMode != null) _gameMode.drawCustomObjs(customInterfaceObjList);
   /*
     if (typeof gameMode_interfaceDrawCustomObjects === "function")
         gameMode_interfaceDrawCustomObjects()
@@ -32056,6 +32056,7 @@ function setGameMode() {
   ) {
     _gameMode = new FreeForAll(gameMode);
     _gameMode.state = gameState;
+	  console.log(_gamemode)
   } else if (gameMode == gameMode_teamMode) {
     _gameMode = new TeamMode();
     _gameMode.state = gameState;
