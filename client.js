@@ -1577,9 +1577,7 @@ var infoForAbilityT = function(abilT) {
       break;
 		                                          case ability_easterbomb:
 		  var eggtype = myPlayer.curBiome
-		  if (myPlayer.curBiome == 1 || myPlayer.curBiome == 8) {
-                   eggtype = 1
-		  } else if (myPlayer.curBiome == 3 || myPlayer.curBiome == 4) {
+		 if (myPlayer.curBiome == 3 || myPlayer.curBiome == 4) {
                    eggtype = 3
 		  } else if (myPlayer.curBiome == 5) {
                    eggtype = 0
