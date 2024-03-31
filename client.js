@@ -27015,7 +27015,7 @@ FreeForAll.prototype.interfaceButtons = [];
 FreeForAll.prototype.createInterfaceButtons = function() {
   //log("calling : createInterfaceButtons ");
   this.interfaceButtons = [];
-  /*
+
     this.btnPlayAgain = new InterfaceButton(0, 0, 80, 80, "Play Again!", 20);
     this.btnPlayAgain.showLabeleOnHover = true;
     this.btnPlayAgain.textShadow = true;
@@ -27051,7 +27051,7 @@ FreeForAll.prototype.createInterfaceButtons = function() {
     }
     this.btnPlayAgain.isVisible = false;
     this.interfaceButtons.push(this.btnPlayAgain); // only add this button if drawn;
-    */
+
 };
 
 FreeForAll.prototype.drawInterfaceButtons = function() {
