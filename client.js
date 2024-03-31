@@ -3465,6 +3465,9 @@ var show1v1Button = true;
 var can1v1 = false;
 var btn1v1 = null;
 var btnEGG = null;
+var btnEGG1 = null;
+var btnEGG2 = null;
+var btnEGG3 = null;
 var player1v1ArenaWins = 0;
 var playerGoalsScore = 0;
 var serverAllTimeGoals = 0;
@@ -5820,18 +5823,7 @@ function create1v1Button() {
 
 function createEggUI(eggtype) {
     if (btnEGG == null) {
-	    if (eggtype == 2) {
-      btnEGG = new InterfaceButton(0, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
-	    }
-	    	    if (eggtype == 1) {
-      btnEGG = new InterfaceButton(-80, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
-	    }
-	    	    if (eggtype == 0) {
       btnEGG = new InterfaceButton(160, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
-	    }
-	    	    if (eggtype == 3) {
-      btnEGG = new InterfaceButton(80, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
-	    }
       btnEGG.showLabeleOnHover = true;
       btnEGG.textShadow = true;
       btnEGG.drawTextOnHowever = function() {
@@ -5874,6 +5866,54 @@ function createEggUI(eggtype) {
         btnEGG.isVisible = show1v1Button;
         if (btnEGG.isVisible) btnEGG.clicked = false;
         btnEGG.draw();
+      }
+    }
+
+
+	    if (btnEGG1 == null) {
+      btnEGG1 = new InterfaceButton(-80, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
+      btnEGG1.showLabeleOnHover = true;
+      btnEGG1.textShadow = true;
+      btnEGG1.drawTextOnHowever = function() {
+        this.drawText(this.w / 2, this.h + this.h / 2);
+      };
+
+      btnEGG1.onClick = function() {
+        if (!this.clicked  ) {
+          this.isVisible = false;
+          this.clicked = true;
+          this.isHighLighted = false;
+        }
+      };
+      btnEGG1.onMouseMove = function() {};
+      btnEGG1.update = function() {
+        this.x = canvasW / 2 - this.w / 2;
+        this.y = 45 * interfS + this.h / 2; //(canvasH / 2) - 250;
+        //if (gameMode == gameMode_battleRoyal) this.y += 50 * interfS;
+      };
+
+      btnEGG1.onInterfaceReset = function() {
+        this.isVisible = false;
+        btnEGG1 = null;
+      };
+
+      btnEGG1.onAfterDraw = function() {
+        var theImg = getLoadedImg("img/eastereggs/" + eggtype + ".png");
+        if (theImg) {
+          ctx.save();
+
+          var iw = this.w * 0.8;
+          var pad = (this.w - iw) / 2;
+          ctx.drawImage(theImg, this.x + pad, this.y + pad, iw, iw);
+          ctx.restore();
+        }
+      };
+      _gameMode.interfaceButtons.push(btnEGG1);
+    } else {
+      if (btnEGG1 != null) {
+        btnEGG1.isVisible = show1v1Button;
+        if (btnEGG1.isVisible) btnEGG1.clicked = false;
+        btnEGG1.draw();
       }
     }
   
