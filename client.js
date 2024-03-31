@@ -1021,7 +1021,7 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
 		    		    		                                                            case a_easterbunny:
             infoO.aniName = "Easter Bunny";
             infoO.aniDesc = "";
-            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n For anyone reading this, I will ban you if you leak this OR anything in this update. ";
+            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n Press w to lay a fake egg and press Q to do a giant hop. ";
             infoO.aniCol = "#231f18";
             infoO.skinName = "easterbunny";
             break;
@@ -16895,10 +16895,10 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
             infoO.skinName = "horseshoecrab";
             break;
 
-		  		    		    		                                                            case a_easterbunny:
+		    		    		                                                            case a_easterbunny:
             infoO.aniName = "Easter Bunny";
             infoO.aniDesc = "";
-            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n For anyone reading this, I will ban you if you leak this OR anything in this update. ";
+            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n Press w to lay a fake egg and press Q to do a giant hop. ";
             infoO.aniCol = "#231f18";
             infoO.skinName = "easterbunny";
             break;
