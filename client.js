@@ -24472,6 +24472,39 @@ window.MiniBD = MiniBD;
 //add this file as a class! (make sure to call require!)
 GameObjType.setCustomClassForGameObjType(MiniBD, o_animal, a_minibd);
 
+var EasterBunny = EasterBunny;
+var superClass = Animal;
+EasterBunny.prototype = Object.create(superClass.prototype); //properly inherit prototype of superclass
+EasterBunny.prototype.constructor = EasterBunny;
+EasterBunny.superClass = superClass; //'class' var
+
+EasterBunny.prototype.drawUnderSkinImg = function() {
+  if (!this.flag_usingAbility) return;
+
+  var rad = this.rad - this.outlineW;
+  var iScale = 500 / 340.0;
+  var leg = getLoadedImg("skins/easterrabbit/leg0.png");
+
+  var tSinceSpawn = (timestamp - this.spawnTime) / 1000.0;
+  var frame = options_lowGraphics ? 0 : getAnimFrame(tSinceSpawn, 0, 3, 0);
+  var yOffset = options_lowGraphics ? 0 : 5;
+  if (tongue) {
+    ctx.drawImage(
+       leg,
+      -rad * iScale,
+      -(rad + yOffset + frame) * iScale,
+      2 * rad * iScale,
+      2 * rad * iScale
+    );
+  }
+};
+
+function EasterBunny() {
+  EasterBunny.superClass.call(this, o_animal);
+}
+window.EasterBunny = EasterBunny;
+//add this file as a class! (make sure to call require!)
+GameObjType.setCustomClassForGameObjType(EasterBunny, o_animal, a_easterbunny);
 
 var Sheep = Sheep;
 var superClass = Animal;
