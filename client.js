@@ -5163,7 +5163,7 @@ hotkeys.push('zxcvbnm'.split(''));
   //    if (window.gameMode_interface)
   //        window.gameMode_interface();
   if (_gameMode != null) {
-    _gameMode.prototype.interface();
+    _gameMode.interface();
   }
 
   buildInviteScreen();
@@ -5184,9 +5184,9 @@ hotkeys.push('zxcvbnm'.split(''));
 }
 function gameModeDrawInterfaceButtons() {
   if (_gameMode != null)
-    if (_gameMode.prototype.interfaceButtons) {
-      for (var i = 0; i < _gameMode.prototype.interfaceButtons.length; i++) {
-        var aBut = _gameMode.prototype.interfaceButtons[i];
+    if (_gameMode.interfaceButtons) {
+      for (var i = 0; i < _gameMode.interfaceButtons.length; i++) {
+        var aBut = _gameMode.interfaceButtons[i];
         if (aBut.isVisible) {
           aBut.draw();
         }
@@ -5480,7 +5480,7 @@ function drawLeaderboard() {
   //       );
   //   }
 
-  if (_gameMode != null) _gameMode.prototype.drawLeaderboard();
+  if (_gameMode != null) _gameMode.drawLeaderboard();
 }
 
 function drawMinimap() {
@@ -5805,7 +5805,7 @@ function create1v1Button() {
           ctx.restore();
         }
       };
-      _gameMode.prototype.interfaceButtons.push(btn1v1);
+      _gameMode.interfaceButtons.push(btn1v1);
     } else {
       if (btn1v1 != null) {
         btn1v1.isVisible = show1v1Button;
@@ -5855,7 +5855,7 @@ function createEggUI1(eggtype) {
           ctx.restore();
         }
       };
-      _gameMode.prototype.interfaceButtons.push(btnEGG1);
+      _gameMode.interfaceButtons.push(btnEGG1);
     } else {
       if (btnEGG1 != null) {
         btnEGG1.isVisible = show1v1Button;
@@ -5906,7 +5906,7 @@ function createEggUI(eggtype) {
           ctx.restore();
         }
       };
-      _gameMode.prototype.interfaceButtons.push(btnEGG);
+      _gameMode.interfaceButtons.push(btnEGG);
     } else {
       if (btnEGG != null) {
         btnEGG.isVisible = show1v1Button;
@@ -6070,7 +6070,7 @@ function buildInviteScreen() {
       ctx_.save();
       var cx = x + 155;
       var cy = y - 10 / 2;
-      ctx_.fillStyle = _gameMode.prototype.teamColors[req.teamID];
+      ctx_.fillStyle = _gameMode.teamColors[req.teamID];
       ctx_.beginPath();
       ctx_.arc(cx, cy, 10, 0, Math.PI * 2);
       ctx_.fill();
@@ -6102,9 +6102,9 @@ function buildInviteScreen() {
 }
 
 function removeExpiredRequestButtons() {
-  if (_gameMode == null || _gameMode.prototype.interfaceButtons == null) return;
-  for (d = 0; d < _gameMode.prototype.interfaceButtons.length; d++) {
-    var aBut = _gameMode.prototype.interfaceButtons[d];
+  if (_gameMode == null || _gameMode.interfaceButtons == null) return;
+  for (d = 0; d < _gameMode.interfaceButtons.length; d++) {
+    var aBut = _gameMode.interfaceButtons[d];
 
     if (aBut.reqID !== undefined) {
       var activeRequest = true;
@@ -6120,9 +6120,9 @@ function removeExpiredRequestButtons() {
       if (!found) activeRequest = false;
 
       if (!activeRequest || isInArena) {
-        var tmp = _gameMode.prototype.interfaceButtons.indexOf(aBut);
+        var tmp = _gameMode.interfaceButtons.indexOf(aBut);
         if (-1 != tmp) {
-          _gameMode.prototype.interfaceButtons.splice(tmp, 1);
+          _gameMode.interfaceButtons.splice(tmp, 1);
         }
       }
     }
@@ -6130,9 +6130,9 @@ function removeExpiredRequestButtons() {
 }
 
 function removeRequestButtons() {
-  if (_gameMode == null || _gameMode.prototype.interfaceButtons == null) return;
-  for (d = 0; d < _gameMode.prototype.interfaceButtons.length; d++) {
-    var aBut = _gameMode.prototype.interfaceButtons[d];
+  if (_gameMode == null || _gameMode.interfaceButtons == null) return;
+  for (d = 0; d < _gameMode.interfaceButtons.length; d++) {
+    var aBut = _gameMode.interfaceButtons[d];
 
     if (aBut.reqID !== undefined) {
       var activeRequest = true;
@@ -6148,9 +6148,9 @@ function removeRequestButtons() {
    activeRequest = false;
 
       if (!activeRequest || isInArena) {
-        var tmp = _gameMode.prototype.interfaceButtons.indexOf(aBut);
+        var tmp = _gameMode.interfaceButtons.indexOf(aBut);
         if (-1 != tmp) {
-          _gameMode.prototype.interfaceButtons.splice(tmp, 1);
+          _gameMode.interfaceButtons.splice(tmp, 1);
         }
       }
     }
@@ -6160,8 +6160,8 @@ function removeRequestButtons() {
 
 function create1v1RequestButton(req, label) {
   var hasFound = false;
-  for (i = 0; i < _gameMode.prototype.interfaceButtons.length; i++) {
-    btn = _gameMode.prototype.interfaceButtons[i];
+  for (i = 0; i < _gameMode.interfaceButtons.length; i++) {
+    btn = _gameMode.interfaceButtons[i];
     if (btn.reqID == req.id && btn.label == label) {
       hasFound = true;
       return btn;
@@ -6197,7 +6197,7 @@ function create1v1RequestButton(req, label) {
   };
 
   btn.isVisible = true;
-  _gameMode.prototype.interfaceButtons.push(btn);
+  _gameMode.interfaceButtons.push(btn);
 
   return btn;
 }
@@ -13426,7 +13426,7 @@ AbilityObj.prototype.customDraw = function(batchDrawOutline) {
 
         ctx.globalAlpha = 1.0 * oldA;
         var skinFolder = "img";
-        if (_gameMode.prototype.isHalloween) skinFolder = "skins/zombie/ability_skins";
+        if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
 
         var theImg = getLoadedImg("img/ability_whaleTailHit.png");
         if (theImg) {
@@ -13597,7 +13597,7 @@ AbilityObj.prototype.customDraw = function(batchDrawOutline) {
 
         var skinFolder = "img";
 
-        if (_gameMode.prototype.isHalloween) skinFolder = "skins/zombie/ability_skins";
+        if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
 
         var theImg = getLoadedImg(
         "img/ability_bearSlash1.png"
@@ -13683,7 +13683,7 @@ AbilityObj.prototype.customDraw = function(batchDrawOutline) {
 
         var skinFolder = "img";
 
-        if (_gameMode.prototype.isHalloween) skinFolder = "skins/zombie/ability_skins";
+        if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
 
         var theImg = getLoadedImg(
         "img/ability_bearSlash0.png"
@@ -13882,7 +13882,7 @@ case ability_thunderbirdAttack:
         ctx.globalAlpha = 1.0 * oldA;
         var skinFolder = "img";
 
-        if (_gameMode.prototype.isHalloween) skinFolder = "img/";
+        if (_gameMode.isHalloween) skinFolder = "img/";
 
         var theImg = getLoadedImg(
           "img/ability_crabSmash" + this.specType+".png"
@@ -13939,7 +13939,7 @@ case ability_thunderbirdAttack:
 
         var skinFolder = "img";
 
-        if (_gameMode.prototype.isHalloween) skinFolder = "skins/zombie/ability_skins";
+        if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
 
          var theImg = getLoadedImg(
           skinFolder + "/ability_flail.png"
@@ -13996,7 +13996,7 @@ case ability_thunderbirdAttack:
 
         var skinFolder = "img";
 
-        if (_gameMode.prototype.isHalloween) skinFolder = "skins/zombie/ability_skins";
+        if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
 
          var theImg = getLoadedImg(
           skinFolder + "/ability_elephantTrunkSmack.png"
@@ -14047,7 +14047,7 @@ case ability_thunderbirdAttack:
         ctx.globalAlpha = 1.0 * oldA;
         var skinFolder = "img";
 
-        if (_gameMode.prototype.isHalloween) skinFolder = "skins/zombie/ability_skins";
+        if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
 
         var theImg = getLoadedImg(skinFolder + "/ability_gaurkick.png");
         if (theImg) {
@@ -14131,7 +14131,7 @@ case ability_thunderbirdAttack:
         ctx.globalAlpha = 1.0 * oldA;
         var skinFolder = "img";
 
-        if (_gameMode.prototype.isHalloween) skinFolder = "skins/zombie/ability_skins";
+        if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
 
         var theImg = getLoadedImg(skinFolder + "/ability_clickbait.png");
         if (theImg) {
@@ -14173,7 +14173,7 @@ case ability_thunderbirdAttack:
         ctx.globalAlpha = 1.0 * oldA;
         var skinFolder = "img";
 
-        if (_gameMode.prototype.isHalloween) skinFolder = "skins/zombie/ability_skins";
+        if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
 
         var theImg = getLoadedImg(skinFolder + "/ability_backkick.png");
         if (theImg) {
@@ -14409,7 +14409,7 @@ var max2 =-3
         ctx.globalAlpha = 1.0 * oldA;
         var skinFolder = "img";
 
-        if (_gameMode.prototype.isHalloween) skinFolder = "skins/zombie/ability_skins";
+        if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
 
         var theImg = getLoadedImg(skinFolder + "/ability_clickbait.png");
         if (theImg) {
@@ -14569,7 +14569,7 @@ var max2 =-3
 
         var skinFolder = "img";
 
-        if (_gameMode.prototype.isHalloween) skinFolder = "skins/zombie/ability_skins";
+        if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
 
         ctx.globalAlpha = 1.0 * oldA;
         var theImg = getLoadedImg(skinFolder + "/ability_boaBite.png");
@@ -14632,7 +14632,7 @@ var max2 =-3
 
         var skinFolder = "skins";
 
-        if (_gameMode.prototype.isHalloween) skinFolder = "skins/zombie";
+        if (_gameMode.isHalloween) skinFolder = "skins/zombie";
 
         var theImg = getLoadedImg(
           skinFolder + "/tiger/" + this.specType2 + "/ability_tigerJump.png"
@@ -14791,7 +14791,7 @@ var max2 =-3
 
         var skinFolder = "img";
 
-        if (_gameMode.prototype.isHalloween) skinFolder = "skins/zombie/ability_skins";
+        if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
 
         var theImg = getLoadedImg(skinFolder + "/ability_zebraKick.png");
         if (theImg) {
@@ -14855,7 +14855,7 @@ var max2 =-3
 
         var skinFolder = "img";
 
-        if (_gameMode.prototype.isHalloween) skinFolder = "skins/zombie/ability_skins";
+        if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
 
         var theImg = getLoadedImg(skinFolder + "/ability_giraffeStompLeg.png");
         if (theImg) {
@@ -14949,7 +14949,7 @@ var max2 =-3
 
         var skinFolder = "img";
 
-        if (_gameMode.prototype.isHalloween) skinFolder = "skins/zombie/ability_skins";
+        if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
 
         var theImg = getLoadedImg("img/ability_sharkBite.png");
 
@@ -14997,7 +14997,7 @@ var max2 =-3
         }
         var skinFolder = "img";
 
-        if (_gameMode.prototype.isHalloween) skinFolder = "skins/zombie/ability_skins";
+        if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
         var theImg = getLoadedImg(skinFolder + "/shark-head.png");
         if (theImg) {
           var frame = Math.min(1.0, (timestamp - this.spawnTime) / 200.0);
@@ -15193,7 +15193,7 @@ var max2 =-3
         }
         var skinFolder = "img";
 
-        if (_gameMode.prototype.isHalloween) skinFolder = "skins/ability_skins";
+        if (_gameMode.isHalloween) skinFolder = "skins/ability_skins";
 
         var theImg = getLoadedImg(skinFolder + "/trex-head" + this.specType2 + ".png");
         if (theImg) {
@@ -15940,7 +15940,7 @@ AbilityObjElephant.prototype.customDraw = function(batchDrawOutline) {
 
   ctx.globalAlpha = 1.0 * oldA;
   var skinFolder = "img";
-  if (_gameMode.prototype.isHalloween) skinFolder = "skins/zombie/ability_skins";
+  if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
 
 
   var theImg = getLoadedImg(skinFolder + "/ability_elephantTrunkSmack.png");
@@ -17656,7 +17656,7 @@ if (this.rad < 20) {
     )
   )
     if (gameMode == gameMode_teamMode && this.teamID != 0) {
-      var teamColor = _gameMode.prototype.teamColors[this.teamID];
+      var teamColor = _gameMode.teamColors[this.teamID];
       /*
     if (this.teamID == 1) teamColor = "#ff0000";
     else if (this.teamID == 2) teamColor = "#00ff00";
@@ -17834,7 +17834,7 @@ if (this.rad < 20) {
 };
 
 Animal.prototype.drawCustomUIForAni = function() {
-  if (gameMode == gameMode_teamMode && _gameMode) _gameMode.prototype.drawPlayerUI(this);
+  if (gameMode == gameMode_teamMode && _gameMode) _gameMode.drawPlayerUI(this);
 };
 
 Animal.prototype.hasMultipleSpecies = function() {
@@ -27015,7 +27015,7 @@ FreeForAll.prototype.interfaceButtons = [];
 FreeForAll.prototype.createInterfaceButtons = function() {
   //log("calling : createInterfaceButtons ");
   this.interfaceButtons = [];
-
+  /*
     this.btnPlayAgain = new InterfaceButton(0, 0, 80, 80, "Play Again!", 20);
     this.btnPlayAgain.showLabeleOnHover = true;
     this.btnPlayAgain.textShadow = true;
@@ -27051,7 +27051,7 @@ FreeForAll.prototype.createInterfaceButtons = function() {
     }
     this.btnPlayAgain.isVisible = false;
     this.interfaceButtons.push(this.btnPlayAgain); // only add this button if drawn;
-
+    */
 };
 
 FreeForAll.prototype.drawInterfaceButtons = function() {
@@ -28101,21 +28101,21 @@ TeamMode.prototype.buildInviteScreen = function() {
     btnAccept.yPos = screenPos;
     btnAccept.update = function() {
       this.x = canvasW / 2 - 140;
-      this.y = _gameMode.prototype.screenPos + this.yPos + 10;
+      this.y = _gameMode.screenPos + this.yPos + 10;
     };
 
     var btnReject = this.create1v1RequestButton(req, "Reject");
     btnReject.yPos = screenPos;
     btnReject.update = function() {
       this.x = canvasW / 2 - 40;
-      this.y = _gameMode.prototype.screenPos + this.yPos + 10;
+      this.y = _gameMode.screenPos + this.yPos + 10;
     };
 
     var btnIgnore = this.create1v1RequestButton(req, "Ignore");
     btnIgnore.yPos = screenPos;
     btnIgnore.update = function() {
       this.x = canvasW / 2 + 60;
-      this.y = _gameMode.prototype.screenPos + this.yPos + 10;
+      this.y = _gameMode.screenPos + this.yPos + 10;
     };
 
     screenPos += 80;
@@ -29466,7 +29466,7 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
         nPlayersViewing = msg.readUInt16();
         nPlayersAlive = msg.readUInt16();
 
-        if (_gameMode != null) _gameMode.prototype.setServerPlayerCount();
+        if (_gameMode != null) _gameMode.setServerPlayerCount();
         else {
           if (showPlaersOnServer)
             playersOnlTXT.setText(
@@ -29608,14 +29608,14 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
   r.x = r.ox = r.nx = 0 - e / 2 + t / Math.max(1, screenIns_objsEdible.length - 1) * e,
    r.y = r.oy = r.ny = 0, r.nRad = 15;
  }
-        if (_gameMode != null) _gameMode.prototype.setPlayer();
+        if (_gameMode != null) _gameMode.setPlayer();
       }
       break;
     case 31: // battle royal msg
       {
         //MsgYouDied  (you died)
         //battleRoyal_serverMessages(msg);
-        if (_gameMode != null) _gameMode.prototype.main(msg);
+        if (_gameMode != null) _gameMode.main(msg);
       }
       break;
       
@@ -29629,7 +29629,7 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
         var deathR = msg.readUInt8();
         var respawnXp = msg.readUInt32();
 
-        if (_gameMode != null) _gameMode.prototype.interfaceReset();
+        if (_gameMode != null) _gameMode.interfaceReset();
 
         endScreenCanvas = null;
         serverCon_aliveInAGame = false;
@@ -29998,12 +29998,12 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
     }
     case 51: // team mode messages
       {
-        if (_gameMode != null) _gameMode.prototype.main(msg);
+        if (_gameMode != null) _gameMode.main(msg);
       }
       break;
  case 51: // team mode messages
       {
-        if (_gameMode != null) _gameMode.prototype.main(msg);
+        if (_gameMode != null) _gameMode.main(msg);
       }
       break;
   case 52:
@@ -30133,7 +30133,7 @@ var sound_click = getLazyLoadAudio("audio/" + sound + ".mp3");
                 //findAndConnectToNearestServer();
               };
 
-              _gameMode.prototype.interfaceButtons.push(homeButton);
+              _gameMode.interfaceButtons.push(homeButton);
             }
             var xpLab = document.getElementById("spawnXpLabel");
             xpLab.style.display = "none";
@@ -30145,9 +30145,9 @@ var sound_click = getLazyLoadAudio("audio/" + sound + ".mp3");
 
           //remove existing home button
           if (homeButton != null) {
-            var homeBtn = _gameMode.prototype.interfaceButtons.indexOf(homeButton);
+            var homeBtn = _gameMode.interfaceButtons.indexOf(homeButton);
             if (homeBtn != -1) {
-              _gameMode.prototype.interfaceButtons.splice(homeBtn, 1);
+              _gameMode.interfaceButtons.splice(homeBtn, 1);
             }
             //homeButton.visible = false;
             homeButton = null;
@@ -30236,7 +30236,7 @@ function worldUpdate(msg) {
   }
 
   // read safe area info here
-  if (_gameMode != null) _gameMode.prototype.worldUpdate(msg);
+  if (_gameMode != null) _gameMode.worldUpdate(msg);
 }//end world update
 
 //read player info (eg. like camera, interface #s)
@@ -30600,7 +30600,7 @@ function drawGameObjects() {
     else anObj.draw();
   }
 
-if (_gameMode != null) _gameMode.prototype.drawCustomObjs(customInterfaceObjList);
+  if (_gameMode != null) _gameMode.drawCustomObjs(customInterfaceObjList);
   /*
     if (typeof gameMode_interfaceDrawCustomObjects === "function")
         gameMode_interfaceDrawCustomObjects()
@@ -30743,7 +30743,7 @@ function drawGame(currentTime) {
 
     if (_gameMode != null) {
       //draw danger area on minimap see game mode interface
-      _gameMode.prototype.drawMap();
+      _gameMode.drawMap();
     }
   }
 
@@ -31179,7 +31179,7 @@ document.onkeyup = function(ev) {
 
 //smart-toggle show/hide chat (sends chat on hide)
 function toggleChatOpen() {
-  if (!isDevMode) if (_gameMode != null && !_gameMode.prototype.chatAllowed) return;
+  if (!isDevMode) if (_gameMode != null && !_gameMode.chatAllowed) return;
   var chatInp = document.getElementById("chatinput");
 
   if (!chatOpen && serverCon_aliveInAGame) {
@@ -31368,7 +31368,7 @@ button_q.setPosAndSize(
     wsSendMsg(mes);
   }
 
-  if (_gameMode != null) _gameMode.prototype.onResize();
+  if (_gameMode != null) _gameMode.onResize();
 }
 
 //game control was pressed/released (could be by key press, mouse, etc)
@@ -31718,9 +31718,9 @@ canvas.onmousemove = function(event) {
     }
   }
 
-  if (_gameMode != null && _gameMode.prototype.interfaceButtons) {
-    for (var i = 0; i < _gameMode.prototype.interfaceButtons.length; i++) {
-      var aBut = _gameMode.prototype.interfaceButtons[i];
+  if (_gameMode != null && _gameMode.interfaceButtons) {
+    for (var i = 0; i < _gameMode.interfaceButtons.length; i++) {
+      var aBut = _gameMode.interfaceButtons[i];
       if (aBut.isVisible)
         if (aBut.testPosHitsButton(rawMouseX, rawMouseY)) {
           aBut.isHighLighted = true;
@@ -31770,12 +31770,12 @@ canvas.onmouseup = function(event) {
     //button was clicked
 
     // mope button was clicked
-    if (_gameMode != null && _gameMode.prototype.interfaceButtons) {
+    if (_gameMode != null && _gameMode.interfaceButtons) {
       rawMouseX = event.clientX * pixelRat;
       rawMouseY = event.clientY * pixelRat;
 
-      for (var i = 0; i < _gameMode.prototype.interfaceButtons.length; i++) {
-        var aBut = _gameMode.prototype.interfaceButtons[i];
+      for (var i = 0; i < _gameMode.interfaceButtons.length; i++) {
+        var aBut = _gameMode.interfaceButtons[i];
         if (aBut.isVisible && aBut.testPosHitsButton(rawMouseX, rawMouseY)) {
           aBut.onClick();
           break;
@@ -31987,7 +31987,7 @@ function gameReset() {
   //    window.gameMode_interfaceReset();
   /*
    if (_gameMode != null)
-       _gameMode.prototype.interfaceReset();
+       _gameMode.interfaceReset();
    */
   //document.getElementById('startButton').style.opacity = 0.5;
   //this can get sent before new game, so dont reset
@@ -32041,25 +32041,24 @@ function MouseWheelHandler(e) {
 }
 
 ///////////////// set game mode functions
-var _gameMode = gameMode_FFA;
+var _gameMode = null;
 
 function setGameMode() {
   //resetMenu();
   console.log("setting game mode interface:");
   hideEndScreen();
-  if (_gameMode != null) _gameMode.prototype.interfaceReset();
+  if (_gameMode != null) _gameMode.interfaceReset();
 
-  _gameMode = gameMode_FFA;
+  _gameMode = null;
   if (
     gameMode == gameMode_FFA ||
     gameMode == gameMode_troll
   ) {
     _gameMode = new FreeForAll(gameMode);
-    _gameMode.prototype.state = gameState;
-	  console.log(_gamemode)
+    _gameMode.state = gameState;
   } else if (gameMode == gameMode_teamMode) {
     _gameMode = new TeamMode();
-    _gameMode.prototype.state = gameState;
+    _gameMode.state = gameState;
   }
 }
 
