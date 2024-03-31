@@ -24479,18 +24479,18 @@ EasterBunny.prototype.constructor = EasterBunny;
 EasterBunny.superClass = superClass; //'class' var
 
 EasterBunny.prototype.drawUnderSkinImg = function() {
-  //if (!this.flag_flying || this.flag_isGrabbed) return;
+  if (this.flag_usingAbility) return;
 
-  var rad = this.rad;
+  var rad = this.rad - this.outlineW;
   var iScale = 500 / 340.0;
-  var leg = getLoadedImg("skins/easterrabbit/leg0.png");
+  var tongue = getLoadedImg("skins/boa/tongue.png");
 
   var tSinceSpawn = (timestamp - this.spawnTime) / 1000.0;
-  var frame = options_lowGraphics ? 0 : getAnimFrame(tSinceSpawn, 0, 3, 0);
+  var frame = options_lowGraphics ? 0 : getAnimFrame(tSinceSpawn, 0.5, 3, 0.5);
   var yOffset = options_lowGraphics ? 0 : 5;
-  if (leg) {
+  if (tongue) {
     ctx.drawImage(
-       leg,
+      tongue,
       -rad * iScale,
       -(rad + yOffset + frame) * iScale,
       2 * rad * iScale,
@@ -24498,7 +24498,6 @@ EasterBunny.prototype.drawUnderSkinImg = function() {
     );
   }
 };
-
 function EasterBunny() {
   EasterBunny.superClass.call(this, o_animal);
 }
