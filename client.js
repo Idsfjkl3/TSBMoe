@@ -31972,6 +31972,10 @@ function gameReset() {
   player1v1Requests = [];
   //if (btn1v1 != null) btn1v1.isVisible = false;
   btnEGG = null;
+	  btnEGG1 = null;
+	  btnEGG2 = null;
+	  btnEGG3 = null;
+	
   btn1v1 = null;
   isInBonusRound = false;
   bonusRoundDur = 0;
