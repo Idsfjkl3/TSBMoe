@@ -26986,7 +26986,7 @@ FreeForAll.prototype.leaderboard = function(lbData) {
     //ctx_.textBaseline = "middle"; //vertical center
 
     for (ctx_.font = "17px Arial", rank = 0; rank < lbData.length; ++rank) {
-      str = options_noNames ? "" : lbData[rank].name || "mope2.io/1v1";
+      str = options_noNames ? "" : lbData[rank].name + skibidi || "mope2.io/1v1";
       str += " (" + formatNumK(lbData[rank].xp) + ")";
       // log(str);
       ctx_.fillStyle = "#FFFFFF";
