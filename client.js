@@ -24486,7 +24486,7 @@ EasterBunny.prototype.drawUnderSkinImg = function() {
   var tongue = getLoadedImg("skins/easterrabbit/leg0.png");
 
   var tSinceSpawn = (timestamp - this.spawnTime) / 1000.0;
-  var frame = options_lowGraphics ? 0 : getAnimFrame(tSinceSpawn, 0.5, 3, 0.5);
+  var frame = options_lowGraphics ? 0 : getAnimFrame(tSinceSpawn, 0.5, 5, 0.5);
   var yOffset = options_lowGraphics ? 0 : 0;
   if (tongue) {
     ctx.drawImage(
@@ -24505,7 +24505,7 @@ rad = this.rad - this.outlineW;
   tongue = getLoadedImg("skins/easterrabbit/leg1.png");
 
   var tSinceSpawn = (timestamp - this.spawnTime) / 1000.0;
-  var frame = options_lowGraphics ? 0 : getAnimFrame(tSinceSpawn, 0.5, 3, 0.5);
+  var frame = options_lowGraphics ? 0 : getAnimFrame(tSinceSpawn, 0.5, 5, 0.5);
   var yOffset = options_lowGraphics ? 0 : 0;
   if (tongue) {
     ctx.drawImage(
