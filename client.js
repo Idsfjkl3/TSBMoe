@@ -24497,6 +24497,26 @@ EasterBunny.prototype.drawUnderSkinImg = function() {
       2 * rad * iScale
     );
   }
+
+
+
+rad = this.rad - this.outlineW;
+  iScale = 500 / 340.0;
+  tongue = getLoadedImg("skins/easterrabbit/leg1.png");
+
+  var tSinceSpawn = (timestamp - this.spawnTime) / 1000.0;
+  var frame = options_lowGraphics ? 0 : getAnimFrame(tSinceSpawn, 0.5, 3, 0.5);
+  var yOffset = options_lowGraphics ? 0 : 0;
+  if (tongue) {
+    ctx.drawImage(
+      tongue,
+      -rad * iScale,
+      -(rad + yOffset + frame) * iScale,
+      2 * rad * iScale,
+      2 * rad * iScale
+    );
+  }
+	
 };
 function EasterBunny() {
   EasterBunny.superClass.call(this, o_animal);
