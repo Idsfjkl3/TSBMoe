@@ -24497,14 +24497,14 @@ EasterBunny.prototype.drawUnderSkinImg = function() {
       2 * rad * iScale
     );
   }
-};
 
 
-  var leg = getLoadedImg("skins/easterrabbit/leg1.png");
 
-  var tSinceSpawn = (timestamp - this.spawnTime) / 1000.0;
-  var frame = options_lowGraphics ? 0 : getAnimFrame(tSinceSpawn, 0, 3, 0);
-  var yOffset = options_lowGraphics ? 0 : -5;
+leg = getLoadedImg("skins/easterrabbit/leg1.png");
+
+tSinceSpawn = (timestamp - this.spawnTime) / 1000.0;
+frame = options_lowGraphics ? 0 : getAnimFrame(tSinceSpawn, 0, 3, 0);
+yOffset = options_lowGraphics ? 0 : -5;
   if (leg) {
     ctx.drawImage(
        leg,
