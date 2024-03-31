@@ -24483,7 +24483,7 @@ EasterBunny.prototype.drawUnderSkinImg = function() {
 
   var rad = this.rad - this.outlineW;
   var iScale = 500 / 340.0;
-  var tongue = getLoadedImg("skins/boa/tongue.png");
+  var tongue = getLoadedImg("skins/easterrabbit/leg0.png");
 
   var tSinceSpawn = (timestamp - this.spawnTime) / 1000.0;
   var frame = options_lowGraphics ? 0 : getAnimFrame(tSinceSpawn, 0.5, 3, 0.5);
