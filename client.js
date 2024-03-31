@@ -32041,7 +32041,7 @@ function MouseWheelHandler(e) {
 }
 
 ///////////////// set game mode functions
-var _gameMode = null;
+var _gameMode = gameMode_FFA;
 
 function setGameMode() {
   //resetMenu();
