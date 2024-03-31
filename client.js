@@ -26610,7 +26610,7 @@ function InterfaceButton(x, y, w, h, txt, fontSize, color, strokecolor) {
       this.ctx.fillStyle = this.defaultColor;
       this.ctx.strokeStyle = "#116c17";
 	    if (strokecolor) {
-      this.ctx.strokeStyle = "#strokecolor";
+      this.ctx.strokeStyle = strokecolor;
 	    }
       this.ctx.lineWidth = this.strokeWidth;
       this.roundRect(0, 0, this.w, this.h, 5, true, true);
