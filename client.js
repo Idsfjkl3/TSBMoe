@@ -30236,7 +30236,7 @@ function worldUpdate(msg) {
   }
 
   // read safe area info here
-  if (_gameMode != null) _gameMode.worldUpdate(msg);
+  //if (_gameMode != null) _gameMode.worldUpdate(msg);
 }//end world update
 
 //read player info (eg. like camera, interface #s)
