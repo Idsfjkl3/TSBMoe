@@ -29888,18 +29888,18 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
           case 1://br timer
             {
 		    
-		    console.log(ctx)
+
+		            ctx.save();
+        var oldA = ctx.globalAlpha;
+        ctx.globalAlpha = 0.15 * oldA;
+        drawCircle(0, 0, this.rad, "#755A2A");
+
+        ctx.restore();
+		    		    console.log(ctx)
               screenText = "Ouch! Your tail got bitten!";
                screenTextCol = "white"; //default color for event
             screenTextFontSize = 25;
         screenTextEndT = timestamp + 3500.0;
-		          ctx.save();
-  ctx.globalAlpha = 0.35;
-  ctx.fillStyle = "#000000";
-		    
-		    console.log("brmessage")
-              drawCircle(0, 0, this.rad, "#000000");
-		         ctx.restore();
             }
             break;
 
