@@ -29892,10 +29892,10 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
                screenTextCol = "white"; //default color for event
             screenTextFontSize = 25;
         screenTextEndT = timestamp + 3500.0;
+		    		    console.log("a");
 		         // ctx.save();
   ctx.globalAlpha = 0.35;
   ctx.fillStyle = "#000000";
-		    console.log("a");
   ctx.fillRect(0, 0, 100, 60);
 		       //   ctx.restore();
             }
