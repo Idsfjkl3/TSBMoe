@@ -29892,9 +29892,9 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
 
   var ctx_ = miniMapCanvas.getContext("2d");
 		            ctx.save();
-  ctx_.globalAlpha = 0.35;
-  ctx_.fillStyle = "#000000";
-  ctx_.fillRect(brtimerx, 0, miniMapCanvas.width, miniMapCanvas.height);
+  ctx.globalAlpha = 0.35;
+  ctx.fillStyle = "#000000";
+  ctx.fillRect(brtimerx, 0, miniMapCanvas.width, miniMapCanvas.height);
         ctx.restore();
 
 		    		    console.log(ctx)
