@@ -8675,7 +8675,7 @@ console.log(rps)
       break;
 
 
-		      case o_spawnegg:
+		      case o_spawnEgg:
       {
         //draw banana img
 
@@ -12995,7 +12995,7 @@ function GameObj(oType) {
     case o_meatLarge:
     case o_raspberrynew:
     case o_egg:
-    case o_spawnegg:
+    case o_spawnEgg:
     case o_ostrichEgg:
     case o_quill:
     case o_beeHive:
