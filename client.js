@@ -12739,8 +12739,9 @@ case o_cakesplash:
     case o_hill:
       this.z = 999;
       break;
+case o_hill:
     case o_eastereggs:
-      this.z = 1000;
+      this.z = 999.9999;
       break;
 case o_battleroyale:
       this.z = 100002;
