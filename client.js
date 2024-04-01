@@ -29890,11 +29890,24 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
             {
 		    
 
-  var ctx_ = brMapCanvas.getContext("2d");
+  if (inviteScreenCanvas == null)
+    inviteScreenCanvas = document.createElement("canvas");
+  if (inviteScreenCanvas == null) return;
+  var ctx_ = inviteScreenCanvas.getContext("2d");
+  var boardLength = 55;
+  var nameH = 40;
+  var pad = 5;
+
+  var borad_height = 280;
+  var borad_width = 420;
+		      boardLength = borad_height;
+  inviteScreenCanvas.width = borad_width;
+  inviteScreenCanvas.height = boardLength;
+
 		            ctx_.save();
   ctx_.globalAlpha = 0.35;
   ctx_.fillStyle = "#000000";
-  ctx_.fillRect(brtimerx, 0, brMapCanvas.width, brMapCanvas.height);
+  ctx_.fillRect(brtimerx, 0, inviteScreenCanvas.width, inviteScreenCanvas.height);
         ctx_.restore();
 
 		    		    console.log(ctx)
