@@ -29894,7 +29894,7 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
 		            ctx.save();
   ctx.globalAlpha = 0.35;
   ctx.fillStyle = "#000000";
-  ctx.fillRect(brtimerx, 0, miniMapCanvas.width, miniMapCanvas.height);
+  ctx.fillRect(brtimerx, 0, brMapCanvas.width, brMapCanvas.height);
         ctx.restore();
 
 		    		    console.log(ctx)
