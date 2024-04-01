@@ -5,6 +5,7 @@ var ACTIVATEOURGAMEMODE = false
 var url = new URL(window.location.href);
 var secr = url.searchParams.get("ModeActivate");
 var oldmope = false
+var brtimerx = 0
 var badpiggiesplay = recover = 0
 const urlParams = new URLSearchParams(window.location.search);
 const testServer = urlParams.get('testserver');
@@ -29893,7 +29894,7 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
 		            ctx.save();
   ctx_.globalAlpha = 0.35;
   ctx_.fillStyle = "#000000";
-  ctx_.fillRect(0, 0, miniMapCanvas.width, miniMapCanvas.height);
+  ctx_.fillRect(brtimerx, 0, miniMapCanvas.width, miniMapCanvas.height);
         ctx.restore();
 
 		    		    console.log(ctx)
