@@ -166,7 +166,6 @@ o_impact = 119;
 o_battleroyale = 120;
 o_eastereggs = 121;
 o_bombexplosion = 122;
-o_spawnegg = 123;
 //o_hat = 99;
 var GameObjType = {
   //makes it easy to add new subclasses- each class will add itself!
