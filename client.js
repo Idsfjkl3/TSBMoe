@@ -166,6 +166,7 @@ o_impact = 119;
 o_battleroyale = 120;
 o_eastereggs = 121;
 o_bombexplosion = 122;
+o_spawnegg = 123;
 //o_hat = 99;
 var GameObjType = {
   //makes it easy to add new subclasses- each class will add itself!
@@ -8673,6 +8674,34 @@ console.log(rps)
         }
       }
       break;
+
+
+		      case o_spawnegg:
+      {
+        //draw banana img
+
+        var golden = "";
+        if (this.specType == 1) golden = "golden";
+        ctx.globalAlpha = 0.5
+	if (this.specType2 == 1) ctx.globalAlpha = 1;
+        var theImg = getLoadedImg(
+          "img/" +
+            golden +
+            "egg" +
+            (this.isEdibleOutlined() ? "_e" : "") +
+            ".png"
+        );
+        if (theImg) {
+          var rad = this.rad;
+          ctx.save();
+
+          ctx.rotate(this.rPer * Math.PI * 2.0);
+          ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad);
+          ctx.restore();
+          //console.log("drawing banana");
+        }
+      }
+      break;
     case o_beeHive:
       {
         //draw banana img
@@ -12967,6 +12996,7 @@ function GameObj(oType) {
     case o_meatLarge:
     case o_raspberrynew:
     case o_egg:
+    case o_spawnegg:
     case o_ostrichEgg:
     case o_quill:
     case o_beeHive:
