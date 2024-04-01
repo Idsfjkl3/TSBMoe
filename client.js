@@ -29899,7 +29899,6 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
       var barH = 60 * interfS;
       var barW = 100 * interfS;
       ctx.fillRect(bx - barW / 2, by - barH / 2, barW, barH); //bg
-      this.roundRect(0, 0, barW, barH, 5, true, true);
 		          ctx.restore();
             }
             break;
