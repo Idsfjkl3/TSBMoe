@@ -29878,20 +29878,50 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
 
        case 61: //battleroyalmessages
       {
-        var brType = msg.readUInt8();
+        var evType = msg.readUInt8();
 
 
-		    console.log("brmessage")
+	      screenMessage = function (screenTextEndT, message) {
+    var fadeDur = 1.0;
+    var a = (screenTextEndT - timestamp) / 1000.0 / fadeDur;
+    a = 0 > a ? 0 : 1 < a ? 1 : a; //clamp from 0-1
+    if (a > 0) {
+      ctx.save();
+      var bx = canvasW / 2;
+      var barH = 60 * interfS;
+      var barW = (canvasW / 2 - 100) * interfS;
+      ctx.globalAlpha = 0.35;
+      ctx.fillStyle = "black"; //bar bg
+      var by = canvasH * 0.1;
+      ctx.fillRect(bx - barW / 2, by - barH / 2, barW, barH); //bg
+      ctx.globalAlpha = 1;
+      ctx.globalAlpha = a;
+  
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = "white";
+      ctx.font = 40.0 * interfS + "px Arial";
+      ctx.lineWidth = 1;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle"; //vertical center
+      ctx.shadowOffsetX = 1;
+      ctx.shadowOffsetY = 1;
+      ctx.shadowColor = "black";
+  
+      ctx.fillText(message, canvasW / 2, by);
+
+  
+      ctx.restore();
+    }
+};
+
+
+
 	      
-        switch (brType) {
+        switch (evType) {
             
           case 1://br timer
             {
-              screenText = "Ouch! Your tail got bitten!";
-               screenTextCol = "white"; //default color for event
-            screenTextFontSize = 25;
-        screenTextEndT = timestamp + 3500.0;
-		    console.log("brmessage1")
+         screenMessage(timestamp + 3500.0, "hi guys");
             }
             break;
 
