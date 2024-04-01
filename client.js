@@ -29878,12 +29878,23 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
 
        case 61: //battleroyalmessages
       {
-        var evType = msg.readUInt8();
+        var brType = msg.readUInt8();
 
 
-	      screenMessage = function (screenTextEndT, message) {
-    var fadeDur = 1.0;
-    var a = (screenTextEndT - timestamp) / 1000.0 / fadeDur;
+		    console.log("brmessage")
+	      
+        switch (brType) {
+            
+          case 1://br timer
+            {
+             /* screenText = "Ouch! Your tail got bitten!";
+               screenTextCol = "white"; //default color for event
+            screenTextFontSize = 25;
+        screenTextEndT = timestamp + 3500.0;
+		    console.log("brmessage1") */
+
+		        var fadeDur = 1.0;
+    var a = (this.screenTextEndT - timestamp) / 1000.0 / fadeDur;
     a = 0 > a ? 0 : 1 < a ? 1 : a; //clamp from 0-1
     if (a > 0) {
       ctx.save();
@@ -29907,21 +29918,10 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
       ctx.shadowOffsetY = 1;
       ctx.shadowColor = "black";
   
-      ctx.fillText(message, canvasW / 2, by);
+      ctx.fillText("BR STARTING IN 12 SECONDS", canvasW / 2, by);
 
   
       ctx.restore();
-    }
-};
-
-
-
-	      
-        switch (evType) {
-            
-          case 1://br timer
-            {
-         screenMessage(timestamp + 3500.0, "hi guys");
             }
             break;
 
