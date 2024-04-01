@@ -29891,11 +29891,11 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
 		    
 
   var ctx_ = brMapCanvas.getContext("2d");
-		            ctx.save();
-  ctx.globalAlpha = 0.35;
-  ctx.fillStyle = "#000000";
-  ctx.fillRect(brtimerx, 0, brMapCanvas.width, brMapCanvas.height);
-        ctx.restore();
+		            ctx_.save();
+  ctx_.globalAlpha = 0.35;
+  ctx_.fillStyle = "#000000";
+  ctx_.fillRect(brtimerx, 0, brMapCanvas.width, brMapCanvas.height);
+        ctx_.restore();
 
 		    		    console.log(ctx)
               screenText = "Ouch! Your tail got bitten!";
