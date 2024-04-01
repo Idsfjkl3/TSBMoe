@@ -29878,18 +29878,17 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
 
        case 61: //battleroyalmessages
       {
-        var evType = msg.readUInt8();
+        var brType = msg.readUInt8();
 
 
 
 	      
-        switch (evType) {
+        switch (brType) {
             
           case 1://br timer
             {
-              screenText = "hi guys";
-
-                screenTextCol = "blue"; //default color for event
+              screenText = "Ouch! Your tail got bitten!";
+               screenTextCol = "white"; //default color for event
             screenTextFontSize = 25;
         screenTextEndT = timestamp + 3500.0;
             }
