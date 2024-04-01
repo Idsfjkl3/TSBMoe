@@ -29894,12 +29894,9 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
         screenTextEndT = timestamp + 3500.0;
 		          ctx.save();
 	ctx.globalAlpha = 0.35;
-      ctx.fillStyle = "black"; //bar bg
-      var by = 0;
-      var bx = 0;
-      var barH = 60 * interfS;
-      var barW = 100 * interfS;
-      ctx.fillRect(bx - barW / 2, by - barH / 2, barW, barH); //bg
+  ctx.globalAlpha = 0.2;
+  ctx.fillStyle = "#000000";
+  ctx.fillRect(0, 0, 100, 60);
 		          ctx.restore();
             }
             break;
