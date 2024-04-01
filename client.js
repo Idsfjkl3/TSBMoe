@@ -29898,7 +29898,7 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
   ctx.fillStyle = "#000000";
 		    
 		    console.log("brmessage")
-  ctx.fillRect(400, 400, 100, 60);
+              drawCircle(0, 0, this.rad, "#000000");
 		         ctx.restore();
             }
             break;
