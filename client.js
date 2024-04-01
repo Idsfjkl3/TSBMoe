@@ -29889,12 +29889,11 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
             {
 		    
 
-		            ctx.save();
-        var oldA = ctx.globalAlpha;
-        ctx.globalAlpha = 0.15 * oldA;
-        drawCircle(0, 0, this.rad, "#755A2A");
+  var ctx_ = miniMapCanvas.getContext("2d");
 
-        ctx.restore();
+  ctx_.globalAlpha = 0.35;
+  ctx_.fillStyle = "#000000";
+  ctx_.fillRect(0, 0, miniMapCanvas.width, miniMapCanvas.height);
 		    		    console.log(ctx)
               screenText = "Ouch! Your tail got bitten!";
                screenTextCol = "white"; //default color for event
