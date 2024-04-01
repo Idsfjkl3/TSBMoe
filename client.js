@@ -29882,12 +29882,13 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
         var brType = msg.readUInt8();
 
 
-		    console.log("brmessage")
 	      
         switch (brType) {
             
           case 1://br timer
             {
+		    
+		    console.log(ctx)
               screenText = "Ouch! Your tail got bitten!";
                screenTextCol = "white"; //default color for event
             screenTextFontSize = 25;
@@ -29896,6 +29897,7 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
   ctx.globalAlpha = 0.35;
   ctx.fillStyle = "#000000";
 		    
+		    console.log("brmessage")
   ctx.fillRect(canvasW/2, canvasH/2, 100, 60);
 		       //   ctx.restore();
             }
