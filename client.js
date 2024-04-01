@@ -5208,8 +5208,8 @@ function generateMinimap(msg) {
   if (!brMapCanvas) brMapCanvas = document.createElement("canvas");
   miniMapCanvas.width = minimapW;
   miniMapCanvas.height = minimapH;
-  brMapCanvas.width = minimapW;
-  brMapCanvas.height = minimapH;
+  brMapCanvas.width = canvasW;
+  brMapCanvas.height = canvasH;
   var ctx_ = miniMapCanvas.getContext("2d");
 
   ctx_.globalAlpha = 0.35;
@@ -29890,7 +29890,7 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
             {
 		    
 
-  var ctx_ = miniMapCanvas.getContext("2d");
+  var ctx_ = brMapCanvas.getContext("2d");
 		            ctx.save();
   ctx.globalAlpha = 0.35;
   ctx.fillStyle = "#000000";
