@@ -29881,7 +29881,7 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
         var brType = msg.readUInt8();
 
 
-
+		    console.log("brmessage")
 	      
         switch (brType) {
             
@@ -29891,6 +29891,7 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
                screenTextCol = "white"; //default color for event
             screenTextFontSize = 25;
         screenTextEndT = timestamp + 3500.0;
+		    console.log("brmessage1")
             }
             break;
 
