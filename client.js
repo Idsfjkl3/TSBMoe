@@ -29890,10 +29890,10 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
             {
 		    
 
-  if (inviteScreenCanvas == null)
-    inviteScreenCanvas = document.createElement("canvas");
-  if (inviteScreenCanvas == null) return;
-  var ctx_ = inviteScreenCanvas.getContext("2d");
+
+   var ctxcanvas = document.createElement("canvas");
+
+  var ctx_ = ctxcanvas.getContext("2d");
   var boardLength = 55;
   var nameH = 40;
   var pad = 5;
@@ -29901,16 +29901,16 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
   var borad_height = 280;
   var borad_width = 420;
 		      boardLength = borad_height;
-  inviteScreenCanvas.width = borad_width;
-  inviteScreenCanvas.height = boardLength;
+  ctxcanvas.width = borad_width;
+  ctxcanvas.height = boardLength;
 
 		            ctx_.save();
   ctx_.globalAlpha = 0.35;
   ctx_.fillStyle = "#000000";
-  ctx_.fillRect(brtimerx, 0, inviteScreenCanvas.width, inviteScreenCanvas.height);
+  ctx_.fillRect(brtimerx, 0, ctxcanvas.width, ctxcanvas.height);
         ctx_.restore();
 
-		    		    console.log(ctx)
+		    		    console.log(ctxcanvas)
               screenText = "Ouch! Your tail got bitten!";
                screenTextCol = "white"; //default color for event
             screenTextFontSize = 25;
