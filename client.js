@@ -29888,35 +29888,8 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
             
           case 1://br timer
             {
-		    
-
-
-   var ctxcanvas = document.createElement("canvas");
-
-  var ctx_ = ctxcanvas.getContext("2d");
-  var boardLength = 55;
-  var nameH = 40;
-  var pad = 5;
-
-  var borad_height = 280;
-  var borad_width = 420;
-		      boardLength = borad_height;
-  ctxcanvas.width = borad_width;
-  ctxcanvas.height = boardLength;
-
-		            ctx.save();
-  ctx.globalAlpha = 0.35;
-  ctx.fillStyle = "#000000";
-		var e = canvasW / 2,
-			t = 50 * interfS,
-			a = 300 * interfS;
-		ctx.globalAlpha = .35, ctx.fillStyle = "black";
-		var i = 30 * interfS;
-		ctx.fillRect(e - a / 2, i, a, t);
-        ctx.restore();
-
-		    		    console.log(ctxcanvas)
-              screenText = "Ouch! Your tail got bitten!";
+		    var timer = msg.readUInt8();
+              screenText = "Game starting in" + timer + "seconds";
                screenTextCol = "white"; //default color for event
             screenTextFontSize = 25;
         screenTextEndT = timestamp + 3500.0;
