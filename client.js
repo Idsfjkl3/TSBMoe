@@ -29888,7 +29888,7 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
             
           case 1://br timer
             {
-		    var timer = msg.readUInt8();
+		    var timer = msg.readUInt16();
               screenText = "Game starting in " + timer + " seconds";
                screenTextCol = "red"; //default color for event
             screenTextFontSize = 25;
