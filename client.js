@@ -29904,11 +29904,16 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
   ctxcanvas.width = borad_width;
   ctxcanvas.height = boardLength;
 
-		            ctx_.save();
-  ctx_.globalAlpha = 0.35;
-  ctx_.fillStyle = "#000000";
-  ctx_.fillRect(brtimerx, 0, ctxcanvas.width, ctxcanvas.height);
-        ctx_.restore();
+		            ctx.save();
+  ctx.globalAlpha = 0.35;
+  ctx.fillStyle = "#000000";
+		var e = canvasW / 2,
+			t = 50 * interfS,
+			a = 300 * interfS;
+		ctx.globalAlpha = .35, ctx.fillStyle = "black";
+		var i = 30 * interfS;
+		ctx.fillRect(e - a / 2, i, a, t);
+        ctx.restore();
 
 		    		    console.log(ctxcanvas)
               screenText = "Ouch! Your tail got bitten!";
