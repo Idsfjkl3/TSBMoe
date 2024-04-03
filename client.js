@@ -4714,8 +4714,16 @@ function drawGameInterface() {
   //flashing LOW water animation
 	
 	if (daynight == 2) {
-    ctx.globalAlpha = 0.2;
+    ctx.globalAlpha = 0.25;
   ctx.fillStyle = "#1829FF";
+        ctx.fillRect(0, 0, canvasW, canvasH); //bg
+		    ctx.globalAlpha = 1;
+	}
+
+		
+	if (daynight == 1) {
+    ctx.globalAlpha = 0.25;
+  ctx.fillStyle = "#FFBC18";
         ctx.fillRect(0, 0, canvasW, canvasH); //bg
 		    ctx.globalAlpha = 1;
 	}
