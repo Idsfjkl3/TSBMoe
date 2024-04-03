@@ -4712,7 +4712,14 @@ function drawGameInterface() {
  pressureBarPerc += (pressureBarPerc_n - pressureBarPerc) * 0.1;
   xpPer += (xpPer_n - xpPer) * 0.03;
   //flashing LOW water animation
-
+	
+	if (daynight == 2) {
+    ctx.globalAlpha = 0.2;
+  ctx.fillStyle = "#1829FF";
+        ctx.fillRect(0, 0, canvasW, canvasH); //bg
+		    ctx.globalAlpha = 1;
+	}
+	
   var myPlayer = gameObjsByID[myPlayerID];
   if (myPlayer) {
     myPlayerLastAniT = myPlayer.animalType;
@@ -30757,12 +30764,7 @@ function drawGame(currentTime) {
 
   ctx.clearRect(0, 0, canvasW, canvasH);
 
-	if (daynight == 2) {
-    ctx.globalAlpha = 0.2;
-  ctx.fillStyle = "#1829FF";
-        ctx.fillRect(0, 0, canvasW, canvasH); //bg
-		    ctx.globalAlpha = 1;
-	}
+
   //interpolate cam (much smoother with interp vs. 1/X ease)
   var lerpICam = 0.2; //lerpI; //ag@r is 0.125.125 @ 2 25fps
   var a = (timestamp - lastUpdT) / 1000 / lerpICam;
