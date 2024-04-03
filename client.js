@@ -5,6 +5,7 @@ var ACTIVATEOURGAMEMODE = false
 var url = new URL(window.location.href);
 var secr = url.searchParams.get("ModeActivate");
 var oldmope = false
+var daynight = 0
 var brtimerx = 0
 var badpiggiesplay = recover = 0
 const urlParams = new URLSearchParams(window.location.search);
@@ -3466,10 +3467,7 @@ var isSoccerEnabled = false;
 var show1v1Button = true;
 var can1v1 = false;
 var btn1v1 = null;
-var btnEGG = null;
-var btnEGG1 = null;
-var btnEGG2 = null;
-var btnEGG3 = null;
+var btnTime = null;
 var player1v1ArenaWins = 0;
 var playerGoalsScore = 0;
 var serverAllTimeGoals = 0;
@@ -4829,6 +4827,7 @@ var xpbar2 = xpNextAni - lastxp
   }
 
   create1v1Button();
+  createTimeUI();
   if (isTouchEnabled) {
     //draw joystick
     joystickA += ((joyStickOpen ? 1.0 : 0.0) - joystickA) * 0.1;
@@ -5816,36 +5815,39 @@ function create1v1Button() {
   }
 }
 
-function createEggUI1(eggtype) {
-	    if (btnEGG1 == null) {
-      btnEGG1 = new InterfaceButton(-80, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
-      btnEGG1.showLabeleOnHover = true;
-      btnEGG1.textShadow = true;
-      btnEGG1.drawTextOnHowever = function() {
+
+
+
+function createTimeUI() {
+    if (btnTime == null) {
+      btnTime = new InterfaceButton(160, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
+      btnTime.showLabeleOnHover = true;
+      btnTime.textShadow = true;
+      btnTime.drawTextOnHowever = function() {
         this.drawText(this.w / 2, this.h + this.h / 2);
       };
 
-      btnEGG1.onClick = function() {
+      btnTime.onClick = function() {
         if (!this.clicked  ) {
           this.isVisible = false;
           this.clicked = true;
           this.isHighLighted = false;
         }
       };
-      btnEGG1.onMouseMove = function() {};
-      btnEGG1.update = function() {
+      btnTime.onMouseMove = function() {};
+      btnTime.update = function() {
         this.x = canvasW / 2 - this.w / 2;
         this.y = 45 * interfS + this.h / 2; //(canvasH / 2) - 250;
         //if (gameMode == gameMode_battleRoyal) this.y += 50 * interfS;
       };
 
-      btnEGG1.onInterfaceReset = function() {
+      btnTime.onInterfaceReset = function() {
         this.isVisible = false;
-        btnEGG1 = null;
+        btnTime = null;
       };
 
-      btnEGG1.onAfterDraw = function() {
-        var theImg = getLoadedImg("img/eastereggs/" + 1 + ".png");
+      btnTime.onAfterDraw = function() {
+        var theImg = getLoadedImg("img/stages/" + daynight + ".png");
         if (theImg) {
           ctx.save();
 
@@ -5855,63 +5857,12 @@ function createEggUI1(eggtype) {
           ctx.restore();
         }
       };
-      _gameMode.interfaceButtons.push(btnEGG1);
+      _gameMode.interfaceButtons.push(btnTime);
     } else {
-      if (btnEGG1 != null) {
-        btnEGG1.isVisible = show1v1Button;
-        if (btnEGG1.isVisible) btnEGG1.clicked = false;
-        btnEGG1.draw();
-      }
-    }
-  
-}
-
-
-function createEggUI(eggtype) {
-    if (btnEGG == null) {
-      btnEGG = new InterfaceButton(160, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
-      btnEGG.showLabeleOnHover = true;
-      btnEGG.textShadow = true;
-      btnEGG.drawTextOnHowever = function() {
-        this.drawText(this.w / 2, this.h + this.h / 2);
-      };
-
-      btnEGG.onClick = function() {
-        if (!this.clicked  ) {
-          this.isVisible = false;
-          this.clicked = true;
-          this.isHighLighted = false;
-        }
-      };
-      btnEGG.onMouseMove = function() {};
-      btnEGG.update = function() {
-        this.x = canvasW / 2 - this.w / 2;
-        this.y = 45 * interfS + this.h / 2; //(canvasH / 2) - 250;
-        //if (gameMode == gameMode_battleRoyal) this.y += 50 * interfS;
-      };
-
-      btnEGG.onInterfaceReset = function() {
-        this.isVisible = false;
-        btnEGG = null;
-      };
-
-      btnEGG.onAfterDraw = function() {
-        var theImg = getLoadedImg("img/eastereggs/" + 0 + ".png");
-        if (theImg) {
-          ctx.save();
-
-          var iw = this.w * 0.8;
-          var pad = (this.w - iw) / 2;
-          ctx.drawImage(theImg, this.x + pad, this.y + pad, iw, iw);
-          ctx.restore();
-        }
-      };
-      _gameMode.interfaceButtons.push(btnEGG);
-    } else {
-      if (btnEGG != null) {
-        btnEGG.isVisible = show1v1Button;
-        if (btnEGG.isVisible) btnEGG.clicked = false;
-        btnEGG.draw();
+      if (btnTime != null) {
+        btnTime.isVisible = show1v1Button;
+        if (btnTime.isVisible) btnTime.clicked = false;
+        btnTime.draw();
       }
     }
   
@@ -32100,10 +32051,7 @@ function gameReset() {
   player1v1ArenaWins = 0;
   player1v1Requests = [];
   //if (btn1v1 != null) btn1v1.isVisible = false;
-  btnEGG = null;
-	  btnEGG1 = null;
-	  btnEGG2 = null;
-	  btnEGG3 = null;
+  btnTime = null;
 	
   btn1v1 = null;
   isInBonusRound = false;
