@@ -5,7 +5,8 @@ var ACTIVATEOURGAMEMODE = false
 var url = new URL(window.location.href);
 var secr = url.searchParams.get("ModeActivate");
 var oldmope = false
-var daynight = 0
+var daynightstamp = Date.now()
+var daynight = 6
 var brtimerx = 0
 var badpiggiesplay = recover = 0
 const urlParams = new URLSearchParams(window.location.search);
@@ -4712,8 +4713,8 @@ function drawGameInterface() {
  pressureBarPerc += (pressureBarPerc_n - pressureBarPerc) * 0.1;
   xpPer += (xpPer_n - xpPer) * 0.03;
   //flashing LOW water animation
-	
-	if (daynight == 2) {
+	daynight = ((Date.now() - daynightstamp)/(1000 * 60)) % 24
+	if (daynight < 6) {
     ctx.globalAlpha = 0.25;
   ctx.fillStyle = "#1829FF";
         ctx.fillRect(0, 0, canvasW, canvasH); //bg
@@ -4721,9 +4722,13 @@ function drawGameInterface() {
 	}
 
 		
-	if (daynight == 1) {
-    ctx.globalAlpha = 0.25;
+	if (daynight > 6 && daynight < 7) {
+    ctx.globalAlpha = 0.25 * ((daynight - 6));
   ctx.fillStyle = "#FFBC18";
+        ctx.fillRect(0, 0, canvasW, canvasH); //bg
+		    ctx.globalAlpha = 1;
+	ctx.globalAlpha = 0.25 * (1 - (daynight - 6));
+  ctx.fillStyle = "#1829FF";
         ctx.fillRect(0, 0, canvasW, canvasH); //bg
 		    ctx.globalAlpha = 1;
 	}
