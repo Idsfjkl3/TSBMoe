@@ -4738,8 +4738,8 @@ function drawGameInterface() {
 	}
 		if (daynight > 7 && daynight < 8) {
 					stages = 1
-    ctx.globalAlpha = 0.25 * (daynight - 8);
-  ctx.fillStyle = "#1829FF";
+    ctx.globalAlpha = 0.25 * (1 - (daynight - 7));
+  ctx.fillStyle = "#FFBC18";
         ctx.fillRect(0, 0, canvasW, canvasH); //bg
 		    ctx.globalAlpha = 1;
 	}
