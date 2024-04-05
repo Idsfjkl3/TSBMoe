@@ -5820,7 +5820,7 @@ var drawLabelValueOn = function(c, label, value, x, y) {
 function create1v1Button() {
   if (can1v1) {
     if (btn1v1 == null) {
-      btn1v1 = new InterfaceButton(0, 0, 60, 60, "Click to 1v1", 30);
+      btn1v1 = new InterfaceButton(40, 0, 60, 60, "Click to 1v1", 30);
       btn1v1.showLabeleOnHover = true;
       btn1v1.textShadow = true;
       btn1v1.drawTextOnHowever = function() {
@@ -5877,7 +5877,11 @@ function create1v1Button() {
 
 function createTimeUI() {
     if (btnTime == null) {
-      btnTime = new InterfaceButton(160, 0, 60, 60, "Click to 1v1", 30, "#828282", "#6D6D6D");
+	    if (can1v1) {
+	      btnTime = new InterfaceButton(-40, 0, 60, 60, "Time", 30, "#828282", "#6D6D6D");	    
+	    } else {
+      btnTime = new InterfaceButton(0, 0, 60, 60, "Time", 30, "#828282", "#6D6D6D");
+	    }
       btnTime.showLabeleOnHover = true;
       btnTime.textShadow = true;
       btnTime.drawTextOnHowever = function() {
