@@ -7,6 +7,7 @@ var secr = url.searchParams.get("ModeActivate");
 var oldmope = false
 var daynightstamp = Date.now()
 var daynight = 6
+var stages = 0
 var brtimerx = 0
 var badpiggiesplay = recover = 0
 const urlParams = new URLSearchParams(window.location.search);
@@ -4714,7 +4715,9 @@ function drawGameInterface() {
   xpPer += (xpPer_n - xpPer) * 0.03;
   //flashing LOW water animation
 	daynight = 6 + ((Date.now() - daynightstamp)/(1000 * 60 * 12)) % 24
+			stages = 0
 	if (daynight < 6) {
+				stage = 2
     ctx.globalAlpha = 0.25;
   ctx.fillStyle = "#1829FF";
         ctx.fillRect(0, 0, canvasW, canvasH); //bg
@@ -4723,6 +4726,7 @@ function drawGameInterface() {
 
 		
 	if (daynight > 6 && daynight < 7) {
+				stage = 1
     ctx.globalAlpha = 0.25 * ((daynight - 6));
   ctx.fillStyle = "#FFBC18";
         ctx.fillRect(0, 0, canvasW, canvasH); //bg
@@ -4733,28 +4737,32 @@ function drawGameInterface() {
 		    ctx.globalAlpha = 1;
 	}
 		if (daynight > 7 && daynight < 8) {
+					stage = 1
     ctx.globalAlpha = 0.25 * (daynight - 8);
   ctx.fillStyle = "#1829FF";
         ctx.fillRect(0, 0, canvasW, canvasH); //bg
 		    ctx.globalAlpha = 1;
 	}
 			if (daynight > 18 && daynight < 19) {
+						stage = 1
     ctx.globalAlpha = 0.25 * (daynight - 18);
   ctx.fillStyle = "#1829FF";
         ctx.fillRect(0, 0, canvasW, canvasH); //bg
 		    ctx.globalAlpha = 1;
 	}
 		if (daynight > 19 && daynight < 20) {
-    ctx.globalAlpha = 0.25 * ((daynight - 19));
+					stage = 1
+    ctx.globalAlpha = 0.25 * (1 - (daynight - 19));
   ctx.fillStyle = "#FFBC18";
         ctx.fillRect(0, 0, canvasW, canvasH); //bg
 		    ctx.globalAlpha = 1;
-	ctx.globalAlpha = 0.25 * (1 - (daynight - 19));
+	ctx.globalAlpha = 0.25 * ((daynight - 19));
   ctx.fillStyle = "#1829FF";
         ctx.fillRect(0, 0, canvasW, canvasH); //bg
 		    ctx.globalAlpha = 1;
 	}
 		if (daynight >= 20) {
+					stage = 2
     ctx.globalAlpha = 0.25;
   ctx.fillStyle = "#1829FF";
         ctx.fillRect(0, 0, canvasW, canvasH); //bg
@@ -5896,7 +5904,7 @@ function createTimeUI() {
       };
 
       btnTime.onAfterDraw = function() {
-        var theImg = getLoadedImg("img/stages/" + 1 + ".png");//daynight
+        var theImg = getLoadedImg("img/stages/" + stage + ".png");//daynight
         if (theImg) {
           ctx.save();
 
