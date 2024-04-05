@@ -4713,7 +4713,7 @@ function drawGameInterface() {
  pressureBarPerc += (pressureBarPerc_n - pressureBarPerc) * 0.1;
   xpPer += (xpPer_n - xpPer) * 0.03;
   //flashing LOW water animation
-	daynight = 6 + ((Date.now() - daynightstamp)/(1000 * 60)) % 24
+	daynight = 6 + ((Date.now() - daynightstamp)/(1000 * 60 * 12)) % 24
 	if (daynight < 6) {
     ctx.globalAlpha = 0.25;
   ctx.fillStyle = "#1829FF";
@@ -4732,6 +4732,35 @@ function drawGameInterface() {
         ctx.fillRect(0, 0, canvasW, canvasH); //bg
 		    ctx.globalAlpha = 1;
 	}
+		if (daynight > 7 && daynight < 8) {
+    ctx.globalAlpha = 0.25 * (daynight - 8);
+  ctx.fillStyle = "#1829FF";
+        ctx.fillRect(0, 0, canvasW, canvasH); //bg
+		    ctx.globalAlpha = 1;
+	}
+			if (daynight > 18 && daynight < 19) {
+    ctx.globalAlpha = 0.25 * (daynight - 18);
+  ctx.fillStyle = "#1829FF";
+        ctx.fillRect(0, 0, canvasW, canvasH); //bg
+		    ctx.globalAlpha = 1;
+	}
+		if (daynight > 19 && daynight < 20) {
+    ctx.globalAlpha = 0.25 * ((daynight - 19));
+  ctx.fillStyle = "#FFBC18";
+        ctx.fillRect(0, 0, canvasW, canvasH); //bg
+		    ctx.globalAlpha = 1;
+	ctx.globalAlpha = 0.25 * (1 - (daynight - 19));
+  ctx.fillStyle = "#1829FF";
+        ctx.fillRect(0, 0, canvasW, canvasH); //bg
+		    ctx.globalAlpha = 1;
+	}
+		if (daynight >= 20) {
+    ctx.globalAlpha = 0.25;
+  ctx.fillStyle = "#1829FF";
+        ctx.fillRect(0, 0, canvasW, canvasH); //bg
+		    ctx.globalAlpha = 1;
+	}
+
 	
   var myPlayer = gameObjsByID[myPlayerID];
   if (myPlayer) {
