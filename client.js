@@ -4714,7 +4714,7 @@ function drawGameInterface() {
  pressureBarPerc += (pressureBarPerc_n - pressureBarPerc) * 0.1;
   xpPer += (xpPer_n - xpPer) * 0.03;
   //flashing LOW water animation
-	daynight = 6 + ((Date.now() - daynightstamp)/(1000 * 60 /12)) % 24
+	daynight = 6 + ((Date.now() - daynightstamp)/(1000 * 60 /24)) % 24
 			stages = 0
 	if (daynight < 6) {
 				stages = 2
@@ -4746,7 +4746,7 @@ function drawGameInterface() {
 			if (daynight > 18 && daynight < 19) {
 						stages = 1
     ctx.globalAlpha = 0.25 * (daynight - 18);
-  ctx.fillStyle = "#1829FF";
+  ctx.fillStyle = "#FFBC18";
         ctx.fillRect(0, 0, canvasW, canvasH); //bg
 		    ctx.globalAlpha = 1;
 	}
