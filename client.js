@@ -5867,7 +5867,7 @@ function createTimeUI() {
       };
 
       btnTime.onAfterDraw = function() {
-        var theImg = getLoadedImg("img/stages/" + daynight + ".png");
+        var theImg = getLoadedImg("img/stages/" + 1 + ".png");//daynight
         if (theImg) {
           ctx.save();
 
