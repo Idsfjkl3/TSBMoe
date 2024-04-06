@@ -17805,7 +17805,13 @@ this.filterswap = 1
  
    if(this.flag_flying&&idealOp > this.transparancy / 100)
 idealOp = this.transparancy / 100;
-}   
+}
+	  if ((this.flag_inCloud && myPlayer23 && !myPlayer23.flag_flying)  && this.id != myPlayerID) { //fun things with players invis
+    idealOp = 0.2;
+  }
+		  if (this.flag_inCloud && !myPlayer23 && this.id != myPlayerID) { //fun things with players invis
+    idealOp = 0.2;
+  }
   
    if(this.animalType == a_tiger){
  
@@ -19758,6 +19764,7 @@ for (var J = 0; J < cnt; J++) {
     this.flag_DevMode = aniFlags.includes(48)
       this.flag_inReef = aniFlags.includes(49)
 	this.flag_swallowed = aniFlags.includes(50)
+		this.flag_inCloud = aniFlags.includes(51)
         this.wins1v1 = msg.readUInt8();
 
     if (this.isAbility1v1Active && this.flag_can1v1) {
