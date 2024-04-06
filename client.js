@@ -9938,8 +9938,8 @@ if (myPlayer.flag_flying) {
           0,
           2 * Math.PI
         );
-        //ctx.fill();
-        //ctx.beginPath();
+        ctx.fill();
+        ctx.beginPath();
         ctx.arc(
           this.rad * 0.5 * shiftIn,
           -this.rad * 0.8 * shiftIn - 10.0 * this.rPer,
@@ -9947,8 +9947,8 @@ if (myPlayer.flag_flying) {
           0,
           2 * Math.PI
         );
-       // ctx.fill();
-        //ctx.beginPath();
+       ctx.fill();
+        ctx.beginPath();
         //ctx.globalAlpha = 0.95;
         ctx.arc(
           this.rad * 0.6 * shiftIn,
@@ -9957,8 +9957,8 @@ if (myPlayer.flag_flying) {
           0,
           2 * Math.PI
         );
-       // ctx.fill();
-       // ctx.beginPath();
+       ctx.fill();
+       ctx.beginPath();
         ctx.arc(
           -this.rad * 0.5 * shiftIn,
           this.rad * 0.4 * shiftIn,
@@ -9990,8 +9990,8 @@ if (myPlayer.flag_flying) {
           0,
           2 * Math.PI
         );
-        ctx.fill();
-        ctx.beginPath();
+        //ctx.fill();
+        //ctx.beginPath();
         ctx.arc(
           this.rad * 0.5 * shiftIn,
           -this.rad * 0.8 * shiftIn - 10.0 * this.rPer,
@@ -9999,8 +9999,8 @@ if (myPlayer.flag_flying) {
           0,
           2 * Math.PI
         );
-        ctx.fill();
-        ctx.beginPath();
+        //ctx.fill();
+        //ctx.beginPath();
         //ctx.globalAlpha = 0.95;
         ctx.arc(
           this.rad * 0.6 * shiftIn,
@@ -10009,8 +10009,8 @@ if (myPlayer.flag_flying) {
           0,
           2 * Math.PI
         );
-        ctx.fill();
-        ctx.beginPath();
+        //ctx.fill();
+        //ctx.beginPath();
         ctx.arc(
           -this.rad * 0.5 * shiftIn,
           this.rad * 0.4 * shiftIn,
