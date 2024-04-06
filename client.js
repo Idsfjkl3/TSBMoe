@@ -18531,6 +18531,19 @@ Animal.prototype.basicDrawSkinImg = function() {
 
                   ctx.restore();
     } else {
+
+
+	    	            for (var i = 0; i < Math.abs((this.velocityX + this.velocityY)/2); i = i + 30) { 
+				    ctx.globalAlpha = 1 - i/Math.abs((this.velocityX + this.velocityY)/2) + 10
+      ctx.drawImage(
+        this.loadedSkinImg,
+        -rad * iScale,
+        (-rad - i/10) * iScale,
+        2 * rad * iScale,
+        2 * rad * iScale
+      );
+	    }
+	    ctx.globalAlpha = 1
       
       ctx.drawImage(
         this.loadedSkinImg,
@@ -18543,15 +18556,7 @@ Animal.prototype.basicDrawSkinImg = function() {
 	   // this.velocityY = Math.min(200, this.velocityY)
 	    
 		    
-	            for (var i = 0; i < (this.velocityX + this.velocityY)/2; i = i + 20) { 
-      ctx.drawImage(
-        this.loadedSkinImg,
-        -rad * iScale,
-        (-rad - i/25) * iScale,
-        2 * rad * iScale,
-        2 * rad * iScale
-      );
-	    }
+
 	    /*
 	    if (this.velocityX > this.velocityY) {
 		    var VX = this.velocityX
