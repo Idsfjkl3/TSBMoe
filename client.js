@@ -9916,7 +9916,8 @@ if (this.specType != 1) {
 		            case o_cloud:
       {
         ctx.save();
-
+	                        var myPlayer = gameObjsByID[myPlayerID];
+if (myPlayer.flag_flying) {
         //draw bush animation
         var rShift = 0;
         var tSinceSpawn = (timestamp - this.spawnTime) / 1000.0;
@@ -9968,6 +9969,9 @@ if (this.specType != 1) {
         ctx.fill();
 
         ctx.restore();
+} else {
+	        ctx.globalAlpha = 0.5;
+	drawCircle(0, 0, this.rad, black);
       }
       break;
       
