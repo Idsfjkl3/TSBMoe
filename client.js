@@ -170,6 +170,7 @@ o_impact = 119;
 o_battleroyale = 120;
 o_eastereggs = 121;
 o_bombexplosion = 122;
+o_cloud = 123;
 //o_hat = 99;
 var GameObjType = {
   //makes it easy to add new subclasses- each class will add itself!
@@ -9911,6 +9912,63 @@ if (this.specType != 1) {
         ctx.restore();
       }
       break;
+
+		            case o_cloud:
+      {
+        ctx.save();
+
+        //draw bush animation
+        var rShift = 0;
+        var tSinceSpawn = (timestamp - this.spawnTime) / 1000.0;
+        var period = 2.0;
+        var shiftAm = 1.5;
+        rShift = shiftAm * Math.sin(((2.0 * Math.PI) / period) * tSinceSpawn);
+
+        var bushBgCol = "#ffffff";
+        ctx.fillStyle = bushBgCol;
+
+        ctx.globalAlpha *= 0.93;
+        ctx.beginPath();
+        ctx.arc(
+          -this.rad * 0.5,
+          -this.rad * 0.5 + 10.0 * this.rPer,
+          Math.max(0, this.rad * 0.65 + rShift),
+          0,
+          2 * Math.PI
+        );
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(
+          this.rad * 0.5,
+          -this.rad * 0.5 - 10.0 * this.rPer,
+          Math.max(0, this.rad * 0.73 - rShift),
+          0,
+          2 * Math.PI
+        );
+        ctx.fill();
+        ctx.beginPath();
+        //ctx.globalAlpha = 0.95;
+        ctx.arc(
+          this.rad * 0.6,
+          this.rad * 0.4,
+          Math.max(0, this.rad * 0.78 + rShift),
+          0,
+          2 * Math.PI
+        );
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(
+          -this.rad * 0.5,
+          this.rad * 0.5,
+          Math.max(0, this.rad * 0.6 + this.rPer - rShift),
+          0,
+          2 * Math.PI
+        );
+        ctx.fill();
+
+        ctx.restore();
+      }
+      break;
       
     case o_biome_volcano:
       {
@@ -12822,6 +12880,10 @@ case o_battleroyale:
           case o_hidebush: //bushes hide everything
       this.z = 10000;
       break;
+
+		           case o_cloud: //bushes hide everything
+      this.z = 10000000;
+      break; 
                 case o_bombexplosion:
           case o_lavaDrop:
       this.z = 2000; // splashes on top of all objects
