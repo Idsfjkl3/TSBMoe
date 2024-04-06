@@ -9931,7 +9931,7 @@ if (this.specType != 1) {
         ctx.beginPath();
         ctx.arc(
           -this.rad * 0.5,
-          -this.rad * 0.8 + 10.0 * this.rPer,
+          -this.rad * 1.1 + 10.0 * this.rPer,
           Math.max(0, this.rad * 0.65 + rShift),
           0,
           2 * Math.PI
@@ -9940,7 +9940,7 @@ if (this.specType != 1) {
         ctx.beginPath();
         ctx.arc(
           this.rad * 0.5,
-          -this.rad * 0.8 - 10.0 * this.rPer,
+          -this.rad * 1.1 - 10.0 * this.rPer,
           Math.max(0, this.rad * 0.73 - rShift),
           0,
           2 * Math.PI
@@ -9949,8 +9949,8 @@ if (this.specType != 1) {
         ctx.beginPath();
         //ctx.globalAlpha = 0.95;
         ctx.arc(
-          this.rad * 0.6,
-          this.rad * 0.3,
+          this.rad * 0.9,
+          this.rad * 0.5,
           Math.max(0, this.rad * 0.78 + rShift),
           0,
           2 * Math.PI
@@ -9958,8 +9958,8 @@ if (this.specType != 1) {
         ctx.fill();
         ctx.beginPath();
         ctx.arc(
-          -this.rad * 0.5,
-          this.rad * 0.4,
+          -this.rad * 0.8,
+          this.rad * 0.5,
           Math.max(0, this.rad * 0.6 + this.rPer - rShift),
           0,
           2 * Math.PI
