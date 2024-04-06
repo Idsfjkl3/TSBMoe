@@ -26759,12 +26759,12 @@ function InterfaceButton(x, y, w, h, txt, fontSize, color, strokecolor) {
         this.ctx.fillStyle = this.hoverColor;
         //    ctx.globalAlpha = origA * 0.2;
         //  ctx.fillRect(0 - this.w / 2, 0 - this.h / 2, this.w, this.h);
-        this.roundRect(0, 0, this.w, this.h, 5, true, false);
+        this.roundRect(this.x2, this.y2, this.w, this.h, 5, true, false);
       }
 
       if (!this.showLabeleOnHover) {
         this.ctx.globalAlpha = this.txtAlpha;
-        this.drawText(this.w / 2, this.h / 2);
+        this.drawText(this.x2 + this.w / 2, this.y2 + this.h / 2);
       } else if (this.isHighLighted && this.showLabeleOnHover) {
         this.drawTextOnHowever();
       }
@@ -26777,7 +26777,7 @@ function InterfaceButton(x, y, w, h, txt, fontSize, color, strokecolor) {
     });
 
   this.drawTextOnHowever = function() {
-    this.drawText(this.w / 2, this.h / 2);
+    this.drawText(this.x2 + this.w / 2, this.y2 + this.h / 2);
   };
 
   this.drawText = function(x, y) {
