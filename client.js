@@ -4884,7 +4884,7 @@ var xpbar2 = xpNextAni - lastxp
   }
 
   create1v1Button();
-  createTimeUI();
+  //createTimeUI();
   if (isTouchEnabled) {
     //draw joystick
     joystickA += ((joyStickOpen ? 1.0 : 0.0) - joystickA) * 0.1;
