@@ -5921,7 +5921,7 @@ function createTimeUI() {
       _gameMode.interfaceButtons.push(btnTime);
     } else {
       if (btnTime != null) {
-        btnTime.isVisible = show1v1Button;
+        btnTime.isVisible = true;
         if (btnTime.isVisible) btnTime.clicked = false;
         btnTime.draw();
       }
@@ -26756,7 +26756,7 @@ function InterfaceButton(x, y, w, h, txt, fontSize, color, strokecolor) {
     //} else
     //    return false;
   };
-  (this.setPosAndSize = function(newX, newY, newW, newH, anchorX, anchorY) {
+  (this.setPosAndSize = function(x, y, newW, newH, anchorX, anchorY) {
     this.w = newW;
     this.h = newH;
     //set middle x/y based on anchorX/anchorY -(0,0) is top-left corner
