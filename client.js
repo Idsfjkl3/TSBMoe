@@ -26733,6 +26733,8 @@ function InterfaceButton(x, y, w, h, txt, fontSize, color, strokecolor) {
   }),
     (this.draw = function() {
       //draw button bg square
+      this.x = x;
+      this.y = y;
       if (!this.isVisible) return;
       this.update();
       this.ctx.save();
