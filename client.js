@@ -9970,7 +9970,7 @@ if (myPlayer.flag_flying) {
 
         ctx.restore();
 } else {
-	        ctx.globalAlpha = 0.5;
+	        ctx.globalAlpha = 0.3;
 	drawCircle(0, 0, this.rad, "black");
 		        ctx.globalAlpha = 1;
 	        ctx.restore();
