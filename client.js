@@ -19587,7 +19587,8 @@ Animal.prototype.readCustomData_onUpdate = function(msg) {
 
   this.specType = msg.readUInt8();
   this.specType2 = msg.readUInt8();
-
+  this.velocityX = msg.readUInt16();
+  this.velocityY = msg.readUInt16();
   var lookAng = msg.readUInt8() * 2.0;
   this.currentangle = lookAng;
  // console.log("angle2: " + lookAng);
