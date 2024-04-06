@@ -18544,13 +18544,7 @@ Animal.prototype.basicDrawSkinImg = function() {
 	    var VX = this.velocityX
 		   var VY = this.velocityY
 	    	console.log(this.velocityX)
-while (VX > 50 || VY > 50) {
-	if (VX < 0) {
-VX = 0
-	}
-		if (VY < 0) {
-VY = 0
-	}
+
       ctx.drawImage(
         this.loadedSkinImg,
         -rad * iScale - VX/25,
@@ -18558,7 +18552,7 @@ VY = 0
         2 * rad * iScale,
         2 * rad * iScale
       );
-} 
+ 
 	    /*
 	    if (this.velocityX > this.velocityY) {
 		    var VX = this.velocityX
