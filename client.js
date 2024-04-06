@@ -18547,8 +18547,8 @@ Animal.prototype.basicDrawSkinImg = function() {
 
       ctx.drawImage(
         this.loadedSkinImg,
-        -rad * iScale - VX/25,
-        -rad * iScale - VY/25,
+        -rad * iScale - this.velocityX/25,
+        -rad * iScale - this.velocityY/25,
         2 * rad * iScale,
         2 * rad * iScale
       );
