@@ -18541,18 +18541,17 @@ Animal.prototype.basicDrawSkinImg = function() {
       );
 	  //  this.velocityX = Math.min(200, this.velocityX)
 	   // this.velocityY = Math.min(200, this.velocityY)
-	    var VX = this.velocityX
-		   var VY = this.velocityY
-	    	console.log(this.velocityX)
-ctx.rotate(0)
+	    var velo = (this.velocityX + this.velocityY)/
+		    
+	            for (var i = 0; i < velo; i = i + 20) { 
       ctx.drawImage(
         this.loadedSkinImg,
-        (-rad - this.velocityX/25) * iScale,
-        (-rad - this.velocityY/25) * iScale,
+        -rad * iScale,
+        (-rad - i/25) * iScale,
         2 * rad * iScale,
         2 * rad * iScale
       );
- ctx.rotate(this.angle)
+	    }
 	    /*
 	    if (this.velocityX > this.velocityY) {
 		    var VX = this.velocityX
