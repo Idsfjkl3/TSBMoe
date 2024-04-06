@@ -9970,10 +9970,57 @@ if (myPlayer.flag_flying) {
 
         ctx.restore();
 } else {
-	        ctx.globalAlpha = 0.3;
-	drawCircle(0, 0, this.rad, "black");
-		        ctx.globalAlpha = 1;
-	        ctx.restore();
+        //draw bush animation
+        var rShift = 0;
+        var tSinceSpawn = (timestamp - this.spawnTime) / 1000.0;
+        var period = 4.0;
+        var shiftAm = 10;
+	var shiftIn = 1;
+        rShift = shiftAm * Math.sin(((1.0 * Math.PI) / period) * tSinceSpawn) * this.rad / 65;
+
+        var bushBgCol = "black";
+        ctx.fillStyle = bushBgCol;
+
+        ctx.globalAlpha = 0.3;
+        ctx.beginPath();
+        ctx.arc(
+          -this.rad * 0.5 * shiftIn,
+          -this.rad * 0.8 * shiftIn + 10.0 * this.rPer,
+          Math.max(0, this.rad * 0.65 * 1.3 + rShift),
+          0,
+          2 * Math.PI
+        );
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(
+          this.rad * 0.5 * shiftIn,
+          -this.rad * 0.8 * shiftIn - 10.0 * this.rPer,
+          Math.max(0, this.rad * 0.73 * 1.3 - rShift),
+          0,
+          2 * Math.PI
+        );
+        ctx.fill();
+        ctx.beginPath();
+        //ctx.globalAlpha = 0.95;
+        ctx.arc(
+          this.rad * 0.6 * shiftIn,
+          this.rad * 0.3 * shiftIn,
+          Math.max(0, this.rad * 0.78 * 1.3 + rShift),
+          0,
+          2 * Math.PI
+        );
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(
+          -this.rad * 0.5 * shiftIn,
+          this.rad * 0.4 * shiftIn,
+          Math.max(0, this.rad * 0.6 * 1.3 + this.rPer - rShift),
+          0,
+          2 * Math.PI
+        );
+        ctx.fill();
+
+        ctx.restore();
       }
       }
       break;
