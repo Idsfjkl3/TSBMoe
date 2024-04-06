@@ -4714,7 +4714,7 @@ function drawGameInterface() {
  pressureBarPerc += (pressureBarPerc_n - pressureBarPerc) * 0.1;
   xpPer += (xpPer_n - xpPer) * 0.03;
   //flashing LOW water animation
-	daynight = 6 + ((Date.now() - daynightstamp)/(1000 * 60 /24)) % 24
+	daynight = 6 + ((Date.now() - daynightstamp)/(1000 * 60/2)) % 24
 			stages = 0
 	if (daynight < 6) {
 				stages = 2
