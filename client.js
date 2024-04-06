@@ -4884,7 +4884,7 @@ var xpbar2 = xpNextAni - lastxp
   }
 
   create1v1Button();
-  //createTimeUI();
+ //createTimeUI();
   if (isTouchEnabled) {
     //draw joystick
     joystickA += ((joyStickOpen ? 1.0 : 0.0) - joystickA) * 0.1;
@@ -26673,9 +26673,7 @@ function InterfaceButton(x, y, w, h, txt, fontSize, color, strokecolor) {
   //button gets resized on draw (due to varying screen size)
   var pr = interfS;
   this.x = x;
-  this.x2 = x;
   this.y = y;
-  this.y2 = y;
   this.w = w; //width of pressable region
   this.h = h;
   this.label = txt;
@@ -26752,7 +26750,7 @@ function InterfaceButton(x, y, w, h, txt, fontSize, color, strokecolor) {
       this.ctx.strokeStyle = strokecolor;
 	    }
       this.ctx.lineWidth = this.strokeWidth;
-      this.roundRect(this.x2, this.y2, this.w, this.h, 5, true, true);
+      this.roundRect(0, 0, this.w, this.h, 5, true, true);
       //  ctx.fillRect(0 - this.w / 2, 0 - this.h / 2, this.w, this.h);
       //draw highlight
       if (this.isHighLighted) {
