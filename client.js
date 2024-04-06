@@ -18539,8 +18539,8 @@ Animal.prototype.basicDrawSkinImg = function() {
         2 * rad * iScale,
         2 * rad * iScale
       );
-	    this.velocityX = Math.min(200, this.velocityX)
-	    this.velocityY = Math.min(200, this.velocityY)
+	  //  this.velocityX = Math.min(200, this.velocityX)
+	   // this.velocityY = Math.min(200, this.velocityY)
 	    var VX = this.velocityX
 		   var VY = this.velocityY
 	    	console.log(this.velocityX)
