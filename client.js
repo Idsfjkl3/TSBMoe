@@ -18533,17 +18533,6 @@ Animal.prototype.basicDrawSkinImg = function() {
     } else {
 
 
-	    	            for (var i = 0; i < Math.abs((this.velocityX + this.velocityY)/2); i = i + 30) { 
-				    ctx.globalAlpha = 1 - i/Math.abs((this.velocityX + this.velocityY)/2) + .05
-      ctx.drawImage(
-        this.loadedSkinImg,
-        -rad * iScale,
-        (-rad - i/10) * iScale,
-        2 * rad * iScale,
-        2 * rad * iScale
-      );
-	    }
-	    ctx.globalAlpha = 1
       
       ctx.drawImage(
         this.loadedSkinImg,
@@ -18552,28 +18541,7 @@ Animal.prototype.basicDrawSkinImg = function() {
         2 * rad * iScale,
         2 * rad * iScale
       );
-	  //  this.velocityX = Math.min(200, this.velocityX)
-	   // this.velocityY = Math.min(200, this.velocityY)
-	    
-		    
 
-	    /*
-	    if (this.velocityX > this.velocityY) {
-		    var VX = this.velocityX
-		   var VY = this.velocityY
-        for (var i = 0; i < this.velocityX; i += 50) { 
-		if (VX 
-	      ctx.drawImage(
-        this.loadedSkinImg,
-        -rad * iScale,
-        -rad * iScale,
-        2 * rad * iScale,
-        2 * rad * iScale
-      );    
-      
-    }
-    }
-	    */
 	    
   }
   //not loaded yet- draw plain color circle
