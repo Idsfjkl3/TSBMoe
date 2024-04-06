@@ -18534,7 +18534,7 @@ Animal.prototype.basicDrawSkinImg = function() {
 
 
 	    	            for (var i = 0; i < Math.abs((this.velocityX + this.velocityY)/2); i = i + 30) { 
-				    ctx.globalAlpha = 1 - i/Math.abs((this.velocityX + this.velocityY)/2) + 10
+				    ctx.globalAlpha = 1 - i/Math.abs((this.velocityX + this.velocityY)/2) + .05
       ctx.drawImage(
         this.loadedSkinImg,
         -rad * iScale,
