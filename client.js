@@ -9918,7 +9918,7 @@ if (this.specType != 1) {
         ctx.save();
 
         //draw bush animation
-        var rShift = 0;
+        var rShift = 15;
         var tSinceSpawn = (timestamp - this.spawnTime) / 1000.0;
         var period = 2.0;
         var shiftAm = 1.5;
@@ -9931,7 +9931,7 @@ if (this.specType != 1) {
         ctx.beginPath();
         ctx.arc(
           -this.rad * 0.5,
-          -this.rad * 0.5 + 10.0 * this.rPer,
+          -this.rad * 0.5 + 20.0 * this.rPer,
           Math.max(0, this.rad * 0.65 + rShift),
           0,
           2 * Math.PI
@@ -9940,7 +9940,7 @@ if (this.specType != 1) {
         ctx.beginPath();
         ctx.arc(
           this.rad * 0.5,
-          -this.rad * 0.5 - 10.0 * this.rPer,
+          -this.rad * 0.5 - 20.0 * this.rPer,
           Math.max(0, this.rad * 0.73 - rShift),
           0,
           2 * Math.PI
