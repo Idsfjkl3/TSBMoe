@@ -9920,9 +9920,9 @@ if (this.specType != 1) {
         //draw bush animation
         var rShift = 0;
         var tSinceSpawn = (timestamp - this.spawnTime) / 1000.0;
-        var period = 2.0;
-        var shiftAm = 15;
-	var shiftIn = 0.8;
+        var period = 6.0;
+        var shiftAm = 10;
+	var shiftIn = 1;
         rShift = shiftAm * Math.sin(((1.0 * Math.PI) / period) * tSinceSpawn);
 
         var bushBgCol = "#ffffff";
