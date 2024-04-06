@@ -9973,6 +9973,7 @@ if (myPlayer.flag_flying) {
 	        ctx.globalAlpha = 0.5;
 	drawCircle(0, 0, this.rad, black);
       }
+      }
       break;
       
     case o_biome_volcano:
