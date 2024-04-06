@@ -143,7 +143,7 @@ o_stump = 91;
 o_fig = 92;
 o_tomato = 93;
 o_sandbox = 94; 
-o_hidebush = 123;
+o_hidebush = 95;
 o_mandarin = 96;
 o_mandarinsplat = 97;
 o_biome_cold_ocean = 98;
@@ -170,7 +170,7 @@ o_impact = 119;
 o_battleroyale = 120;
 o_eastereggs = 121;
 o_bombexplosion = 122;
-o_cloud = 95;
+o_cloud = 123;
 //o_hat = 99;
 var GameObjType = {
   //makes it easy to add new subclasses- each class will add itself!
@@ -9920,7 +9920,7 @@ if (this.specType != 1) {
         //draw bush animation
         var rShift = 0;
         var tSinceSpawn = (timestamp - this.spawnTime) / 1000.0;
-        var period = 6.0;
+        var period = 4.0;
         var shiftAm = 10;
 	var shiftIn = 1;
         rShift = shiftAm * Math.sin(((1.0 * Math.PI) / period) * tSinceSpawn);
