@@ -9917,7 +9917,7 @@ if (this.specType != 1) {
       {
         ctx.save();
 	                        var myPlayer = gameObjsByID[myPlayerID];
-if (myPlayer.flag_flying) {
+if (myPlayer && myPlayer.flag_flying) {
         //draw bush animation
         var rShift = 0;
         var tSinceSpawn = (timestamp - this.spawnTime) / 1000.0;
@@ -9991,7 +9991,7 @@ if (myPlayer.flag_flying) {
           2 * Math.PI
         );
         //ctx.fill();
-        //ctx.beginPath();
+        ctx.beginPath();
         ctx.arc(
           this.rad * 0.5 * shiftIn,
           -this.rad * 0.8 * shiftIn - 10.0 * this.rPer,
@@ -10000,7 +10000,7 @@ if (myPlayer.flag_flying) {
           2 * Math.PI
         );
         //ctx.fill();
-        //ctx.beginPath();
+        ctx.beginPath();
         //ctx.globalAlpha = 0.95;
         ctx.arc(
           this.rad * 0.6 * shiftIn,
@@ -10010,7 +10010,7 @@ if (myPlayer.flag_flying) {
           2 * Math.PI
         );
         //ctx.fill();
-        //ctx.beginPath();
+        ctx.beginPath();
         ctx.arc(
           -this.rad * 0.5 * shiftIn,
           this.rad * 0.4 * shiftIn,
