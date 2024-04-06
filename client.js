@@ -9921,8 +9921,8 @@ if (this.specType != 1) {
         var rShift = 0;
         var tSinceSpawn = (timestamp - this.spawnTime) / 1000.0;
         var period = 2.0;
-        var shiftAm = 1.5;
-        rShift = shiftAm * Math.sin(((4.0 * Math.PI) / period) * tSinceSpawn);
+        var shiftAm = 4.5;
+        rShift = shiftAm * Math.sin(((2.0 * Math.PI) / period) * tSinceSpawn);
 
         var bushBgCol = "#ffffff";
         ctx.fillStyle = bushBgCol;
@@ -9931,7 +9931,7 @@ if (this.specType != 1) {
         ctx.beginPath();
         ctx.arc(
           -this.rad * 0.5,
-          -this.rad * 0.5 + 10.0 * this.rPer,
+          -this.rad * 0.8 + 10.0 * this.rPer,
           Math.max(0, this.rad * 0.65 + rShift),
           0,
           2 * Math.PI
@@ -9940,7 +9940,7 @@ if (this.specType != 1) {
         ctx.beginPath();
         ctx.arc(
           this.rad * 0.5,
-          -this.rad * 0.5 - 10.0 * this.rPer,
+          -this.rad * 0.8 - 10.0 * this.rPer,
           Math.max(0, this.rad * 0.73 - rShift),
           0,
           2 * Math.PI
@@ -9950,7 +9950,7 @@ if (this.specType != 1) {
         //ctx.globalAlpha = 0.95;
         ctx.arc(
           this.rad * 0.6,
-          this.rad * 0.4,
+          this.rad * 0.3,
           Math.max(0, this.rad * 0.78 + rShift),
           0,
           2 * Math.PI
@@ -9959,7 +9959,7 @@ if (this.specType != 1) {
         ctx.beginPath();
         ctx.arc(
           -this.rad * 0.5,
-          this.rad * 0.5,
+          this.rad * 0.4,
           Math.max(0, this.rad * 0.6 + this.rPer - rShift),
           0,
           2 * Math.PI
