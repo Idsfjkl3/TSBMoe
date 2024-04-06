@@ -16095,6 +16095,8 @@ thisClass.superClass = superClass; //'class' var
 
 Animal.prototype.animalType = a_mouse;
 Animal.prototype.animalSpecies = 0; // if ani has different skill set will use this var to show them
+Animal.prototype.velocityX = 0; // if ani has different skill set will use this var to show them
+Animal.prototype.velocityY = 0; // if ani has different skill set will use this var to show them
 Animal.prototype.nickName = "";
 Animal.prototype.oldnickName = "";
 Animal.prototype.skinImgName = null; //eg. mouse.png
