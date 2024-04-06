@@ -18539,7 +18539,7 @@ Animal.prototype.basicDrawSkinImg = function() {
         2 * rad * iScale,
         2 * rad * iScale
       );
-	/*    var VX = this.velocityX
+	    var VX = this.velocityX
 		   var VY = this.velocityY
 while (VX > 50 || VY > 50) {
 	if (VX < 0) {
@@ -18555,7 +18555,7 @@ VY = 0
         2 * rad * iScale,
         2 * rad * iScale
       );
-} */
+} 
 	    /*
 	    if (this.velocityX > this.velocityY) {
 		    var VX = this.velocityX
@@ -18576,7 +18576,7 @@ VY = 0
 	    
   }
   //not loaded yet- draw plain color circle
-  else {
+  } else {
     //drawCircle(0,0,this.rad, col);
     ctx.fillStyle = this.skinNotLoadedColor;
     //var oldA=ctx.alpha;
@@ -19492,6 +19492,8 @@ Animal.prototype.readCustomData_onNewlyVisible = function(msg) {
   var nickName = msg.readString();
   // read which speices is this animal
   this.animalSpecies = msg.readUInt8();
+  this.velocityX = msg.readUInt16();
+  this.velocityX = msg.readUInt16();
   if (gameMode == gameMode_teamMode) this.teamID = msg.readUInt8();
    var nw_colorname = msg.readUInt8();
   switch(nw_colorname) {
