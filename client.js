@@ -19495,8 +19495,8 @@ Animal.prototype.readCustomData_onNewlyVisible = function(msg) {
   var nickName = msg.readString();
   // read which speices is this animal
   this.animalSpecies = msg.readUInt8();
-  this.velocityX = msg.readUInt16();
-  this.velocityX = msg.readUInt16();
+  this.velocityX = msg.readUInt8();
+  this.velocityX = msg.readUInt8();
   if (gameMode == gameMode_teamMode) this.teamID = msg.readUInt8();
    var nw_colorname = msg.readUInt8();
   switch(nw_colorname) {
@@ -19589,8 +19589,8 @@ Animal.prototype.readCustomData_onUpdate = function(msg) {
 
   this.specType = msg.readUInt8();
   this.specType2 = msg.readUInt8();
-  this.velocityX = msg.readUInt16();
-  this.velocityY = msg.readUInt16();
+  this.velocityX = msg.readUInt8();
+  this.velocityY = msg.readUInt8();
   var lookAng = msg.readUInt8() * 2.0;
   this.currentangle = lookAng;
  // console.log("angle2: " + lookAng);
