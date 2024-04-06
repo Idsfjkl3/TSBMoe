@@ -9921,8 +9921,8 @@ if (this.specType != 1) {
         var rShift = 0;
         var tSinceSpawn = (timestamp - this.spawnTime) / 1000.0;
         var period = 2.0;
-        var shiftAm = 4.5;
-        rShift = shiftAm * Math.sin(((2.0 * Math.PI) / period) * tSinceSpawn);
+        var shiftAm = 10;
+        rShift = shiftAm * Math.sin(((1.0 * Math.PI) / period) * tSinceSpawn);
 
         var bushBgCol = "#ffffff";
         ctx.fillStyle = bushBgCol;
