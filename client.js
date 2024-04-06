@@ -18544,7 +18544,7 @@ Animal.prototype.basicDrawSkinImg = function() {
 	    var VX = this.velocityX
 		   var VY = this.velocityY
 	    	console.log(this.velocityX)
-
+ctx.rotate(0)
       ctx.drawImage(
         this.loadedSkinImg,
         (-rad - this.velocityX/25) * iScale,
@@ -18552,7 +18552,7 @@ Animal.prototype.basicDrawSkinImg = function() {
         2 * rad * iScale,
         2 * rad * iScale
       );
- 
+ ctx.rotate(this.angle)
 	    /*
 	    if (this.velocityX > this.velocityY) {
 		    var VX = this.velocityX
