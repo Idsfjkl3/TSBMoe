@@ -9971,7 +9971,7 @@ if (myPlayer.flag_flying) {
         ctx.restore();
 } else {
 	        ctx.globalAlpha = 0.5;
-	drawCircle(0, 0, this.rad, black);
+	drawCircle(0, 0, this.rad, "black");
       }
       }
       break;
