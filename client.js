@@ -5824,7 +5824,7 @@ function create1v1Button() {
       btn1v1.showLabeleOnHover = true;
       btn1v1.textShadow = true;
       btn1v1.drawTextOnHowever = function() {
-        this.drawText(this.w / 2, this.h + this.h / 2);
+        this.drawText(this.x2 + this.w / 2, this.y2 + this.h + this.h / 2);
       };
 
       btn1v1.onClick = function() {
