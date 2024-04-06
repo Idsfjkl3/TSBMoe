@@ -9923,7 +9923,7 @@ if (this.specType != 1) {
         var period = 4.0;
         var shiftAm = 10;
 	var shiftIn = 1;
-        rShift = shiftAm * Math.sin(((1.0 * Math.PI) / period) * tSinceSpawn);
+        rShift = shiftAm * Math.sin(((1.0 * Math.PI) / period) * tSinceSpawn) * this.rad / 65;
 
         var bushBgCol = "#ffffff";
         ctx.fillStyle = bushBgCol;
