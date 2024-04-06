@@ -18542,6 +18542,7 @@ Animal.prototype.basicDrawSkinImg = function() {
 	    var VX = this.velocityX
 		   var VY = this.velocityY
 while (VX > 50 || VY > 50) {
+	console.log(VX)
 	if (VX < 0) {
 VX = 0
 	}
