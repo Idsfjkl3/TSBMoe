@@ -18426,14 +18426,6 @@ Animal.prototype.basicDrawSkinImg = function() {
         2 * rad * iScale,
         2 * rad * (iScale)
       );
-    /*  iScale = 750 / 340.0; //scale up ps image to fit (to remove blank space)
-      ctx.drawImage(
-        this.loadedSkinImg,
-        -rad * iScale,
-        -rad * iScale,
-        2 * rad * iScale,
-        2 * rad * iScale
-      ); */
           } else if (this.animalType == a_qilin || this._animalType == a_qilin) { 
       overSizeOffsetX = rad / 2.05;
       overSizeOffsetY = rad / 1.75;
@@ -18536,37 +18528,6 @@ Animal.prototype.basicDrawSkinImg = function() {
 
 
                   ctx.restore();
-        } else if ((this.animalType == a_dragon || this._animalType == a_dragon) && 1 != 1) {
-          
-
-
-           ctx.drawImage(
-        this.loadedSkinImg,
-        -rad * iScale,
-        -rad * iScale,
-        2 * rad * iScale,
-        2 * rad * iScale
-      );
-          
-                                var theImg = getLoadedImg(
-          "img/ability_kamuieye.png"
-        );
-                  //console.log(toDegrees(135))
-        if (theImg) {
-    var eyeS = Math.max(this.rad / 25.0); //make eyes bigger for bigger animals
-    ctx.scale(eyeS, eyeS);
-  var eyeRad = 3;
-
-                      var rad2 = Math.max(49, this.rad/2 + 49)
-           ctx.drawImage(
-        theImg,
-        -rad  + (0.51 * rad2) * iScale,
-        -rad  + (0.835 * rad2) * iScale,
-        2 * eyeRad * iScale,
-        2 * eyeRad * iScale
-      );
-        }
-          
     } else {
       
       ctx.drawImage(
@@ -18576,8 +18537,41 @@ Animal.prototype.basicDrawSkinImg = function() {
         2 * rad * iScale,
         2 * rad * iScale
       );
+	    var VX = this.velocityX
+		   var VY = this.velocityY
+while (VX > 50 || VY > 50) {
+	if (VX < 0) {
+VX = 0
+	}
+		if (VY < 0) {
+VY = 0
+	}
+      ctx.drawImage(
+        this.loadedSkinImg,
+        -rad * iScale - VX/25,
+        -rad * iScale - VY/25,
+        2 * rad * iScale,
+        2 * rad * iScale
+      );
+}
+	    /*
+	    if (this.velocityX > this.velocityY) {
+		    var VX = this.velocityX
+		   var VY = this.velocityY
+        for (var i = 0; i < this.velocityX; i += 50) { 
+		if (VX 
+	      ctx.drawImage(
+        this.loadedSkinImg,
+        -rad * iScale,
+        -rad * iScale,
+        2 * rad * iScale,
+        2 * rad * iScale
+      );    
       
-    } 
+    }
+    }
+	    */
+	    
   }
   //not loaded yet- draw plain color circle
   else {
@@ -19496,6 +19490,8 @@ Animal.prototype.readCustomData_onNewlyVisible = function(msg) {
   var nickName = msg.readString();
   // read which speices is this animal
   this.animalSpecies = msg.readUInt8();
+  this.velocityX = msg.readUInt16();
+  this.velocityY = msg.readUInt16();
   if (gameMode == gameMode_teamMode) this.teamID = msg.readUInt8();
    var nw_colorname = msg.readUInt8();
   switch(nw_colorname) {
