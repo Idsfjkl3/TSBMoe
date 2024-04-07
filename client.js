@@ -1543,6 +1543,7 @@ ability_shotgunfire = 135,
 	//136
 ability_easterbomb = 137,
 ability_easterhop = 138,
+ability_raindrop = 139,
   ability_none = 0;
 var infoForAbilityT = function(abilT) {
   var infoO = {};
@@ -9927,6 +9928,14 @@ if (myPlayer && myPlayer.flag_flying) {
         rShift = shiftAm * Math.sin(((1.0 * Math.PI) / period) * tSinceSpawn) * this.rad / 65;
 
         var bushBgCol = "#ffffff";
+	        switch (this.curBiome) {
+          case 1:
+            bushBgCol = "#b2b2b2";
+            break;
+	case 2:
+            bushBgCol = " #5f5f5f";
+            break;
+        }
         ctx.fillStyle = bushBgCol;
 
         ctx.globalAlpha *= 0.93;
@@ -15957,6 +15966,16 @@ ctx.globalAlpha = 1
       }
       break;
 
+		case ability_raindrop:
+      {
+        ctx.save();
+        var oldA = ctx.globalAlpha;
+        ctx.globalAlpha = 0.15 * oldA;
+        drawCircle(0, 0, this.rad, "blue");
+
+        ctx.restore();
+      }
+      break;
     default:
       {
         ctx.save();
