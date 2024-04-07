@@ -17807,10 +17807,10 @@ this.filterswap = 1
 idealOp = this.transparancy / 100;
 }
 	  if ((this.flag_inCloud && myPlayer23 && !myPlayer23.flag_flying)  && this.id != myPlayerID) { //fun things with players invis
-    idealOp = 0.2;
+    idealOp = 0.08;
   }
 		  if (this.flag_inCloud && !myPlayer23 && this.id != myPlayerID) { //fun things with players invis
-    idealOp = 0.2;
+    idealOp = 0.08;
   }
   
    if(this.animalType == a_tiger){
