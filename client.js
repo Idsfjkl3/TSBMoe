@@ -9928,7 +9928,7 @@ if (myPlayer && myPlayer.flag_flying) {
         rShift = shiftAm * Math.sin(((1.0 * Math.PI) / period) * tSinceSpawn) * this.rad / 65;
 
         var bushBgCol = "#ffffff";
-	        switch (this.curBiome) {
+	        switch (this.specType) {
           case 1:
             bushBgCol = "#b2b2b2";
             break;
