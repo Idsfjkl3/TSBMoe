@@ -1544,6 +1544,7 @@ ability_shotgunfire = 135,
 ability_easterbomb = 137,
 ability_easterhop = 138,
 ability_raindrop = 139,
+ability_spitrock = 140,
   ability_none = 0;
 var infoForAbilityT = function(abilT) {
   var infoO = {};
@@ -1570,6 +1571,15 @@ var infoForAbilityT = function(abilT) {
 
 		                                          case ability_waterspray:
       infoO.abilName = "Water Spray";
+      infoO.abilImg =
+        "skins/" +
+        zombieFolder +
+        infoForAnimalType(myPlayerLastAniT).skinName +
+        ".png";
+      break;
+
+		  		                                          case ability_spitrock:
+      infoO.abilName = "Spit Rock";
       infoO.abilImg =
         "skins/" +
         zombieFolder +
@@ -12788,6 +12798,7 @@ case o_cakesplash:
         this.type == ability_owlAttack ||
         this.type == ability_targetCircle ||
         this.type == ability_bearSlash ||
+	this.type == ability_spitrock ||
         this.type == ability_cakebomb
       ) {
         this.z = 100002;
@@ -13307,6 +13318,7 @@ AbilityObj.prototype.updateZ = function() {
     this.abilityType == ability_owlAttack ||
     this.abilityType == ability_targetCircle ||
     this.abilityType == ability_bearSlash ||
+    this.abilityType == ability_spitrock ||
     this.abilityType == ability_cakebomb
   ) {
     this.z = 100002;
@@ -13314,6 +13326,7 @@ AbilityObj.prototype.updateZ = function() {
   //if(this.abilityType==ability_krakenSpec || this.abilityType==ability_stingRayShock || this.abilityType==ability_squidInk)
   else if (
     this.abilityType == ability_bearSlash ||
+    this.abilityType == ability_spitrock ||
     this.abilityType == ability_cakebomb ||
     this.abilityType == ability_iceSlide ||
     this.abilityType == ability_clawSlash ||
@@ -13691,10 +13704,10 @@ AbilityObj.prototype.customDraw = function(batchDrawOutline) {
         var oldA = ctx.globalAlpha;
         //ctx.globalAlpha = 0.1 * oldA;
         //drawCircle(0, 0, this.rad, "#1898BD");
-                var theImg = getLoadedImg("img/ability_cakebomb.png");
-        if (this.specType == 1) {
+                var theImg = getLoadedImg("img/ability_spitrock.png");
+       /* if (this.specType == 1) {
                   var theImg = getLoadedImg("img/ability_cakesplat.png");
-        }
+        } */
         if (theImg) {
           var rad = this.rad;
 
@@ -13704,7 +13717,7 @@ AbilityObj.prototype.customDraw = function(batchDrawOutline) {
             ((timestamp - this.spawnTime) % rotationTms) / rotationTms;
           var rotation1 = fac0to1 * 2 * Math.PI;
         ctx.rotate(this.angle + rotation1);
-          ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad);
+          ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad * (1 + this.specType2/50));
           //console.log("drawing banana");
         }
         ctx.restore();
