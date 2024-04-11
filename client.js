@@ -17824,7 +17824,7 @@ this.filterswap = 1
   }
 }
                 if (this.id == myPlayerID ) {
-       if (!this.flag_ingenjutsu && this.filterswap != 0) {
+       if (!this.flag_ingenjutsu && this.filterswap != 0 && !impactblindness) {
          this.filterswap = 0
                 style = "html {-webkit-filter: invert(0%); -moz-filter: invert(0%); -o-filter: invert(0%); -ms-filter: invert(0%); }";
    head = document.getElementsByTagName("head")[0];
