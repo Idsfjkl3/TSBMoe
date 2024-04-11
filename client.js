@@ -13730,7 +13730,7 @@ AbilityObj.prototype.customDraw = function(batchDrawOutline) {
         var oldA = ctx.globalAlpha;
         //ctx.globalAlpha = 0.1 * oldA;
         //drawCircle(0, 0, this.rad, "#1898BD");
-                var theImg = getLoadedImg("img/ability_spitrock.png");
+                var theImg = getLoadedImg("img/ability_cakebomb.png");
         if (this.specType == 1) {
                   var theImg = getLoadedImg("img/ability_cakesplat.png");
         } 
@@ -13743,7 +13743,7 @@ AbilityObj.prototype.customDraw = function(batchDrawOutline) {
             ((timestamp - this.spawnTime) % rotationTms) / rotationTms;
           var rotation1 = fac0to1 * 2 * Math.PI;
         ctx.rotate(this.angle + rotation1);
-          ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad * (1 + this.specType2/50));
+          ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad);
           //console.log("drawing banana");
         }
         ctx.restore();
