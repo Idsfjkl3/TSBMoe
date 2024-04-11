@@ -17777,7 +17777,7 @@ this.kamuifilterswap = 1
 var style = "html {-webkit-filter: grayscale(100%) contrast(999999999999999999999999999999999999999999999%); -moz-filter: grayscale(100%) contrast(999999999999999999999999999999999999999999999%); -o-filter: grayscale(100%) contrast(999999999999999999999999999999999999999999999%); -ms-filter: grayscale(100%) contrast(999999999999999999999999999999999999999999999%); }";
 var head = document.getElementsByTagName("head")[0];
   var styleTag = document.createElement("style");
-
+this.filterswap = 0
  
   styleTag.type = "text/css";
   if (styleTag.styleSheet) {
