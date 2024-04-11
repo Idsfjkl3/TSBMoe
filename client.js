@@ -17828,7 +17828,25 @@ this.filterswap = 1
   }
 }
                 if (this.id == myPlayerID ) {
-       if (!this.flag_ingenjutsu && this.filterswap != 0 && !impactblindness) {
+       if (!this.flag_ingenjutsu && this.filterswap != 0) {
+         this.filterswap = 0
+                style = "html {-webkit-filter: none; -moz-filter: none; -o-filter: none; -ms-filter: none; }";
+   head = document.getElementsByTagName("head")[0];
+   styleTag = document.createElement("style");
+ 
+
+
+  styleTag.type = "text/css";
+  if (styleTag.styleSheet) {
+    styleTag.styleSheet.cssText = style;
+  } else {
+    styleTag.appendChild(document.createTextNode(style));
+  }
+  head.appendChild(styleTag); 
+            
+       } 
+
+			       if (!this.flag_ingenjutsu && !impactblindness) {
          this.filterswap = 0
                 style = "html {-webkit-filter: none; -moz-filter: none; -o-filter: none; -ms-filter: none; }";
    head = document.getElementsByTagName("head")[0];
