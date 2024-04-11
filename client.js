@@ -3503,6 +3503,9 @@ var brMapCanvas = null;
 var nPlayersViewing = 0;
 var nPlayersAlive = 0;
 var ctx = canvas.getContext("2d");
+if (impactblindness) {
+ctx.globalCompositeOperation = 'overlay'
+}
 ctx.shadowColor = "black"; //default for everything
 //global settings
 var localStorageOn = false;
@@ -4783,7 +4786,7 @@ function drawGameInterface() {
 		    ctx.globalAlpha = 1;
 	}
 	} else {
-ctx.globalCompositeOperation = 'overlay'
+
 	}
 	
   var myPlayer = gameObjsByID[myPlayerID];
