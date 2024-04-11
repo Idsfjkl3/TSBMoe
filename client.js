@@ -17739,20 +17739,7 @@ var head = document.getElementsByTagName("head")[0];
   }
   */ 
 
-  if (impactblindness) {
-var style = "html {-webkit-filter: grayscale(100%) contrast(999999999999999999999999999999999999999999999%); -moz-filter: grayscale(100%) contrast(999999999999999999999999999999999999999999999%); -o-filter: grayscale(100%) contrast(999999999999999999999999999999999999999999999%); -ms-filter: grayscale(100%) contrast(999999999999999999999999999999999999999999999%); }";
-var head = document.getElementsByTagName("head")[0];
-  var styleTag = document.createElement("style");
 
- 
-  styleTag.type = "text/css";
-  if (styleTag.styleSheet) {
-    styleTag.styleSheet.cssText = style;
-  } else {   
-    styleTag.appendChild(document.createTextNode(style));
-  }
-  head.appendChild(styleTag);
-}
                       if (this.id == myPlayerID ) {
   
        if (!this.flag_kamui && this.kamuifilterswap != 0) {
@@ -17784,7 +17771,24 @@ this.kamuifilterswap = 1
 
 
                 if (this.id == myPlayerID ) {
-  
+
+
+			  if (impactblindness) {
+var style = "html {-webkit-filter: grayscale(100%) contrast(999999999999999999999999999999999999999999999%); -moz-filter: grayscale(100%) contrast(999999999999999999999999999999999999999999999%); -o-filter: grayscale(100%) contrast(999999999999999999999999999999999999999999999%); -ms-filter: grayscale(100%) contrast(999999999999999999999999999999999999999999999%); }";
+var head = document.getElementsByTagName("head")[0];
+  var styleTag = document.createElement("style");
+
+ 
+  styleTag.type = "text/css";
+  if (styleTag.styleSheet) {
+    styleTag.styleSheet.cssText = style;
+  } else {   
+    styleTag.appendChild(document.createTextNode(style));
+  }
+  head.appendChild(styleTag);
+}
+
+			
        if (this.flag_ingenjutsu && this.filterswap != 1) {
      //fun things with players invis
 
