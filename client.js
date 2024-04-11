@@ -3503,20 +3503,7 @@ var brMapCanvas = null;
 var nPlayersViewing = 0;
 var nPlayersAlive = 0;
 var ctx = canvas.getContext("2d");
-if (impactblindness) {
-var style = "html {-webkit-filter: grayscale(100%) contrast(999999999999999999999999999999999999999999999%); -moz-filter: grayscale(100%) contrast(999999999999999999999999999999999999999999999%); -o-filter: grayscale(100%) contrast(999999999999999999999999999999999999999999999%); -ms-filter: grayscale(100%) contrast(999999999999999999999999999999999999999999999%); }";
-var head = document.getElementsByTagName("head")[0];
-  var styleTag = document.createElement("style");
 
- 
-  styleTag.type = "text/css";
-  if (styleTag.styleSheet) {
-    styleTag.styleSheet.cssText = style;
-  } else {   
-    styleTag.appendChild(document.createTextNode(style));
-  }
-  head.appendChild(styleTag);
-}
 ctx.shadowColor = "black"; //default for everything
 //global settings
 var localStorageOn = false;
@@ -17752,7 +17739,20 @@ var head = document.getElementsByTagName("head")[0];
   }
   */ 
 
-  
+  if (impactblindness) {
+var style = "html {-webkit-filter: grayscale(100%) contrast(999999999999999999999999999999999999999999999%); -moz-filter: grayscale(100%) contrast(999999999999999999999999999999999999999999999%); -o-filter: grayscale(100%) contrast(999999999999999999999999999999999999999999999%); -ms-filter: grayscale(100%) contrast(999999999999999999999999999999999999999999999%); }";
+var head = document.getElementsByTagName("head")[0];
+  var styleTag = document.createElement("style");
+
+ 
+  styleTag.type = "text/css";
+  if (styleTag.styleSheet) {
+    styleTag.styleSheet.cssText = style;
+  } else {   
+    styleTag.appendChild(document.createTextNode(style));
+  }
+  head.appendChild(styleTag);
+}
                       if (this.id == myPlayerID ) {
   
        if (!this.flag_kamui && this.kamuifilterswap != 0) {
