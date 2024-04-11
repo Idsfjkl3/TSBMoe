@@ -9,7 +9,7 @@ var daynightstamp = Date.now()
 var daynight = 6
 var stages = 0
 var brtimerx = 0
-var impactblindness = true
+var impactblindness = false
 var badpiggiesplay = recover = 0
 const urlParams = new URLSearchParams(window.location.search);
 const testServer = urlParams.get('testserver');
