@@ -13715,7 +13715,7 @@ AbilityObj.prototype.customDraw = function(batchDrawOutline) {
           var fac0to1 =
             ((timestamp - this.spawnTime) % rotationTms) / rotationTms;
           var rotation1 = fac0to1 * 2 * Math.PI;
-       // ctx.rotate(this.angle + rotation1);
+        ctx.rotate(this.angle);
           ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad * (1 + this.specType2/50));
           //console.log("drawing banana");
         }
