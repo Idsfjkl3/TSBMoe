@@ -13696,9 +13696,8 @@ AbilityObj.prototype.customDraw = function(batchDrawOutline) {
             
     
     break;
-      
-            
-                case ability_cakebomb:
+
+		                  case ability_spitrock:
       {
         ctx.save();
         var oldA = ctx.globalAlpha;
@@ -13708,6 +13707,33 @@ AbilityObj.prototype.customDraw = function(batchDrawOutline) {
        /* if (this.specType == 1) {
                   var theImg = getLoadedImg("img/ability_cakesplat.png");
         } */
+        if (theImg) {
+          var rad = this.rad;
+
+          var rps = -14 / 60;
+          var rotationTms = 1000 / rps; //ms to one full movement- t=dist * v
+          var fac0to1 =
+            ((timestamp - this.spawnTime) % rotationTms) / rotationTms;
+          var rotation1 = fac0to1 * 2 * Math.PI;
+        ctx.rotate(this.angle + rotation1);
+          ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad * (1 + this.specType2/50));
+          //console.log("drawing banana");
+        }
+        ctx.restore();
+      }
+      break;
+      
+            
+                case ability_cakebomb:
+      {
+        ctx.save();
+        var oldA = ctx.globalAlpha;
+        //ctx.globalAlpha = 0.1 * oldA;
+        //drawCircle(0, 0, this.rad, "#1898BD");
+                var theImg = getLoadedImg("img/ability_spitrock.png");
+        if (this.specType == 1) {
+                  var theImg = getLoadedImg("img/ability_cakesplat.png");
+        } 
         if (theImg) {
           var rad = this.rad;
 
