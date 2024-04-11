@@ -9,6 +9,7 @@ var daynightstamp = Date.now()
 var daynight = 6
 var stages = 0
 var brtimerx = 0
+var impactblindness = true
 var badpiggiesplay = recover = 0
 const urlParams = new URLSearchParams(window.location.search);
 const testServer = urlParams.get('testserver');
@@ -4726,6 +4727,7 @@ function drawGameInterface() {
  pressureBarPerc += (pressureBarPerc_n - pressureBarPerc) * 0.1;
   xpPer += (xpPer_n - xpPer) * 0.03;
   //flashing LOW water animation
+	if (!impactblindness) {
 	daynight = 6 + ((Date.now() - daynightstamp)/(1000 * 60/2)) % 24
 			stages = 0
 	if (daynight < 6) {
@@ -4780,7 +4782,9 @@ function drawGameInterface() {
         ctx.fillRect(0, 0, canvasW, canvasH); //bg
 		    ctx.globalAlpha = 1;
 	}
-
+	} else {
+ctx.globalCompositeOperation = 'overlay'
+	}
 	
   var myPlayer = gameObjsByID[myPlayerID];
   if (myPlayer) {
