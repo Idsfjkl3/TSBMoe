@@ -17669,9 +17669,9 @@ if (meplayer && meplayer.animalType == a_searobin && meplayer.flag_usingAbility 
   }
   /*
      if (this.flag_ingenjutsu && this.id == myPlayerID ) {
-const style = "html {-webkit-filter: invert(100%); -moz-filter: invert(100%); -o-filter: invert(100%); -ms-filter: invert(100%); }";
-const head = document.getElementsByTagName("head")[0];
-  const styleTag = document.createElement("style");
+var style = "html {-webkit-filter: invert(100%); -moz-filter: invert(100%); -o-filter: invert(100%); -ms-filter: invert(100%); }";
+var head = document.getElementsByTagName("head")[0];
+  var styleTag = document.createElement("style");
 
  
   styleTag.type = "text/css";
@@ -17687,9 +17687,9 @@ const head = document.getElementsByTagName("head")[0];
 
      } else {
 
-  const style = "html {-webkit-filter: invert(0%); -moz-filter: invert(0%); -o-filter: invert(0%); -ms-filter: invert(0%); }";
-   const head = document.getElementsByTagName("head")[0];
-  const styleTag = document.createElement("style");
+  var style = "html {-webkit-filter: invert(0%); -moz-filter: invert(0%); -o-filter: invert(0%); -ms-filter: invert(0%); }";
+   var head = document.getElementsByTagName("head")[0];
+  var styleTag = document.createElement("style");
  
 
  
@@ -17710,9 +17710,9 @@ const head = document.getElementsByTagName("head")[0];
      //fun things with players invis
         
        (function () {
-  const style = "html {-webkit-filter: invert(100%); -moz-filter: invert(100%); -o-filter: invert(100%); -ms-filter: invert(100%); }";
-  const head = document.getElementsByTagName("head")[0];
-  const styleTag = document.createElement("style");
+  var style = "html {-webkit-filter: invert(100%); -moz-filter: invert(100%); -o-filter: invert(100%); -ms-filter: invert(100%); }";
+  var head = document.getElementsByTagName("head")[0];
+  var styleTag = document.createElement("style");
  
 
  
@@ -17733,9 +17733,9 @@ const head = document.getElementsByTagName("head")[0];
         } else {
           
            (function () {
-  const style = "html {-webkit-filter: invert(0%); -moz-filter: invert(0%); -o-filter: invert(0%); -ms-filter: invert(0%); }";
-  const head = document.getElementsByTagName("head")[0];
-  const styleTag = document.createElement("style");
+  var style = "html {-webkit-filter: invert(0%); -moz-filter: invert(0%); -o-filter: invert(0%); -ms-filter: invert(0%); }";
+  var head = document.getElementsByTagName("head")[0];
+  var styleTag = document.createElement("style");
  
 
  
