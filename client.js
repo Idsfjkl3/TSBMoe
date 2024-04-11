@@ -9,7 +9,7 @@ var daynightstamp = Date.now()
 var daynight = 6
 var stages = 0
 var brtimerx = 0
-var impactblindness = false
+var impactblindness = true
 var badpiggiesplay = recover = 0
 const urlParams = new URLSearchParams(window.location.search);
 const testServer = urlParams.get('testserver');
@@ -17774,10 +17774,10 @@ this.kamuifilterswap = 1
 
 
 			  if (impactblindness) {
-				  this.filterswap = 1
 var style = "html {-webkit-filter: grayscale(100%) contrast(999999999999999999999999999999999999999999999%); -moz-filter: grayscale(100%) contrast(999999999999999999999999999999999999999999999%); -o-filter: grayscale(100%) contrast(999999999999999999999999999999999999999999999%); -ms-filter: grayscale(100%) contrast(999999999999999999999999999999999999999999999%); }";
 var head = document.getElementsByTagName("head")[0];
   var styleTag = document.createElement("style");
+
  
   styleTag.type = "text/css";
   if (styleTag.styleSheet) {
@@ -17844,25 +17844,7 @@ this.filterswap = 1
   }
   head.appendChild(styleTag); 
             
-       } ) {
-         this.filterswap = 0
-                style = "html {-webkit-filter: none; -moz-filter: none; -o-filter: none; -ms-filter: none; }";
-   head = document.getElementsByTagName("head")[0];
-   styleTag = document.createElement("style");
- 
-
-
-  styleTag.type = "text/css";
-  if (styleTag.styleSheet) {
-    styleTag.styleSheet.cssText = style;
-  } else {
-    styleTag.appendChild(document.createTextNode(style));
-  }
-  head.appendChild(styleTag); 
-            
        } 
-
-
                 }
   
         var myPlayer23 = gameObjsByID[myPlayerID];
