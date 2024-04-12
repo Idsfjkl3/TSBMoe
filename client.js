@@ -30105,6 +30105,18 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
 	}
       }
       break;
+
+
+		         case 62: //battleroyalmessages
+      {
+	      		    var time = msg.readUInt8();
+impactblindness = true
+      setTimeout(() => {
+impactblindness = false
+         }, time);
+      }
+      break;
+		  
 		  
 		  
     case 23: //MsgPersonalGameEvent
