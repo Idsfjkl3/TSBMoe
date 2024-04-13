@@ -6546,7 +6546,7 @@ if (KTestingModeON) {
 addServerDef("LOCALHOST", localhoster, reg,"80"); 
         } else {
 		    if (testServer == null) {
-addServerDef("FFA", "brief-next-koi.ngrok-free.app/?ModeActivate=true", reg,"80"); 
+addServerDef("FFA", "immune-robin-amazingly.ngrok-free.app/?ModeActivate=true", reg,"80"); 
 		    }
 //addServerDef("EU", "4304-24-49-53-140.ngrok-free.app/?ModeActivate=true", reg,"80");
         }
