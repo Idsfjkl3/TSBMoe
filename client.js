@@ -5322,7 +5322,7 @@ console.log(minimapScaleF_x,minimapScaleF_y)
   }
   if (!oldmope) {
     for (var i = 0; i < 2; i++) { //arctic ocean
-    ctx_.fillStyle = col_cold_ocean;
+    ctx_.fillStyle = col_reef;
     ctx_.globalAlpha = 0.5;
     var tF = minimapW / gameW;
     if (i == 0)
