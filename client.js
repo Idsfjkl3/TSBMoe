@@ -4,7 +4,7 @@ var KTestingBetaMode = true && !KTestingModeON;
 var ACTIVATEOURGAMEMODE = false
 var url = new URL(window.location.href);
 var secr = url.searchParams.get("ModeActivate");
-var oldmope = false
+var oldmope = true
 var daynightstamp = Date.now()
 var daynight = 6
 var stages = 0
@@ -4730,6 +4730,9 @@ function drawGameInterface() {
   //flashing LOW water animation
 	if (!impactblindness) {
 	daynight = 6 + ((Date.now() - daynightstamp)/(1000 * 60/2)) % 24
+		if (oldmope) {
+	daynight = 10
+		}
 			stages = 0
 	if (daynight < 6) {
 				stages = 2
@@ -29492,7 +29495,7 @@ function handleWsMessage(msgArrBuf) {
             if (!isMobileApp) window.onbeforeunload = null;
             console.log("Old client (ver " + gamever + "/" + serverVer + ")");
             alert(
-              "oldmopesandbox has been UPDATED! You need to refresh to get the latest version of the game! (If this keeps appearing, hold SHIFT when pressing refresh!)"
+              "Mope.io has been UPDATED! You need to refresh to get the latest version of the game! (If this keeps appearing, hold SHIFT when pressing refresh!)"
             );
             window.location.reload(true); //true causes HARD refresh
           }, 1500);
