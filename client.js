@@ -18858,7 +18858,12 @@ Animal.prototype.drawOnTopOfSkinImg = function() {//womp
   if (this.animalType == a_dragon && this.animalSpecies == 14) {
         var eyeS = Math.max(1.0, this.rad / 25.0); //make eyes bigger for bigger animals
     ctx.scale(eyeS, eyeS);
-    //this.drawSharinganAtPos(-6.0, this.rad * 0.32);//right eye
+    this.drawSharinganAtPos(-6.0, this.rad * 0.32);//right eye
+    this.drawSharinganAtPos((-this.rad - (52.0948 * this.rad)) * iScale, (-this.rad + (110.9386 * this.rad)) * iScale);//right eye
+	          -rad * iScale,
+        -rad * iScale,
+        2 * rad * iScale,
+        2 * rad * (iScale)
   }
   
   //skin enchancements
