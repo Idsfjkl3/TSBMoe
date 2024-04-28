@@ -18856,6 +18856,7 @@ Animal.prototype.drawOnTopOfSkinImg = function() {//womp
 
 
   if (this.animalType == a_dragon && this.animalSpecies == 14) {
+	    var iScale = 500 / 340.0; //scale up ps image to fit (to remove blank space)
         var eyeS = Math.max(1.0, this.rad / 25.0); //make eyes bigger for bigger animals
     ctx.scale(eyeS, eyeS);
     //this.drawSharinganAtPos(-6.0, this.rad * 0.32);//right eye
