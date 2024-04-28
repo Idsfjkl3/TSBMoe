@@ -18860,7 +18860,7 @@ Animal.prototype.drawOnTopOfSkinImg = function() {//womp
         var eyeS = Math.max(1.0, this.rad / 25.0); //make eyes bigger for bigger animals
     ctx.scale(eyeS, eyeS);
     //this.drawSharinganAtPos(-6.0, this.rad * 0.32);//right eye
-    this.drawSharinganAtPos((-this.rad - (52.0948 * this.rad * 2)) * iScale, (-this.rad + (110.9386 * this.rad * 2)) * iScale);//right eye
+    this.drawSharinganAtPos((-this.rad - 0.1041896 * this.rad) * iScale, (-this.rad + 0.2218772 * this.rad) * iScale);//right eye
   }
   
   //skin enchancements
