@@ -16361,7 +16361,7 @@ Animal.prototype.drawSharinganAtPos = function(x, y) {
   var eyeRad = 4.5;
           ctx.save();
           ctx.rotate(toRadians(166));
-          ctx.drawImage(theImg, -x, -y, eyeRad * 2, eyeRad * 2);
+          ctx.drawImage(theImg, x, y, eyeRad * 2, eyeRad * 2);
           //console.log("drawing banana");
           ctx.restore();
         }
