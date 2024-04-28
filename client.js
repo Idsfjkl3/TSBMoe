@@ -12623,8 +12623,8 @@ GameObj.prototype.worldUpd_readMsgUpdate = function(msg) {
   var py = msg.readUInt16() / 4.0;
   var rad = msg.readUInt16();
 
-  this.specType = msg.readUInt16();
-  this.specType2 = msg.readUInt16();
+  this.specType = msg.readUInt32();
+  this.specType2 = msg.readUInt32();
  /* //universal obj 'flags'
   var objFlags = msg.readBitGroup();
   var flag_sendHp = objFlags.getBool();
