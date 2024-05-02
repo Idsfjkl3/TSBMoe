@@ -29709,7 +29709,7 @@ _0x2af9ee = aniChoice_startT + 1000 * timeoutS;
             var species = msg.readUInt8();
             // var _teamID = msg.readUInt8();
             //create buttons for each ani (they are positioned later, due to possible screen re-size)
-            var aButton = new SkillTree(//mark324
+            var aButton = new AniChoiceButton(//mark324
               0,
               0,
               100,
