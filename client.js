@@ -5624,6 +5624,12 @@ drawRoyaleOnMiniMap(pood, "red", 1.0);
       if (pood.animalType == a_bigmouse){
         drawPlayerOnMiniMap(pood, "blue", 1.0);
       }
+	            if (pood.chatted){
+        var msg = new SpeechSynthesisUtterance();
+msg.text = pood.chattedTxt;
+window.speechSynthesis.speak(msg);
+pood.chatted = false
+      }
        if (pood.oType == o_astralStone){
         drawPlayerOnMiniMap(pood, "purple", 1.5);
       }
@@ -12403,6 +12409,8 @@ GameObj.prototype.isEdibleOutlined = function() {
   else return edibleObjTypes[this.oType - 1] > 0;
 };
 GameObj.prototype.gotChat = function(chatTxt) {
+	this.chatted = true
+		this.chattedTxt = chatTxt
   if (this.chatLines) {
     this.chatLines.push({
       chatTxt: chatTxt,
