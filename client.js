@@ -2818,131 +2818,6 @@ window.CachedText=CachedText;
 ///////
 
 
-
-function SkillTree(x, y, w, h, aniT, spec, spec2) {
-  //button gets resized on draw (due to varying screen size)
-  this.x = x;
-  this.y = y;
-  this.w = w; //width of pressable region
-  this.h = h;
-  this.aniT = aniT;
-//  this.col = animalcol;
-  this.species = spec;
-  this.teamID = 0;
-  this.btnHotkey = '0';
-
-  //this.text = infoForAnimalType(aniT).aniName;//isOcean ? "Ocean Animal" : "Land Animal";
-  this.buttonTXT = new CachedText(10.0, "white");
-  this.buttonTXT.renderScale = 1.5;
-  this.buttonTXT.choicetxt = true
-  this.buttonTXT.setText(infoForAnimalType(aniT).aniName);
-  this.setHotKey = function (hotkey) {
-        hotkey && (this.btnHotkey = hotkey, this.hotkey = new CachedText(10, 'white'), this.hotkey.renderScale = 1.5, this.hotkey.multiLine = false, this.hotkey.setText(this.btnHotkey.toUpperCase()));
-
-    };
-  this.isHighLighted = false; //highlight if mouse goes on it
-  this.biomeNum = 0; //draw ocean or land background
-  //drawn animal img
-  //var anO = new Animal(0, o_animal, 0, 0, 30);
-  var anO = GameObjType.createGameObjOfOType(o_animal, aniT);
-  anO.animalType = aniT;
-  anO.animalSpecies = 0;
-anO.specType = spec;
-anO.specType2 = spec2;
-  anO.lava = 100;
- anO.alwaysPlainOutline = true;
-  this.buttonTXT.setText(anO.animalInfo().aniName);
-
-  anO.x = anO.ox = anO.nx = 0;
-  anO.y = anO.oy = anO.ny = 0;
-  anO.rad=anO.oRad=anO.nRad= 30;
-  
-  this.drawnAniObj = anO;
-  
-  this.buttonScaleF = 0; //scale primary button
-  //this.touchMarginEx=20.0;
- 
-  //used to check clicks
-  this.testPosHitsButton = function(posX, posY) {
-
-    if (posX < this.x - this.w / 2 || posX > this.x + this.w / 2)
-      //outside x bounds
-      return false;
-    if (posY < this.y - this.w / 2 || posY > this.y + this.w / 2) {
-      //outside y bounds
-      return false;
-    } else
-      return true;
-  };
-  this.setPosAndSize = function(newX, newY, newW, newH, anchorX, anchorY) {
-    newW *= 1.1
-    newH *= 1.1
-      this.w = newW;
-      this.h = newH;
-      //set middle x/y based on anchorX/anchorY -(0,0) is top-left corner
-      this.x = newX + (newW) * (0.5 - anchorX);
-      this.y = newY + (newH) * (0.5 - anchorY);
-    },
-
-    this.draw = function() { //ani draw mod
-      //draw button bg square
-      ctx.save();
-      ctx.translate(this.x, this.y);
-    this.buttonScaleF *= 1.1
-      ctx.scale(this.buttonScaleF, this.buttonScaleF);
-      var origA = ctx.globalAlpha;
-
-      //console.log("drawing button at "+this.x,this.y);
-
-
-      //bg square
-      ctx.globalAlpha = origA * 0.50;
-      
-        case 0:
-            this.drawnAniObj.curBiome = 0
-          ctx.fillStyle = "#26A73A";
-          break; //land
-          
-            
-      
-      
-      ctx.fillRect(0 - this.w / 2, 0 - this.h / 2, this.w, this.h);
-      //draw highlight
-      if (this.isHighLighted) {
-        ctx.fillStyle = "white";
-        ctx.globalAlpha = origA * 0.2;
-        ctx.fillRect(0 - this.w / 2, 0 - this.h / 2, this.w, this.h);
-      }
-
-      //draw animal
-      ctx.globalAlpha = origA;
-var _0x224eeb = this.w * (0.22500000000036);
-        this.drawnAniObj.nRad = this.drawnAniObj.rad = _0x224eeb;
-      ctx.save();
-      ctx.scale(2,2);
-      this.drawnAniObj.teamID = teamID;
-      this.drawnAniObj.draw();
-      ctx.restore();
-
-      this.buttonTXT.setFontSize(23 * interfS);
-      this.buttonTXT.x = 0;
-      this.buttonTXT.y = -this.h * 0.4 * 0.75;
-      this.buttonTXT.draw();
-
-      //ctx.font = 23 * interfS + "px Arial";
-      //ctx.fillText(this.text, 0, -this.h *0.5 * 0.75);
-      //}
-      ctx.restore();
-    };
-};
-
-
-window.SkillTree=SkillTree;
-
-
-
-
-
 //button that appears in animal choice interface
 function AniChoiceButton(x, y, w, h, aniT, biomeNum, spec) {
   //button gets resized on draw (due to varying screen size)
@@ -2961,8 +2836,8 @@ function AniChoiceButton(x, y, w, h, aniT, biomeNum, spec) {
   this.buttonTXT.renderScale = 1.5;
   this.buttonTXT.choicetxt = true
   this.buttonTXT.setText(infoForAnimalType(aniT).aniName);
-  this.setHotKey = function (hotkey) {
-        hotkey && (this.btnHotkey = hotkey, this.hotkey = new CachedText(10, 'white'), this.hotkey.renderScale = 1.5, this.hotkey.multiLine = false, this.hotkey.setText(this.btnHotkey.toUpperCase()));
+  this.setHotKey = function (_0xb26fc2) {
+        _0xb26fc2 && (this.btnHotkey = _0xb26fc2, this.hotkey = new CachedText(10, 'white'), this.hotkey.renderScale = 1.5, this.hotkey.multiLine = false, this.hotkey.setText(this.btnHotkey.toUpperCase()));
 
     };
   this.isHighLighted = false; //highlight if mouse goes on it
