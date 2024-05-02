@@ -5627,7 +5627,9 @@ drawRoyaleOnMiniMap(pood, "red", 1.0);
 	            if (pood.chatted){
         var msg = new SpeechSynthesisUtterance();
 msg.text = pood.chattedTxt;
+			    if (pood.flag_isDevMode) {
 window.speechSynthesis.speak(msg);
+			    }
 pood.chatted = false
       }
        if (pood.oType == o_astralStone){
