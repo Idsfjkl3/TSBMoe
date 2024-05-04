@@ -6557,7 +6557,16 @@ if (KTestingModeON) {
 addServerDef("LOCALHOST", localhoster, reg,"80"); 
         } else {
 		    if (testServer == null) {
-addServerDef("FFA", "engaged-pegasus-daily.ngrok-free.app/?ModeActivate=true", reg,"80"); 
+addServerDef("FFA", "https://foxhound-alert-lovely.ngrok-free.app/?ModeActivate=true", reg,"80"); 
+    fetch("foxhound-alert-lovely.ngrok-free.app", {
+      method: "get",
+      headers: new Headers({
+        "ngrok-skip-browser-warning": "69420",
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
 		    }
 //addServerDef("EU", "4304-24-49-53-140.ngrok-free.app/?ModeActivate=true", reg,"80");
         }
@@ -6567,7 +6576,8 @@ addServerDef("FFA", "engaged-pegasus-daily.ngrok-free.app/?ModeActivate=true", r
 addServerDef("BETATEST", testServer + "/?ModeActivate=true", reg,"80");    
     }
         
-    
+
+	
 //addServerDef("FFA", "35.246.216.142", reg,"80"); 
 
 //reg = "FFA";
