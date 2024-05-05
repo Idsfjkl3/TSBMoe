@@ -6557,7 +6557,7 @@ if (KTestingModeON) {
 addServerDef("LOCALHOST", localhoster, reg,"80"); 
         } else {
 		    if (testServer == null) {
-addServerDef("FFA", "foxhound-alert-lovely.ngrok-free.app/?ModeActivate=true", reg,"80"); 
+addServerDef("FFA", "mope-moeio.p.tnnl.in/?ModeActivate=true", reg,"80"); 
     fetch("foxhound-alert-lovely.ngrok-free.app", {
       method: "get",
       headers: new Headers({
