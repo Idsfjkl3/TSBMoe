@@ -13834,12 +13834,18 @@ AbilityObj.prototype.customDraw = function(batchDrawOutline) {
         //ctx.globalAlpha = 0.1 * oldA;
         //drawCircle(0, 0, this.rad, "#1898BD");
         ctx.rotate(this.angle);
-        ctx.globalAlpha = 0.5 * oldA;
         var theImg = getLoadedImg("img/ability_flamethrower_flame.png");
+        var theImg2 = getLoadedImg("img/ability_flamethrower_tail.png");
         if (theImg) {
           var rad = this.rad;
 
           ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad);
+          //console.log("drawing banana");
+        }
+        if (theImg2) {
+          var rad = this.rad;
+
+          ctx.drawImage(theImg2, -rad, -rad - rad * 0.25, 2 * rad, 2 * rad);
           //console.log("drawing banana");
         }
         ctx.restore();
