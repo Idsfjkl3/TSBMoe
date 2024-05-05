@@ -5627,7 +5627,7 @@ drawRoyaleOnMiniMap(pood, "red", 1.0);
 	            if (pood.chatted){
         var msg = new SpeechSynthesisUtterance();
 msg.text = pood.chattedTxt;
-			    if (pood.flag__tts) {
+			    if (pood.flag_tts) {
 window.speechSynthesis.speak(msg);
 			    }
 pood.chatted = false
