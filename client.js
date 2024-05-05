@@ -1546,6 +1546,7 @@ ability_easterbomb = 137,
 ability_easterhop = 138,
 ability_raindrop = 139,
 ability_spitrock = 140,
+ability_flamethrower = 141,
   ability_none = 0;
 var infoForAbilityT = function(abilT) {
   var infoO = {};
@@ -1646,7 +1647,15 @@ var imgType = Math.ceil(((timestamp) % 1000)/500);
         "img/ability_cakebomb.png";
       break;
       
-      
+
+		                              case ability_flamethrower:
+      infoO.abilName = "Suction";
+      infoO.abilImg =
+        "skins/" +
+        zombieFolder +
+        infoForAnimalType(myPlayerLastAniT).skinName +
+        ".png";
+      break;
                             case ability_suction:
       infoO.abilName = "Suction";
       infoO.abilImg =
@@ -12862,7 +12871,7 @@ case o_cakesplash:
         this.z = 10001;
       //above all
       else if (this.type == ability_orcaWave) this.z = 1002;
-                        else if (this.type == ability_dam || this.type == ability_suction) this.z = 999.9998; 
+                        else if (this.type == ability_dam || this.type == ability_suction || ability_flamethrower) this.z = 999.9998; 
       
                               else if (this.type == ability_flametrail) this.z = 999.9999; 
       
@@ -13400,7 +13409,7 @@ AbilityObj.prototype.updateZ = function() {
     else if (this.abilityType == ability_limitlessorb) this.z = 10001;
   //above lake island, above hills
     else if (this.abilityType == ability_eruption) this.z = 10001;
-                     else if (this.abilityType == ability_dam || this.abilityType == ability_suction) this.z = 999.9999; 
+                     else if (this.abilityType == ability_dam || this.abilityType == ability_suction || ability_flamethrower) this.z = 999.9999; 
                                 else if (this.abilityType == ability_flametrail) this.z = 999.9999; 
       else if (this.abilityType == ability_kamui2) this.z = 2000;
   
@@ -13815,7 +13824,27 @@ AbilityObj.prototype.customDraw = function(batchDrawOutline) {
       }
       break;
       
-        
+
+
+		        
+                case ability_flamethrower:
+      {
+        ctx.save();
+        var oldA = ctx.globalAlpha;
+        //ctx.globalAlpha = 0.1 * oldA;
+        //drawCircle(0, 0, this.rad, "#1898BD");
+        ctx.rotate(this.angle);
+        ctx.globalAlpha = 0.5 * oldA;
+        var theImg = getLoadedImg("img/ability_flamethrower_flame.png");
+        if (theImg) {
+          var rad = this.rad;
+
+          ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad);
+          //console.log("drawing banana");
+        }
+        ctx.restore();
+      }
+      break;
       
                 case ability_suction:
       {
