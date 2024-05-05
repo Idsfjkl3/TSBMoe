@@ -24346,7 +24346,13 @@ Dragon.superClass = superClass; //'class' var
 
 
 
-
+Dragon.prototype.updateZ = function() {
+	if (this.flag_flying) {
+ this.z = 100000000000000000;
+	} else {
+  this.z = 1500 + this.rad/1000;
+	}
+};
 Dragon.prototype.getSkinName = function() {
     var skin =
     "dragon/" +
