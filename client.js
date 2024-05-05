@@ -12871,11 +12871,12 @@ case o_cakesplash:
         this.z = 10001;
       //above all
       else if (this.type == ability_orcaWave) this.z = 1002;
-                        else if (this.type == ability_dam || this.type == ability_suction || ability_flamethrower) this.z = 999.9998; 
+                        else if (this.type == ability_dam || this.type == ability_suction) this.z = 999.9998; 
       
                               else if (this.type == ability_flametrail) this.z = 999.9999; 
       
-      
+                                    else if (this.type == ability_flamethrower) this.z = 1500; 
+					    
                   else if (this.type == ability_kamui2) this.z = 2000; 
       
             else if (this.type == ability_tentaclegrab) this.z = 999.8; 
@@ -13409,7 +13410,8 @@ AbilityObj.prototype.updateZ = function() {
     else if (this.abilityType == ability_limitlessorb) this.z = 10001;
   //above lake island, above hills
     else if (this.abilityType == ability_eruption) this.z = 10001;
-                     else if (this.abilityType == ability_dam || this.abilityType == ability_suction || ability_flamethrower) this.z = 999.9999; 
+                     else if (this.abilityType == ability_dam || this.abilityType == ability_suction) this.z = 999.9999;
+			                                         else if (this.abilityType == ability_flamethrower) this.z = 1500; 
                                 else if (this.abilityType == ability_flametrail) this.z = 999.9999; 
       else if (this.abilityType == ability_kamui2) this.z = 2000;
   
