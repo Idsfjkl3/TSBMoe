@@ -1649,7 +1649,7 @@ var imgType = Math.ceil(((timestamp) % 1000)/500);
       
 
 		                              case ability_flamethrower:
-      infoO.abilName = "Suction";
+      infoO.abilName = "Flamethrower";
       infoO.abilImg =
         "skins/" +
         zombieFolder +
