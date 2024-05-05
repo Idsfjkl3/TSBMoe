@@ -5627,7 +5627,7 @@ drawRoyaleOnMiniMap(pood, "red", 1.0);
 	            if (pood.chatted){
         var msg = new SpeechSynthesisUtterance();
 msg.text = pood.chattedTxt;
-			    if (pood.flag_isDevMode) {
+			    if (pood.flag__tts) {
 window.speechSynthesis.speak(msg);
 			    }
 pood.chatted = false
@@ -19887,7 +19887,8 @@ for (var J = 0; J < cnt; J++) {
     this.flag_DevMode = aniFlags.includes(48)
       this.flag_inReef = aniFlags.includes(49)
 	this.flag_swallowed = aniFlags.includes(50)
-		this.flag_inCloud = aniFlags.includes(51)
+	this.flag_inCloud = aniFlags.includes(51)
+	this.flag_tts = aniFlags.includes(52)
         this.wins1v1 = msg.readUInt8();
 
     if (this.isAbility1v1Active && this.flag_can1v1) {
