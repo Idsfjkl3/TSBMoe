@@ -24343,8 +24343,88 @@ Dragon.prototype.constructor = Dragon;
 Dragon.superClass = superClass; //'class' var
 
 
+Dragon.prototype.drawSkinCustomization = function() {//mark323
+ // if (!this.flag_usingAbility) return;
 
+  var skins = "skins";
 
+  var iScale = 500 / 340.0;
+
+    if (this.flag_flying) {
+      ctx.save();
+//
+      
+      var tSinceSpawn = (timestamp - this.spawnTime) / 1000.0;
+      var frame = !options_lowGraphics
+        ? getAnimFrame(tSinceSpawn, 0.9, 0.3, 2)
+        : this.birdNoAnimationFlyWingAngle;
+      var theImg = getLoadedImg(
+        skins + "/dragon/" + this.animalSpecies + "/dragon_wing1.png"
+      );
+      if (theImg) {
+        ctx.save();
+        //var fac0to1 = Math.min(1.0, (timestamp - this.spawnTime) / 300.0);
+
+        //console.log("getAnimFrame:" + frame);
+        var extraRotate = -(-0.2 + frame) * toRadians(90.0); //spin animation
+
+        //clip to sliwly show the claw
+        var rad = this.rad * 0.8;
+        ctx.rotate(toRadians(45) + extraRotate);
+        var imX = 0,
+          imY = this.rad;
+        var imW = rad * 2.0 * 0.62,
+          imH = rad * 2.5; // * fac0to1;
+        var imAnchorX = 0.2,
+          imAnchorY = 1.7; //top-left= 0,0, bottom-right=1,1 (canvas coords)
+
+        ctx.drawImage(
+          theImg,
+          imX + imW * -imAnchorX,
+          imY + imH * -imAnchorY,
+          imW,
+          imH
+        );
+
+        ctx.restore();
+      }
+
+      
+      
+      
+      var theImg = getLoadedImg(
+        skins + "/dragon/" + this.animalSpecies + "/dragon_wing2.png"
+      );
+      if (theImg) {
+        ctx.save();
+        //var fac0to1 = Math.min(1.0, (timestamp - this.spawnTime) / 300.0);
+
+        //console.log("getAnimFrame:" + frame);
+        var extraRotate = -(-0.2 + frame) * toRadians(-90.0); //spin animation
+
+        //clip to sliwly show the claw
+        var rad = this.rad * 0.8;
+        ctx.rotate(toRadians(-45) + extraRotate);
+        var imX = 0,
+          imY = this.rad;
+        var imW = rad * 2.0 * 0.62,
+          imH = rad * 2.5; // * fac0to1;
+        var imAnchorX = 0.8,
+          imAnchorY = 1.7; //top-left= 0,0, bottom-right=1,1 (canvas coords)
+
+        ctx.drawImage(
+          theImg,
+          imX + imW * -imAnchorX,
+          imY + imH * -imAnchorY,
+          imW,
+          imH
+        );
+
+        ctx.restore();
+      }
+    }
+	
+};
 
 Dragon.prototype.updateZ = function() {
 	if (this.flag_flying) {
@@ -24359,6 +24439,13 @@ Dragon.prototype.getSkinName = function() {
     this.animalSpecies +
     "/dragon" +
     (this.specType == 0 ? "" : this.specType);
+	if (this.flag_flying && this.animalSpecies == 0) {
+		skin =
+    "dragon/" +
+    this.animalSpecies +
+    "/dragon_body" +
+			    (this.specType == 0 ? "" : this.specType);
+	}
         if (this.specType == 200) {
         let sessiontype = this.specType - 200
               skin = "session/"+ sessiontype + "/dragon";
