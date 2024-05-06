@@ -24360,13 +24360,13 @@ Dragon.prototype.drawSkinCustomization = function() {//mark323
         var extraRotate = -(-0.2 + frame) * toRadians(90.0); //spin animation
 
         //clip to sliwly show the claw
-        var rad = this.rad * 0.8;
+        var rad = this.rad * 0.5;
                  var extraRotate = -(-0.2 + frame) * toRadians(45.0);
                           ctx.rotate(toRadians(15) + extraRotate);
         var imX = 0;
-        var imY = 1.4 * this.rad;
-        var imW = 1.5 * 0.8 * this.rad;
-        var imH = 2.3 *  0.8 * this.rad;
+        var imY = 1.4 * rad;
+        var imW = 1.5 * 0.8 * rad;
+        var imH = 2.3 *  0.8 * rad;
         var imAnchorX = -0.05;
         var imAnchorY = 1.6;
         ctx.drawImage(theImg, imX + imW * -imAnchorX, imY + imH * -imAnchorY, imW, imH);
@@ -24381,15 +24381,16 @@ Dragon.prototype.drawSkinCustomization = function() {//mark323
         skins + "/dragon/" + this.animalSpecies + "/dragon_wing1.png"
       );
       if (theImg) {
+	              var rad = this.rad * 0.5;
         ctx.save();
         //var fac0to1 = Math.min(1.0, (timestamp - this.spawnTime) / 300.0);
 
         //console.log("getAnimFrame:" + frame);
 
         var imX = 0;
-        var imY = 1.4 * this.rad;
-        var imW = 1.5 * 0.8 * this.rad;
-        var imH = 2.3 *  0.8 * this.rad;
+        var imY = 1.4 * rad;
+        var imW = 1.5 * 0.8 * rad;
+        var imH = 2.3 *  0.8 * rad;
         var imAnchorX = 1.05;
         var imAnchorY = 1.6;
                             var extraRotate = -(-0.2 + frame) * toRadians(-45.0);
