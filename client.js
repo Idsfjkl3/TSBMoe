@@ -24366,7 +24366,7 @@ Dragon.prototype.drawSkinCustomization = function() {//mark323
           imY = this.rad * 1.5;
         var imW = rad * 1.24,
           imH = rad * 2.5 * 0.62; // * fac0to1;
-        var imAnchorX = -0.8,
+        var imAnchorX = 1,
           imAnchorY = 1.7; //top-left= 0,0, bottom-right=1,1 (canvas coords)
 
         ctx.drawImage(
@@ -24397,10 +24397,10 @@ Dragon.prototype.drawSkinCustomization = function() {//mark323
         var rad = this.rad * 0.8;
         ctx.rotate(toRadians(-45) + extraRotate);
         var imX = 0,
-          imY = this.rad * 1.5;
+          imY = this.rad * 1.2;
         var imW = rad * 1.24,
           imH = rad * 2.5 * 0.62; // * fac0to1;
-        var imAnchorX = 1.8,
+        var imAnchorX = 0.2,
           imAnchorY = 1.7; //top-left= 0,0, bottom-right=1,1 (canvas coords)
 
         ctx.drawImage(
