@@ -6567,15 +6567,6 @@ addServerDef("LOCALHOST", localhoster, reg,"80");
         } else {
 		    if (testServer == null) {
 addServerDef("FFA", "https://9ba8fd47b6bc51bdf0f46fba119850b2.loophole.site/?ModeActivate=true", reg,"80"); 
-    fetch("foxhound-alert-lovely.ngrok-free.app", {
-      method: "get",
-      headers: new Headers({
-        "ngrok-skip-browser-warning": "69420",
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err));
 		    }
 //addServerDef("EU", "4304-24-49-53-140.ngrok-free.app/?ModeActivate=true", reg,"80");
         }
