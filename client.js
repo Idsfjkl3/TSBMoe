@@ -24359,25 +24359,18 @@ Dragon.prototype.drawSkinCustomization = function() {//mark323
         //console.log("getAnimFrame:" + frame);
         var extraRotate = -(-0.2 + frame) * toRadians(90.0); //spin animation
 
-        //clip to sliwly show the claw
-        var rad = this.rad * 0.8;
-        ctx.rotate(toRadians(45) + extraRotate);
-        var imX = rad * 0.8,
-          imY = rad * 1.5;
-        var imW = rad * 1.24,
-          imH = rad * 2.5 * 0.62; // * fac0to1;
-        var imAnchorX = 0.2,
-          imAnchorY = 1.7; //top-left= 0,0, bottom-right=1,1 (canvas coords)
-
-        ctx.drawImage(
-          theImg,
-          imX + imW * -imAnchorX,
-          imY + imH * -imAnchorY,
-          imW,
-          imH
-        );
-
-        ctx.restore();
+        frame = !options_lowGraphics
+        ? getAnimFrame(tSinceSpawn, 0.5, 0.4, 1.5)
+        : this.birdNoAnimationFlyWingAngle;
+                  var extraRotate = -(-0.2 + frame) * toRadians(45.0);
+                          ctx.rotate(toRadians(15) + extraRotate);
+        var imX = 0;
+        var imY = 1.4 * this.rad;
+        var imW = 1.5 * 0.8 * this.rad;
+        var imH = 2.3 *  0.8 * this.rad;
+        var imAnchorX = -0.05;
+        var imAnchorY = 1.6;
+        ctx.drawImage(theImg, imX + imW * -imAnchorX, imY + imH * -imAnchorY, imW, imH);
       }
 
       
@@ -24392,26 +24385,24 @@ Dragon.prototype.drawSkinCustomization = function() {//mark323
 
         //console.log("getAnimFrame:" + frame);
         var extraRotate = -(-0.2 + frame) * toRadians(-90.0); //spin animation
+        //var fac0to1 = Math.min(1.0, (timestamp - this.spawnTime) / 300.0);
 
-        //clip to sliwly show the claw
-        var rad = this.rad * 0.8;
-        ctx.rotate(toRadians(-45) + extraRotate);
-        var imX = rad * -0.8,
-          imY = rad * 1.5;
-        var imW = rad * 1.24,
-          imH = rad * 2.5 * 0.62; // * fac0to1;
-        var imAnchorX = 0.8,
-          imAnchorY = 1.7; //top-left= 0,0, bottom-right=1,1 (canvas coords)
+        //console.log("getAnimFrame:" + frame);
 
-        ctx.drawImage(
-          theImg,
-          imX + imW * -imAnchorX,
-          imY + imH * -imAnchorY,
-          imW,
-          imH
-        );
+        if (this.animalSpecies == 1 || this.animalSpecies == 3) {
+        frame = !options_lowGraphics
+        ? getAnimFrame(tSinceSpawn, 0.5, 0.4, 1.5)
+        : this.birdNoAnimationFlyWingAngle;
 
-        ctx.restore();
+        var imX = 0;
+        var imY = 1.4 * this.rad;
+        var imW = 1.5 * 0.8 * this.rad;
+        var imH = 2.3 *  0.8 * this.rad;
+        var imAnchorX = 1.05;
+        var imAnchorY = 1.6;
+                            var extraRotate = -(-0.2 + frame) * toRadians(-45.0);
+                          ctx.rotate(toRadians(-15) + extraRotate);
+        ctx.drawImage(theImg, imX + imW * -imAnchorX, imY + imH * -imAnchorY, imW, imH);
       }
 	          ctx.restore();
     }
