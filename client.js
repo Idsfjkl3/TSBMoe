@@ -6566,7 +6566,7 @@ if (KTestingModeON) {
 addServerDef("LOCALHOST", localhoster, reg,"80"); 
         } else {
 		    if (testServer == null) {
-addServerDef("FFA", "0dcaaa7c969e9c37b60eb3bf542795c1.loophole.site/?ModeActivate=true", reg,"80"); 
+addServerDef("FFA", "https://9ba8fd47b6bc51bdf0f46fba119850b2.loophole.site/?ModeActivate=true", reg,"80"); 
     fetch("foxhound-alert-lovely.ngrok-free.app", {
       method: "get",
       headers: new Headers({
