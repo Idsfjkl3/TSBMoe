@@ -6574,7 +6574,7 @@ if (KTestingModeON) {
 addServerDef("LOCALHOST", localhoster, reg,"80"); 
         } else {
 		    if (testServer == null) {
-addServerDef("FFA", "104.248.24.162", reg,"80"); 
+addServerDef("FFA", "mope.is-retarded.lol/?ModeActivate=true", reg,"80"); 
 		    }
 //addServerDef("EU", "4304-24-49-53-140.ngrok-free.app/?ModeActivate=true", reg,"80");
         }
