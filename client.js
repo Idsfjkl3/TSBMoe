@@ -24429,8 +24429,7 @@ Dragon.prototype.getSkinName = function() {
 		skin =
     "dragon/" +
     this.animalSpecies +
-    "/dragon_body" +
-			    (this.specType == 0 ? "" : this.specType);
+    "/dragon_body"
 	}
         if (this.specType == 200) {
         let sessiontype = this.specType - 200
