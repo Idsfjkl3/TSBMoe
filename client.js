@@ -3128,6 +3128,14 @@ function AbilityQ(text) {
             this.buttonTXT.setText("Fly High");
           aabilImg = "img/fly_ability.png"
         }
+        if (myPlayer && myPlayer.animalType == a_dragon) {
+            this.buttonTXT.setText("Fly High");
+          aabilImg = "img/fly_ability.png"
+        }
+	          if (myPlayer && myPlayer.animalType == a_astraldragon) {
+            this.buttonTXT.setText("Fly High");
+          aabilImg = "img/fly_ability.png"
+        }
             if (myPlayer && myPlayer.animalType == a_eagle) {
             this.buttonTXT.setText("Fly High");
           aabilImg = "img/fly_ability.png"
@@ -24361,8 +24369,8 @@ Dragon.prototype.drawSkinCustomization = function() {//mark323
 
         //clip to sliwly show the claw
         var rad = this.rad * 0.5;
-                 var extraRotate = -(-0.2 + frame) * toRadians(45.0);
-                          ctx.rotate(toRadians(15) + extraRotate);
+                 var extraRotate = -(-0.2 + frame) * toRadians(35.0);
+                          ctx.rotate(toRadians(-15) + extraRotate);
         var imX = 0;
         var imY = 1.4 * rad;
         var imW = 1.5 * 0.8 * rad;
@@ -24393,8 +24401,8 @@ Dragon.prototype.drawSkinCustomization = function() {//mark323
         var imH = 2.3 *  0.8 * rad;
         var imAnchorX = 2.10;
         var imAnchorY = 1.6;
-                            var extraRotate = -(-0.2 + frame) * toRadians(-45.0);
-                          ctx.rotate(toRadians(-15) + extraRotate);
+                            var extraRotate = -(-0.2 + frame) * toRadians(-35.0);
+                          ctx.rotate(toRadians(15) + extraRotate);
         ctx.drawImage(theImg, imX + imW * -imAnchorX, imY + imH * -imAnchorY, imW, imH);
 
         ctx.restore();
