@@ -24369,7 +24369,7 @@ Dragon.prototype.drawSkinCustomization = function() {//mark323
         //clip to sliwly show the claw
         var rad = this.rad * 0.5;
                  var extraRotate = -(-0.2 + frame) * toRadians(20.0);
-                          ctx.rotate(toRadians(-15) + extraRotate);
+                          ctx.rotate(toRadians(-85) + extraRotate);
         var imX = 0;
         var imY = 1.4 * rad;
         var imW = 1.5 * 0.8 * rad;
@@ -24401,7 +24401,7 @@ Dragon.prototype.drawSkinCustomization = function() {//mark323
         var imAnchorX = 2.10;
         var imAnchorY = 1.6;
                             var extraRotate = -(-0.2 + frame) * toRadians(-20.0);
-                          ctx.rotate(toRadians(15) + extraRotate);
+                          ctx.rotate(toRadians(85) + extraRotate);
         ctx.drawImage(theImg, imX + imW * -imAnchorX, imY + imH * -imAnchorY, imW, imH);
 
         ctx.restore();
