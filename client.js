@@ -6574,7 +6574,7 @@ if (KTestingModeON) {
 addServerDef("LOCALHOST", localhoster, reg,"80"); 
         } else {
 		    if (testServer == null) {
-addServerDef("FFA", "9ba8fd47b6bc51bdf0f46fba119850b2.loophole.site/?ModeActivate=true", reg,"80"); 
+addServerDef("FFA", "1ac2b4cea8fbd6f4ee508893ee995454.loophole.site/?ModeActivate=true", reg,"80"); 
 		    }
 //addServerDef("EU", "4304-24-49-53-140.ngrok-free.app/?ModeActivate=true", reg,"80");
         }
