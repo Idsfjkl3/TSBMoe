@@ -17030,7 +17030,7 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
      /* infoO.upgradeText =
         "UPGRADED to Astral Dragon!\n Astral Dragons can shoot a burning comet that explodes on impact! \n They can also fly high by pressing q and shoot stars at opponents! (15s cooldown)"; */
             infoO.upgradeText =
-        "UPGRADED to Astral Dragon!\nA majestic space dragon. Unleash your inner powers and the will of ᚦᛖ ᛊᛖᚢᛖᚾᚦ ᛟᚾᛖ. \n Astral Dragons can shoot a burning comet that causes a mini supernova! \n They can also fly high by pressing q and shoot stars at opponents! (15s cooldown)";
+        "UPGRADED to Astral Dragon!\nA majestic space dragon! Unleash your inner powers and the will of ᚦᛖ ᛊᛖᚢᛖᚾᚦ ᛟᚾᛖ. \n Astral Dragons can shoot a burning comet that causes a mini supernova! \n They can also fly high by pressing q and shoot stars at opponents! (15s cooldown)";
       infoO.aniCol = "#FF9000";
       infoO.skinName = "astraldragon";
       break;
@@ -17041,7 +17041,7 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
      /* infoO.upgradeText =
         "UPGRADED to Astral Dragon!\n Astral Dragons can shoot a burning comet that explodes on impact! \n They can also fly high by pressing q and shoot stars at opponents! (15s cooldown)"; */
             infoO.upgradeText =
-        "UPGRADED to Celestial Trex!\nA majestic space dragon. Unleash your inner powers and the will of ᚦᛖ ᛊᛖᚢᛖᚾᚦ ᛟᚾᛖ. \n Astral Dragons can shoot a burning comet that causes a mini supernova! \n They can also fly high by pressing q and shoot stars at opponents! (15s cooldown)";
+        "UPGRADED to Celestial Trex!\n A mighty galatic conqueror! Unleash your inner powers and the will of ᚦᛖ ᛊᛖᚢᛖᚾᚦ ᛟᚾᛖ.\n You can summon a small black hole in your mouth that pulls and blazes animals near you!";
       infoO.aniCol = "#FF9000";
       infoO.skinName = "astraltrex/astraltrex";
       break;
