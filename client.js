@@ -21993,7 +21993,7 @@ SBird.prototype.animalInfo = function() {
   infoO.aniName = "Secretary Bird";
   infoO.aniCol = "#5b400d";
   infoO.upgradeText = "UPGRADED to Secretary Bird!\n A glass cannon which flys and rapidly strikes animals below!"
-if (this.specType == 0 && !this.flag_flying) {
+if (this.specType == 0 && (!this.flag_flying || this.flag_isGrabbed)) {
   infoO.skinName =
     "secretarybird/" +
     "secretarybird" 
@@ -24426,7 +24426,8 @@ Dragon.prototype.getSkinName = function() {
     this.animalSpecies +
     "/dragon" +
     (this.specType == 0 ? "" : this.specType);
-	if (this.flag_flying && this.animalSpecies == 0) {
+	
+	if (this.flag_flying && !this.flag_isGrabbed && this.animalSpecies == 0) {
 		skin =
     "dragon/" +
     this.animalSpecies +
