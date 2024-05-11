@@ -6574,7 +6574,7 @@ if (KTestingModeON) {
 addServerDef("LOCALHOST", localhoster, reg,"80"); 
         } else {
 		    if (testServer == null) {
-addServerDef("FFA", "mope.is-retarded.lol/?ModeActivate=true", reg,"80"); 
+addServerDef("FFA", "127.0.0.1", reg,"80"); 
 		    }
 //addServerDef("EU", "4304-24-49-53-140.ngrok-free.app/?ModeActivate=true", reg,"80");
         }
@@ -7042,7 +7042,7 @@ function gameServerConnect(newGameServer, autoClickPlay = false) {
 
   var wsProtocol = window.location.protocol === "https:" ? "wss://" : "ws://";
   var wsPort = wsProtocol == "wss://" ? 80: 80;
-
+if (curServer.serverConnURL == "127.0.0.1" || curServer.serverConnURL == "localhost") wsProtocol = "ws://"
   var conUrl = wsProtocol + curServer.serverConnURL + ":" + curServer.port;
 
   /*
@@ -21993,7 +21993,7 @@ SBird.prototype.animalInfo = function() {
   infoO.aniName = "Secretary Bird";
   infoO.aniCol = "#5b400d";
   infoO.upgradeText = "UPGRADED to Secretary Bird!\n A glass cannon which flys and rapidly strikes animals below!"
-if (this.specType == 0 && !this.flag_flying) {
+if (this.specType == 0 && (!this.flag_flying || this.flag_isGrabbed)) {
   infoO.skinName =
     "secretarybird/" +
     "secretarybird" 
@@ -22020,6 +22020,7 @@ SBird.prototype.drawSkinCustomization = function() {
     
     
           SBird.prototype.drawUnderSkinImg = function() {
+		    if (!this.flag_flying || this.flag_isGrabbed) return;
         if (this.flag_flying && !this.flag_isGrabbed && this.specType != 1 && this.specType != 2) {
           var theImg = getLoadedImg(
         skins + "/secretarybird/" +  "/legs.png"
@@ -24343,6 +24344,7 @@ Dragon.superClass = superClass; //'class' var
 
 
 Dragon.prototype.drawSkinCustomization = function() {//mark323
+	  if (!this.flag_flying || this.flag_isGrabbed) return;
  // if (!this.flag_usingAbility) return;
 
   var skins = "skins";
@@ -24424,7 +24426,8 @@ Dragon.prototype.getSkinName = function() {
     this.animalSpecies +
     "/dragon" +
     (this.specType == 0 ? "" : this.specType);
-	if (this.flag_flying && this.animalSpecies == 0) {
+	
+	if (this.flag_flying && !this.flag_isGrabbed && this.animalSpecies == 0) {
 		skin =
     "dragon/" +
     this.animalSpecies +
