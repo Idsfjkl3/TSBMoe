@@ -22020,6 +22020,7 @@ SBird.prototype.drawSkinCustomization = function() {
     
     
           SBird.prototype.drawUnderSkinImg = function() {
+		    if (!this.flag_flying || this.flag_isGrabbed) return;
         if (this.flag_flying && !this.flag_isGrabbed && this.specType != 1 && this.specType != 2) {
           var theImg = getLoadedImg(
         skins + "/secretarybird/" +  "/legs.png"
@@ -24343,6 +24344,7 @@ Dragon.superClass = superClass; //'class' var
 
 
 Dragon.prototype.drawSkinCustomization = function() {//mark323
+	  if (!this.flag_flying || this.flag_isGrabbed) return;
  // if (!this.flag_usingAbility) return;
 
   var skins = "skins";
