@@ -12319,11 +12319,11 @@ GameObj.prototype.drawFrogfishBar = function() {
 	      var by = -this.rad - 10 * eyeS;
 	     var barH = 5 * eyeS;
 	    if (this.hpBarA <= 0.001) {
-	      this.drawBar("blue", 1, 250, 10);
-	      this.drawNoBar("red", 1, this.specType2/250, 10);
+	      this.drawBar("blue", 1, 100, 10);
+	      this.drawNoBar("red", 1, this.specType2/250 * 100, 10);
 	    } else {
-    this.drawNoBar("red", 1, this.specType2/250, by - barH / 2 + 15);
-		        this.drawBar("blue", 1, 250, by - barH / 2 + 15);
+    this.drawNoBar("red", 1, this.specType2/250 * 100, by - barH / 2 + 15);
+		        this.drawBar("blue", 1, 100, by - barH / 2 + 15);
               }
   }
 };
