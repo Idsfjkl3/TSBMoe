@@ -1556,6 +1556,7 @@ ability_easterhop = 138,
 ability_raindrop = 139,
 ability_spitrock = 140,
 ability_flamethrower = 141,
+ability_frogfishabil = 142,
   ability_none = 0;
 var infoForAbilityT = function(abilT) {
   var infoO = {};
@@ -1582,6 +1583,14 @@ var infoForAbilityT = function(abilT) {
 
 		                                          case ability_waterspray:
       infoO.abilName = "Water Spray";
+      infoO.abilImg =
+        "skins/" +
+        zombieFolder +
+        infoForAnimalType(myPlayerLastAniT).skinName +
+        ".png";
+      break;
+		  		                                          case ability_frogfishabil:
+      infoO.abilName = "Swallow & Struggle";
       infoO.abilImg =
         "skins/" +
         zombieFolder +
