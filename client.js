@@ -12322,8 +12322,8 @@ GameObj.prototype.drawFrogfishBar = function() {
 	      this.drawBar("blue", 1, 100, 10);
 	      this.drawNoBar("red", 1, this.specType2/250 * 100, 10);
 	    } else {
-    this.drawNoBar("red", 1, this.specType2/250 * 100, by - barH / 2 + 15);
 		        this.drawBar("blue", 1, 100, by - barH / 2 + 15);
+		        this.drawNoBar("red", 1, this.specType2/250 * 100, by - barH / 2 + 15);
               }
   }
 };
