@@ -12287,14 +12287,13 @@ GameObj.prototype.drawHealthBar = function() {
     );
   }
   ctx.restore(); //restore from fade
-
+	  if (this.animalType == a_frogfish) {
+    this.drawFrogfishBar();
+       }
   if (this.id == myPlayerID) {
     this.drawInfectionBar();
 if (this.animalType == a_catfish) {
     this.drawCatfishBar();
-       }
-	  if (this.animalType == a_frogfish) {
-    this.drawFrogfishBar();
        }
   }
 
