@@ -19615,6 +19615,12 @@ Animal.prototype.getSkinName = function() {
               skinName = skinFolder + skinName + "2";
             }
             break;
+		      case a_frogfish:
+            var skinFolder = "";
+        if (this.specType != 0) {
+              skinName = skinFolder + skinName + this.specType;
+            }
+            break;
     case a_pufferFish:
     case a_muskox:
     case a_astraltrex:
