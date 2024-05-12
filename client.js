@@ -12308,7 +12308,7 @@ GameObj.prototype.drawCatfishBar = function() {
 	    if (this.hpBarA <= 0.001) {
 	      this.drawBar("yellow", 1, this.specType2 * 100/3, 10);
 	    } else {
-    this.drawBar("yellow", 1, this.specType2 * 100/3, by - barH / 2 + 15);
+    this.drawBar("yellow", 1, this.specType2 * 100/3, by + barH / 2 + 15);
               }
   }
 };
@@ -12322,8 +12322,8 @@ GameObj.prototype.drawFrogfishBar = function() {
 	      this.drawBar("blue", 1, 100, 10);
 	      this.drawNoBar("red", 1, this.specType2/250 * 100, 10);
 	    } else {
-		        this.drawBar("blue", 1, 100, by - barH / 2 + 15);
-		        this.drawNoBar("red", 1, this.specType2/250 * 100, by - barH / 2 + 15);
+		        this.drawBar("blue", 1, 100, by + barH / 2 + 15);
+		        this.drawNoBar("red", 1, this.specType2/250 * 100, by + barH / 2 + 15);
               }
   }
 };
