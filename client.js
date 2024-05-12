@@ -2246,10 +2246,7 @@ var imgType = Math.ceil(((timestamp) % 1000)/500);
     case ability_falconAttack:
       infoO.abilName = "Sky dive";
       infoO.abilImg =
-        "skins/" +
-        zombieFolder +
-        infoForAnimalType(myPlayerLastAniT).skinName +
-        ".png";
+        "skins/falcon/" + myPlayer.animalSpecies + "/falcon.png";
       break;
    case ability_thunderbirdAttack:
       infoO.abilName = "Thunderous\nDive";
