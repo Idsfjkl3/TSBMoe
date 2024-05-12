@@ -12293,6 +12293,9 @@ GameObj.prototype.drawHealthBar = function() {
 if (this.animalType == a_catfish) {
     this.drawCatfishBar();
        }
+	  if (this.animalType == a_frogfish) {
+    this.drawFrogfishBar();
+       }
   }
 
 };
@@ -12306,6 +12309,21 @@ GameObj.prototype.drawCatfishBar = function() {
 	      this.drawBar("yellow", 1, this.specType2 * 100/3, 10);
 	    } else {
     this.drawBar("yellow", 1, this.specType2 * 100/3, by - barH / 2 + 15);
+              }
+  }
+};
+
+GameObj.prototype.drawFrogfishBar = function() {
+  if (this.specType2 > 0) {
+	    var eyeS = Math.max(1.0, this.rad / 25.0);
+	      var by = -this.rad - 10 * eyeS;
+	     var barH = 5 * eyeS;
+	    if (this.hpBarA <= 0.001) {
+	      this.drawBar("blue", 1, 250, 10);
+	      this.drawNoBar("red", 1, this.specType2/250, 10);
+	    } else {
+    this.drawBar("blue", 1, 250, by - barH / 2 + 15);
+    this.drawNoBar("red", 1, this.specType2/250, by - barH / 2 + 15);
               }
   }
 };
@@ -12332,6 +12350,22 @@ GameObj.prototype.drawBar = function(color, hpBarA, hpPer, yPoz) {
   ctx.globalAlpha = 0.3;
   ctx.fillStyle = "rgba(0,0,0,0.35)";
   ctx.fillRect(bx - barW / 2, by - barH / 2, barW, barH);
+  
+  //ctx.globalAlpha = this.hpBarA * f;
+  ctx.globalAlpha = 0.7;
+  ctx.fillStyle = color; //bar fill
+  ctx.fillRect(bx - barW / 2, by - barH / 2, barW * (hpPer / 100.0), barH);
+  ctx.restore(); //restore from fade
+};
+GameObj.prototype.drawNoBar = function(color, hpBarA, hpPer, yPoz) {
+  ctx.save();
+
+  //draw bar
+  var eyeS = Math.max(1.0, this.rad / 25.0);
+  var barW = 20.0 * eyeS,
+    barH = 2.5 * eyeS ;
+  var bx = 0,
+    by = -this.rad - yPoz * eyeS;
   
   //ctx.globalAlpha = this.hpBarA * f;
   ctx.globalAlpha = 0.7;
