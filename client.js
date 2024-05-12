@@ -12308,7 +12308,7 @@ GameObj.prototype.drawCatfishBar = function() {
 	    if (this.hpBarA <= 0.001) {
 	      this.drawBar("yellow", 1, this.specType2 * 100/3, 10);
 	    } else {
-    this.drawBar("yellow", 1, this.specType2 * 100/3, (by - barH / 2));
+    this.drawBar("yellow", 1, this.specType2 * 100/3, by + 15);
               }
   }
 };
