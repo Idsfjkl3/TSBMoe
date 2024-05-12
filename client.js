@@ -995,7 +995,7 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
 		     case a_frogfish:
             infoO.aniName = "Frogfish";
             infoO.aniDesc = "";
-            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n You can swallow players whole!! \n(Hint: You can spam right click to struggle against your prey!)"";
+            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n You can swallow players whole!! \n(Hint: You can spam right click to struggle against your prey!)";
             infoO.aniCol = "#231f18";
             infoO.skinName = "frogfish/frogfish";
             break;
@@ -6580,7 +6580,7 @@ if (KTestingModeON) {
 addServerDef("LOCALHOST", localhoster, reg,"80"); 
         } else {
 		    if (testServer == null) {
-addServerDef("FFA", "mope.is-retarded.lol/?ModeActivate=true", reg,"80"); 
+addServerDef("LOCALHOST", "127.0.0.1", reg,"80"); 
 		    }
 //addServerDef("EU", "4304-24-49-53-140.ngrok-free.app/?ModeActivate=true", reg,"80");
         }
@@ -17140,7 +17140,7 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
        case a_frogfish:
             infoO.aniName = "Frogfish";
             infoO.aniDesc = "";
-            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n You can swallow players whole!! \n(Hint: You can spam right click to struggle against your prey!)"";
+            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n You can swallow players whole!! \n(Hint: You can spam right click to struggle against your prey!)";
             infoO.aniCol = "#231f18";
             infoO.skinName = "frogfish/frogfish";
             break;
