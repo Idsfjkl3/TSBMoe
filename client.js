@@ -12322,8 +12322,8 @@ GameObj.prototype.drawFrogfishBar = function() {
 	      this.drawBar("blue", 1, 250, 10);
 	      this.drawNoBar("red", 1, this.specType2/250, 10);
 	    } else {
-    this.drawBar("blue", 1, 250, by - barH / 2 + 15);
     this.drawNoBar("red", 1, this.specType2/250, by - barH / 2 + 15);
+		        this.drawBar("blue", 1, 250, by - barH / 2 + 15);
               }
   }
 };
@@ -12366,7 +12366,10 @@ GameObj.prototype.drawNoBar = function(color, hpBarA, hpPer, yPoz) {
     barH = 2.5 * eyeS ;
   var bx = 0,
     by = -this.rad - yPoz * eyeS;
-  
+    ctx.globalAlpha = 0.3;
+  ctx.fillStyle = "rgba(0,0,0,0.35)";
+  //ctx.fillRect(bx - barW / 2, by - barH / 2, barW, barH);
+	
   //ctx.globalAlpha = this.hpBarA * f;
   ctx.globalAlpha = 0.7;
   ctx.fillStyle = color; //bar fill
