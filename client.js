@@ -417,6 +417,7 @@ a_astraltrex = 133;
 a_horseshoe = 134;
 a_testsnake = 135;
 a_easterbunny = 136;
+a_frogfish = 137;
 var infoForAnimalType = function (aniT) {
     var infoO = {};
     switch (aniT) {
@@ -990,6 +991,14 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
             infoO.aniCol = "#231f18";
             infoO.skinName = "pike/pike";
             break;
+
+		     case a_frogfish:
+            infoO.aniName = "Frogfish";
+            infoO.aniDesc = "";
+            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n You can swallow players whole!! \n(Hint: You can spam right click to struggle against your prey!)";
+            infoO.aniCol = "#231f18";
+            infoO.skinName = "frogfish/frogfish";
+            break;
         
                                                             case a_clownfish:
             infoO.aniName = "Clownfish";
@@ -1547,6 +1556,7 @@ ability_easterhop = 138,
 ability_raindrop = 139,
 ability_spitrock = 140,
 ability_flamethrower = 141,
+ability_frogfishabil = 142,
   ability_none = 0;
 var infoForAbilityT = function(abilT) {
   var infoO = {};
@@ -1573,6 +1583,14 @@ var infoForAbilityT = function(abilT) {
 
 		                                          case ability_waterspray:
       infoO.abilName = "Water Spray";
+      infoO.abilImg =
+        "skins/" +
+        zombieFolder +
+        infoForAnimalType(myPlayerLastAniT).skinName +
+        ".png";
+      break;
+		  		                                          case ability_frogfishabil:
+      infoO.abilName = "Swallow & Struggle";
       infoO.abilImg =
         "skins/" +
         zombieFolder +
@@ -2246,10 +2264,7 @@ var imgType = Math.ceil(((timestamp) % 1000)/500);
     case ability_falconAttack:
       infoO.abilName = "Sky dive";
       infoO.abilImg =
-        "skins/" +
-        zombieFolder +
-        infoForAnimalType(myPlayerLastAniT).skinName +
-        ".png";
+        "skins/falcon/" + myPlayer.animalSpecies + "/falcon.png";
       break;
    case ability_thunderbirdAttack:
       infoO.abilName = "Thunderous\nDive";
@@ -6574,7 +6589,7 @@ if (KTestingModeON) {
 addServerDef("LOCALHOST", localhoster, reg,"80"); 
         } else {
 		    if (testServer == null) {
-addServerDef("FFA", "mope.is-retarded.lol/?ModeActivate=true", reg,"80"); 
+addServerDef("LOCALHOST", "127.0.0.1", reg,"80"); 
 		    }
 //addServerDef("EU", "4304-24-49-53-140.ngrok-free.app/?ModeActivate=true", reg,"80");
         }
@@ -12272,7 +12287,9 @@ GameObj.prototype.drawHealthBar = function() {
     );
   }
   ctx.restore(); //restore from fade
-
+	  if (this.animalType == a_frogfish) {
+    this.drawFrogfishBar();
+       }
   if (this.id == myPlayerID) {
     this.drawInfectionBar();
 if (this.animalType == a_catfish) {
@@ -12284,13 +12301,28 @@ if (this.animalType == a_catfish) {
 
 GameObj.prototype.drawCatfishBar = function() {
   if (this.specType2 > 0) {
-	    var eyeS = Math.max(1.0, this.rad / 25.0);
+    var eyeS = Math.max(1.0, this.rad / 25.0);
 	      var by = -this.rad - 10 * eyeS;
 	     var barH = 5 * eyeS;
 	    if (this.hpBarA <= 0.001) {
 	      this.drawBar("yellow", 1, this.specType2 * 100/3, 10);
 	    } else {
-    this.drawBar("yellow", 1, this.specType2 * 100/3, by - barH / 2 + 15);
+    this.drawBar("yellow", 1, this.specType2 * 100/3, 15);
+              }
+  }
+};
+
+GameObj.prototype.drawFrogfishBar = function() {
+  if (this.specType2 > 0) {
+	    var eyeS = Math.max(1.0, this.rad / 25.0);
+	      var by = -this.rad - 10 * eyeS;
+	     var barH = 5 * eyeS;
+	    if (this.hpBarA <= 0.001) {
+	      this.drawBar("blue", 1, 100, 10);
+	      this.drawNoBar("red", 1, this.specType2/250 * 100, 10);
+	    } else {
+		        this.drawBar("blue", 1, 100, 15);
+		        this.drawNoBar("red", 1, this.specType2/250 * 100, 15);
               }
   }
 };
@@ -12318,6 +12350,25 @@ GameObj.prototype.drawBar = function(color, hpBarA, hpPer, yPoz) {
   ctx.fillStyle = "rgba(0,0,0,0.35)";
   ctx.fillRect(bx - barW / 2, by - barH / 2, barW, barH);
   
+  //ctx.globalAlpha = this.hpBarA * f;
+  ctx.globalAlpha = 0.7;
+  ctx.fillStyle = color; //bar fill
+  ctx.fillRect(bx - barW / 2, by - barH / 2, barW * (hpPer / 100.0), barH);
+  ctx.restore(); //restore from fade
+};
+GameObj.prototype.drawNoBar = function(color, hpBarA, hpPer, yPoz) {
+  ctx.save();
+
+  //draw bar
+  var eyeS = Math.max(1.0, this.rad / 25.0);
+  var barW = 20.0 * eyeS,
+    barH = 2.5 * eyeS ;
+  var bx = 0,
+    by = -this.rad - yPoz * eyeS;
+    ctx.globalAlpha = 0.3;
+  ctx.fillStyle = "rgba(0,0,0,0.35)";
+  //ctx.fillRect(bx - barW / 2, by - barH / 2, barW, barH);
+	
   //ctx.globalAlpha = this.hpBarA * f;
   ctx.globalAlpha = 0.7;
   ctx.fillStyle = color; //bar fill
@@ -17131,7 +17182,13 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
             infoO.aniCol = "#231f18";
             infoO.skinName = "pike/pike";
             break;
-      
+       case a_frogfish:
+            infoO.aniName = "Frogfish";
+            infoO.aniDesc = "";
+            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n You can swallow players whole!! \n(Hint: You can spam right click to struggle against your prey!)";
+            infoO.aniCol = "#231f18";
+            infoO.skinName = "frogfish/frogfish";
+            break;
       
                                                         case a_cakemonster:
             infoO.aniName = "Cake Monster";
@@ -19592,6 +19649,12 @@ Animal.prototype.getSkinName = function() {
             var skinFolder = "";
         if (this.specType2 == 1 || this.specType2 == 7) {
               skinName = skinFolder + skinName + "2";
+            }
+            break;
+		      case a_frogfish:
+            var skinFolder = "";
+        if (this.specType != 0) {
+              skinName = skinFolder + skinName + this.specType;
             }
             break;
     case a_pufferFish:
