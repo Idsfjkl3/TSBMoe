@@ -418,7 +418,6 @@ a_horseshoe = 134;
 a_testsnake = 135;
 a_easterbunny = 136;
 a_frogfish = 137;
-a_marlin = 138;
 var infoForAnimalType = function (aniT) {
     var infoO = {};
     switch (aniT) {
@@ -999,14 +998,6 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
             infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n You can swallow players whole!! \n(Hint: You can spam right click to struggle against your prey!)";
             infoO.aniCol = "#231f18";
             infoO.skinName = "frogfish/frogfish";
-            break;
-
-		    		     case a_marlin:
-            infoO.aniName = "Marlin";
-            infoO.aniDesc = "";
-            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n Swimming in one direction passively increases your speed!";
-            infoO.aniCol = "#231f18";
-            infoO.skinName = "marlin/0/marlin";
             break;
         
                                                             case a_clownfish:
@@ -17197,13 +17188,6 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
             infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n You can swallow players whole!! \n(Hint: You can spam right click to struggle against your prey!)";
             infoO.aniCol = "#231f18";
             infoO.skinName = "frogfish/frogfish";
-            break;
-		  		    		     case a_marlin:
-            infoO.aniName = "Marlin";
-            infoO.aniDesc = "";
-            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n Swimming in one direction passively increases your speed!";
-            infoO.aniCol = "#231f18";
-            infoO.skinName = "marlin/0/marlin";
             break;
       
                                                         case a_cakemonster:
