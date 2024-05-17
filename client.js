@@ -1557,6 +1557,7 @@ ability_raindrop = 139,
 ability_spitrock = 140,
 ability_flamethrower = 141,
 ability_frogfishabil = 142,
+ability_marlin = 143,
   ability_none = 0;
 var infoForAbilityT = function(abilT) {
   var infoO = {};
@@ -1581,6 +1582,14 @@ var infoForAbilityT = function(abilT) {
       }
       break;
 
+		  		                                          case ability_marlin:
+      infoO.abilName = "Instant Dash";
+      infoO.abilImg =
+        "skins/" +
+        zombieFolder +
+        infoForAnimalType(myPlayerLastAniT).skinName +
+        ".png";
+      break;
 		                                          case ability_waterspray:
       infoO.abilName = "Water Spray";
       infoO.abilImg =
