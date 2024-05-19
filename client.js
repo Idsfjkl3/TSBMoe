@@ -24887,7 +24887,28 @@ window.Sheep = Sheep;
 //add this file as a class! (make sure to call require!)
 GameObjType.setCustomClassForGameObjType(Sheep, o_animal, a_sheep);
 
+var Marlin = Marlin;
+var superClass = Animal;
+Marlin.prototype = Object.create(superClass.prototype); //properly inherit prototype of superclass
+Marlin.prototype.constructor = Marlin;
+Marlin.superClass = superClass; //'class' var
 
+Marlin.prototype.getSkinName = function() {
+  var skin =
+    "marlin/" +
+    this.animalSpecies +
+    "/marlin"
+
+
+  return skin;
+};
+
+function Marlin() {
+  Marlin.superClass.call(this, o_animal);
+}
+window.Marlin = Marlin;
+//add this file as a class! (make sure to call require!)
+GameObjType.setCustomClassForGameObjType(Marlin, o_animal, a_marlin);
 
 var Donkey = Donkey;
 var superClass = Animal;
