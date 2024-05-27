@@ -418,6 +418,7 @@ a_horseshoe = 134;
 a_testsnake = 135;
 a_easterbunny = 136;
 a_frogfish = 137;
+a_marlin = 138;
 var infoForAnimalType = function (aniT) {
     var infoO = {};
     switch (aniT) {
@@ -998,6 +999,14 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
             infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n You can swallow players whole!! \n(Hint: You can spam right click to struggle against your prey!)";
             infoO.aniCol = "#231f18";
             infoO.skinName = "frogfish/frogfish";
+            break;
+
+		    		     case a_marlin:
+            infoO.aniName = "Marlin";
+            infoO.aniDesc = "";
+            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n Swimming in one direction passively increases your speed!";
+            infoO.aniCol = "#231f18";
+            infoO.skinName = "marlin/0/marlin";
             break;
         
                                                             case a_clownfish:
@@ -6598,6 +6607,12 @@ if (KTestingModeON) {
 addServerDef("LOCALHOST", localhoster, reg,"80"); 
         } else {
 		    if (testServer == null) {
+			    if (window.location.href.split('?')[0] == "https://moeio.vercel.app/") {
+addServerDef("US", "mope.is-retarded.lol/?ModeActivate=true", reg,"80"); 
+		    } else {
+addServerDef("US", "127.0.0.1", reg,"80"); 
+		    }
+=======
 addServerDef("US", "mope.is-retarded.lol/?ModeActivate=true", reg,"80"); 
 		    }
 //addServerDef("EU", "4304-24-49-53-140.ngrok-free.app/?ModeActivate=true", reg,"80");
@@ -17198,6 +17213,13 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
             infoO.aniCol = "#231f18";
             infoO.skinName = "frogfish/frogfish";
             break;
+		  		    		     case a_marlin:
+            infoO.aniName = "Marlin";
+            infoO.aniDesc = "";
+            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n Swimming in one direction passively increases your speed!";
+            infoO.aniCol = "#231f18";
+            infoO.skinName = "marlin/0/marlin";
+            break;
       
                                                         case a_cakemonster:
             infoO.aniName = "Cake Monster";
@@ -24880,7 +24902,28 @@ window.Sheep = Sheep;
 //add this file as a class! (make sure to call require!)
 GameObjType.setCustomClassForGameObjType(Sheep, o_animal, a_sheep);
 
+var Marlin = Marlin;
+var superClass = Animal;
+Marlin.prototype = Object.create(superClass.prototype); //properly inherit prototype of superclass
+Marlin.prototype.constructor = Marlin;
+Marlin.superClass = superClass; //'class' var
 
+Marlin.prototype.getSkinName = function() {
+  var skin =
+    "marlin/" +
+    this.animalSpecies +
+    "/marlin"
+
+
+  return skin;
+};
+
+function Marlin() {
+  Marlin.superClass.call(this, o_animal);
+}
+window.Marlin = Marlin;
+//add this file as a class! (make sure to call require!)
+GameObjType.setCustomClassForGameObjType(Marlin, o_animal, a_marlin);
 
 var Donkey = Donkey;
 var superClass = Animal;
