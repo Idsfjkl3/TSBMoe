@@ -6612,7 +6612,6 @@ addServerDef("US", "mope.is-retarded.lol/?ModeActivate=true", reg,"80");
 		    } else {
 addServerDef("US", "127.0.0.1", reg,"80"); 
 		    }
-addServerDef("US", "mope.is-retarded.lol/?ModeActivate=true", reg,"80"); 
 		    }
 //addServerDef("EU", "4304-24-49-53-140.ngrok-free.app/?ModeActivate=true", reg,"80");
         }
