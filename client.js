@@ -1566,6 +1566,7 @@ ability_raindrop = 139,
 ability_spitrock = 140,
 ability_flamethrower = 141,
 ability_frogfishabil = 142,
+ability_marlin = 143,
   ability_none = 0;
 var infoForAbilityT = function(abilT) {
   var infoO = {};
@@ -1590,6 +1591,14 @@ var infoForAbilityT = function(abilT) {
       }
       break;
 
+		  		                                          case ability_marlin:
+      infoO.abilName = "Instant Dash";
+      infoO.abilImg =
+        "skins/" +
+        zombieFolder +
+        infoForAnimalType(myPlayerLastAniT).skinName +
+        ".png";
+      break;
 		                                          case ability_waterspray:
       infoO.abilName = "Water Spray";
       infoO.abilImg =
@@ -6603,6 +6612,8 @@ addServerDef("US", "mope.is-retarded.lol/?ModeActivate=true", reg,"80");
 		    } else {
 addServerDef("US", "127.0.0.1", reg,"80"); 
 		    }
+=======
+addServerDef("US", "mope.is-retarded.lol/?ModeActivate=true", reg,"80"); 
 		    }
 //addServerDef("EU", "4304-24-49-53-140.ngrok-free.app/?ModeActivate=true", reg,"80");
         }
