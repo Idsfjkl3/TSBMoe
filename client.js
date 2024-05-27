@@ -24639,6 +24639,30 @@ window.Hippo = Hippo;
 GameObjType.setCustomClassForGameObjType(Hippo, o_animal, a_hippo);
 
 
+var Croc = Croc;
+var superClass = Animal;
+Croc.prototype = Object.create(superClass.prototype); //properly inherit prototype of superclass
+Croc.prototype.constructor = Croc;
+Croc.superClass = superClass; //'class' var
+
+Croc.prototype.getSkinName = function() {
+  var skin =
+    "croc/" +
+    this.animalSpecies +
+    "/croc"
+
+
+  return skin;
+};
+
+function Croc() {
+Croc.superClass.call(this, o_animal);
+}
+window.Croc = Croc;
+//add this file as a class! (make sure to call require!)
+GameObjType.setCustomClassForGameObjType(Croc, o_animal, a_croc);
+
+
 
 var Penguin = Penguin;
 var superClass = Animal;
