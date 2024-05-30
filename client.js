@@ -3738,6 +3738,7 @@ var options_noNames = false;
 var options_lowGraphics = false; //main optimizations: next shadows off,
 var options_noJoystick = false;
 var options_leftHanded = false;
+var options_NoDayNight = false;
 var options_SeeIDS = false;
 var options_noXpPopup = false;
 var options_musicMuted = false;
@@ -3761,6 +3762,7 @@ addDOMOptionHtml("options_noImages", "No Animal images  ", "black");
 addDOMOptionHtml("options_noNames", "No Names & Chat  ", "black");
 addDOMOptionHtml("options_lowGraphics", "Use Low graphics ", "black");
 addDOMOptionHtml("options_SeeIDS", "See ID's ", "black");
+addDOMOptionHtml("options_NoDayNight", "Remove NightTime ", "black");
 if (isTouchEnabled) {
   addDOMOptionHtml("options_noJoystick", "No Joystick", "#194614");
   addDOMOptionHtml("options_leftHanded", "LEFT-handed Joystick", "#194614");
@@ -3799,7 +3801,13 @@ if (window.localStorage) {
   if (theDOM) {
     theDOM.checked = options_SeeIDS;
   }
-
+	
+options_NoDayNight =
+    window.localStorage.getItem("options_NoDayNight") + 0 > 0;
+  var theDOM = document.getElementById("options_NoDayNight");
+  if (theDOM) {
+    theDOM.checked = options_NoDayNight;
+  }
 
   options_leftHanded =
     window.localStorage.getItem("options_leftHanded") + 0 > 0;
@@ -3951,6 +3959,29 @@ if (theDom)
       console.log(
         "options_SeeIDS: saved as " +
           window.localStorage.getItem("options_SeeIDS")
+      );
+    }
+  };
+
+
+var theDom = document.getElementById("options_NoDayNight");
+if (theDom)
+  theDom.onchange = function() {
+    if (window.localStorage) {
+      options_NoDayNight = this.checked;
+      try {
+        window.localStorage.setItem(
+          "options_NoDayNight",
+          options_NoDayNight ? 1 : 0
+        );
+      } catch (err) {} //no localStorage
+
+      //resize canvas
+      onResize();
+
+      console.log(
+        "options_NoDayNight: saved as " +
+          window.localStorage.getItem("options_NoDayNight")
       );
     }
   };
@@ -4780,9 +4811,10 @@ function drawGameInterface() {
   //flashing LOW water animation
 	if (!impactblindness) {
 	daynight = 6 + ((Date.now() - daynightstamp)/(1000 * 60/2)) % 24
-		if (oldmope) {
+		if (oldmope || options_NoDayNight) {
 	daynight = 10
 		}
+		
 			stages = 0
 	if (daynight < 6) {
 				stages = 2
