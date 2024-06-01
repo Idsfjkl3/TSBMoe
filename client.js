@@ -14559,7 +14559,7 @@ case ability_thunderbirdAttack:
           ctx.drawImage(
             theImg,
             0,
-            0,
+            imY + imH * -imAnchorY,
             imW,
             imH
           );
