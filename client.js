@@ -419,6 +419,7 @@ a_testsnake = 135;
 a_easterbunny = 136;
 a_frogfish = 137;
 a_marlin = 138;
+a_lobster = 139;
 var infoForAnimalType = function (aniT) {
     var infoO = {};
     switch (aniT) {
@@ -1004,10 +1005,18 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
 		    		     case a_marlin:
             infoO.aniName = "Marlin";
             infoO.aniDesc = "";
-            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n Swimming in one direction passively increases your speed!";
+            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n Swimming in one direction passively increases your speed you can also instantly dash and slice prey!";
             infoO.aniCol = "#231f18";
             infoO.skinName = "marlin/0/marlin";
             break;
+		    		     case a_lobster:
+            infoO.aniName = "Losbter";
+            infoO.aniDesc = "";
+            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n Use your giant claws to pull and crush prey!";
+            infoO.aniCol = "#FF0000";
+            infoO.skinName = "lobster";
+            break;
+		  
         
                                                             case a_clownfish:
             infoO.aniName = "Clownfish";
@@ -17249,6 +17258,14 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
             infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n Swimming in one direction passively increases your speed!";
             infoO.aniCol = "#231f18";
             infoO.skinName = "marlin/0/marlin";
+            break;
+
+		  		    		     case a_lobster:
+            infoO.aniName = "Losbter";
+            infoO.aniDesc = "";
+            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n Use your giant claws to pull and crush prey!";
+            infoO.aniCol = "#FF0000";
+            infoO.skinName = "lobster";
             break;
       
                                                         case a_cakemonster:
