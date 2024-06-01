@@ -14554,8 +14554,10 @@ case ability_thunderbirdAttack:
 
           //clip to sliwly show the claw
           var rad = this.rad * 0.6;
+		ctx.rotate(this.angle);
 			      ctx.translate(imX + imW * -imAnchorX, imY + imH * -imAnchorY);
-          ctx.rotate(this.angle + extraRotate);
+          ctx.rotate(extraRotate);
+		ctx.translate(-(imX + imW * -imAnchorX), -(imY + imH * -imAnchorY));
           var imX = 0,
             imY = this.rad;
           var imW = rad * 2.0 * 0.7,
@@ -14570,6 +14572,7 @@ case ability_thunderbirdAttack:
             imW,
             imH
           );
+					      ctx.translate(imX + imW * -imAnchorX, imY + imH * -imAnchorY);
           ctx.rotate(-extraRotate);
 						ctx.translate(-(imX + imW * -imAnchorX), -(imY + imH * -imAnchorY));
           ctx.drawImage(
