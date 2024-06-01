@@ -14563,7 +14563,7 @@ var extraRotate = 135; //spin animation
           ctx.drawImage(
             theImg,
             0,
-            0,
+            7 * (imY + imH * -imAnchorY),
             imW,
             imH
           );
