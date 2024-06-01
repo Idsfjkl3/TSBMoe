@@ -14550,27 +14550,35 @@ case ability_thunderbirdAttack:
             0.0,
             1.0
           ); //delay rotate animation a bit
-          var extraRotate = toRadians(45.0) -(-0.5 + rotfac0to1) * toRadians(90.0); //spin animation
-
+          //var extraRotate = toRadians(45.0) -(-0.5 + rotfac0to1) * toRadians(90.0); //spin animation
+		var extraRotate2 = toRadians(45.0) -(-0.5 + rotfac0to1) * toRadians(90.0); //spin animation
+var extraRotate = 135; //spin animation
           //clip to sliwly show the claw
 		ctx.rotate(this.angle);
 			      ctx.translate(imX + imW * -imAnchorX, imY + imH * -imAnchorY);
           ctx.rotate(extraRotate);
+					      ctx.translate(0, -7 * (imY + imH * -imAnchorY));
+		          ctx.rotate(extraRotate2);
+
           ctx.drawImage(
             theImg,
             0,
-            -7 * (imY + imH * -imAnchorY),
+            0,
             imW,
             imH
           );
-          ctx.rotate(-extraRotate);
+				          ctx.rotate(-extraRotate2);
+									      ctx.translate(0, 7 * (imY + imH * -imAnchorY));
+		          ctx.rotate(-extraRotate);
           ctx.drawImage(
             theImg2,
             0,
-            0,
+           0,
             imW,
             imH
           );
+		
+
 								ctx.translate(-(imX + imW * -imAnchorX), -(imY + imH * -imAnchorY));
           //console.log("drawing banana");
         }
