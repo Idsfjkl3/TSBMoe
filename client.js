@@ -14525,6 +14525,14 @@ case ability_thunderbirdAttack:
         ctx.globalAlpha = 1.0 * oldA;
 
         var skinFolder = "img";
+          var rad = this.rad * 0.6;
+          var imX = 0,
+            imY = this.rad;
+          var imW = rad * 2.0 * 0.7,
+            imH = rad * 2.0; // * fac0to1;
+          var imAnchorX = 0.75,
+            imAnchorY = 0.95; 
+
 
         if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
 
@@ -14546,6 +14554,7 @@ case ability_thunderbirdAttack:
 
           //clip to sliwly show the claw
           var rad = this.rad * 0.6;
+			      ctx.translate(imX + imW * -imAnchorX, imY + imH * -imAnchorY);
           ctx.rotate(this.angle + extraRotate);
           var imX = 0,
             imY = this.rad;
@@ -14562,6 +14571,7 @@ case ability_thunderbirdAttack:
             imH
           );
           ctx.rotate(-extraRotate);
+						ctx.translate(-(imX + imW * -imAnchorX), -(imY + imH * -imAnchorY));
           ctx.drawImage(
             theImg2,
             imX + imW * -imAnchorX,
