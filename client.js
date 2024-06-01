@@ -16415,7 +16415,7 @@ var superClass = AbilityObj;
 thisClass.prototype = Object.create(superClass.prototype); //properly inherit prototype of superclass
 thisClass.prototype.constructor = thisClass;
 thisClass.superClass = superClass; //'class' var
-
+/*
 //subclassable part of draw()
 AbilityObjElephant.prototype.customDraw = function(batchDrawOutline) {
   ctx.save();
@@ -16458,7 +16458,7 @@ AbilityObjElephant.prototype.customDraw = function(batchDrawOutline) {
   }
 
   ctx.restore();
-};
+}; */
 
 //override this to read in custom spawn data
 AbilityObjElephant.prototype.readCustomData_onNewlyVisible = function(msg) {
