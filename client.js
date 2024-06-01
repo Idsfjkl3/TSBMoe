@@ -14394,7 +14394,7 @@ case ability_thunderbirdAttack:
         ctx.restore();
       }
       break;
-      
+      /*
     case ability_elephantTrunkSmack:
       {
         ctx.save();
@@ -14446,7 +14446,70 @@ case ability_thunderbirdAttack:
         ctx.restore();
       }
       break;
-      
+      */
+
+		      case ability_elephantTrunkSmack:
+      {
+        ctx.save();
+        var oldA = ctx.globalAlpha;
+
+        ctx.globalAlpha = 0.05 * oldA;
+        drawCircle(0, 0, this.rad, "#E4E7C8");
+
+        ctx.globalAlpha = 1.0 * oldA;
+
+        var skinFolder = "img";
+
+        if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
+
+         var theImg = getLoadedImg(
+          skinFolder + "/lobster/claw"
+        );
+	               var theImg2 = getLoadedImg(
+          skinFolder + "/lobster/claw2"
+        );
+        if (theImg && theImg2) {
+          //var fac0to1 = Math.min(1.0, (timestamp - this.spawnTime) / 300.0);
+
+          var rotfac0to1 = clamp(
+            (timestamp - this.spawnTime) / 300.0,
+            0.0,
+            1.0
+          ); //delay rotate animation a bit
+          var extraRotate = -(-0.5 + rotfac0to1) * toRadians(90.0); //spin animation
+
+          //clip to sliwly show the claw
+          var rad = this.rad * 0.6;
+          ctx.rotate(this.angle - 90 + extraRotate);
+          var imX = 0,
+            imY = this.rad;
+          var imW = rad * 2.0 / 1.39198508906,
+            imH = rad * 2.0; // * fac0to1;
+          var imAnchorX = 0.75,
+            imAnchorY = 0.95; //top-left= 0,0, bottom-right=1,1 (canvas coords)
+
+          ctx.drawImage(
+            theImg,
+            imX + imW * -imAnchorX,
+            imY + imH * -imAnchorY,
+            imW,
+            imH
+          );
+          ctx.rotate(this.angle);
+		          ctx.drawImage(
+            theImg2,
+            imX + imW * -imAnchorX,
+            imY + imH * -imAnchorY,
+            imW,
+            imH
+          );
+
+          //console.log("drawing banana");
+        }
+
+        ctx.restore();
+      }
+      break;
       case ability_kickandram:
       {
         ctx.save();
