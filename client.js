@@ -14468,7 +14468,7 @@ case ability_thunderbirdAttack:
 	               var theImg2 = getLoadedImg(
           skinFolder + "/lobster/claw2.png"
         );
-        if (theImg && theImg2) {
+        if (theImg) {
           //var fac0to1 = Math.min(1.0, (timestamp - this.spawnTime) / 300.0);
 
           var rotfac0to1 = clamp(
@@ -14496,6 +14496,7 @@ case ability_thunderbirdAttack:
             imH
           );
           ctx.rotate(this.angle);
+		if (theImg2) {
 		          ctx.drawImage(
             theImg2,
             imX + imW * -imAnchorX,
@@ -14503,6 +14504,7 @@ case ability_thunderbirdAttack:
             imW,
             imH
           );
+		}
 
           //console.log("drawing banana");
         }
