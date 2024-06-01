@@ -14463,10 +14463,10 @@ case ability_thunderbirdAttack:
         if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
 
          var theImg = getLoadedImg(
-          skinFolder + "/lobster/claw"
+          skinFolder + "/lobster/claw.png"
         );
 	               var theImg2 = getLoadedImg(
-          skinFolder + "/lobster/claw2"
+          skinFolder + "/lobster/claw2.png"
         );
         if (theImg && theImg2) {
           //var fac0to1 = Math.min(1.0, (timestamp - this.spawnTime) / 300.0);
