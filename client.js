@@ -14487,7 +14487,7 @@ case ability_thunderbirdAttack:
           var imAnchorX = 0.75,
             imAnchorY = 0.95; //top-left= 0,0, bottom-right=1,1 (canvas coords)
 				ctx.translate(imX + imW * -imAnchorX, imY + imH * -imAnchorY);
-          ctx.rotate(this.angle + extraRotate);
+          ctx.rotate(this.angle - 90 + extraRotate);
           ctx.drawImage(
             theImg,
             imX + imW * -imAnchorX,
@@ -14495,7 +14495,7 @@ case ability_thunderbirdAttack:
             imW,
             imH
           );
-          ctx.rotate(-extraRotate);
+          ctx.rotate(-extraRotate + 90);
 		if (theImg2) {
 		          ctx.drawImage(
             theImg2,
