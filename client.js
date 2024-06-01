@@ -14495,7 +14495,7 @@ case ability_thunderbirdAttack:
             imW,
             imH
           );
-          ctx.rotate(-extraRotate + 90);
+          ctx.rotate(-extraRotate - 90);
 		if (theImg2) {
 		          ctx.drawImage(
             theImg2,
