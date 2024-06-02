@@ -14553,7 +14553,7 @@ extraRotate = 0;
           var rad = this.rad * 0.6;
           ctx.rotate(this.angle);
           ctx.rotate(extraRotate);
-		       drawCircle((imX + imW * -imAnchorX) + imW, (imY + imH * -imAnchorY) + 0, rad/10, "blue");
+		       drawCircle((imX + imW * -imAnchorX) + imW, (imY + imH * -imAnchorY) + imH, rad/10, "blue");
           var imX = 0,
             imY = this.rad;
           var imW = rad * 2.0 / 1.39198508906,
