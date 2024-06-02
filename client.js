@@ -14533,7 +14533,7 @@ case ability_thunderbirdAttack:
           var imAnchorX = 0.75,
             imAnchorY = 0.95; //top-left= 0,0, bottom-right=1,1 (canvas coord
         if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
-       drawCircle(imX + imW * -imAnchorX, imY + imH * -imAnchorY, rad/10, "blue");
+       drawCircle((imX + imW * -imAnchorX) + imW, (imY + imH * -imAnchorY, rad/10) + imH, "blue");
          var theImg = getLoadedImg(
           skinFolder + "/lobster/claw.png"
         );
