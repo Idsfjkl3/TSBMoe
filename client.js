@@ -14601,7 +14601,7 @@ extraRotate = 0;
                   if (theImg) {
                     ctx.save();
                     var rad = this.rad;
-                  ctx.rotate(this.angle - toRadians(-45.0));
+                  ctx.rotate(this.angle);
 			                    ctx.rotate(extraRotate);
           ctx.drawImage(theImg, -rad, -rad, 2 * rad / 1.39198508906, 2 * rad);
                     ctx.restore();
@@ -14609,7 +14609,6 @@ extraRotate = 0;
                     //console.log("drawing banana");
 
 	 ctx.rotate(-extraRotate);
-			  	 ctx.rotate(toRadians(-45.0));
                   if (theImg2) {
                     ctx.save();
                     var rad = this.rad;
