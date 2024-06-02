@@ -14533,7 +14533,7 @@ case ability_thunderbirdAttack:
           var imAnchorX = 0.75,
             imAnchorY = 0.95; //top-left= 0,0, bottom-right=1,1 (canvas coord
         if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
-       drawCircle((imX + imW * -imAnchorX) + imW, (imY + imH * -imAnchorY) + imH, rad/10, "blue");
+       drawCircle((imX + imW * -imAnchorX) + imW, (imY + imH * -imAnchorY) + 0, rad/10, "blue");
          var theImg = getLoadedImg(
           skinFolder + "/lobster/claw.png"
         );
@@ -14549,7 +14549,7 @@ case ability_thunderbirdAttack:
             1.0
           ); //delay rotate animation a bit
           var extraRotate = -(-0.5 + rotfac0to1) * toRadians(90.0); //spin animation
-
+extraRotate = 0;
           //clip to sliwly show the claw
           var rad = this.rad * 0.6;
           ctx.rotate(this.angle);
@@ -14568,6 +14568,7 @@ case ability_thunderbirdAttack:
             imW,
             imH
           );
+		          ctx.rotate(-extraRotate);
 		          ctx.drawImage(
             theImg2,
             imX + imW * -imAnchorX,
