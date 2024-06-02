@@ -14525,15 +14525,13 @@ case ability_thunderbirdAttack:
         ctx.globalAlpha = 1.0 * oldA;
 
         var skinFolder = "img";
-          var rad = this.rad * 0.6;
+          var rad = this.rad;
           var imX = 0,
             imY = this.rad;
-          var imW = rad * 2.0 * 0.7,
+          var imW = rad * 2.0 / 1.39198508906,
             imH = rad * 2.0; // * fac0to1;
           var imAnchorX = 0.75,
-            imAnchorY = 0.95; 
-
-
+            imAnchorY = 0.95; //top-left= 0,0, bottom-right=1,1 (canvas coord
         if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
 
          var theImg = getLoadedImg(
@@ -14550,36 +14548,34 @@ case ability_thunderbirdAttack:
             0.0,
             1.0
           ); //delay rotate animation a bit
-          //var extraRotate = toRadians(45.0) -(-0.5 + rotfac0to1) * toRadians(90.0); //spin animation
-		var extraRotate2 = toRadians(45.0) -(-0.5 + rotfac0to1) * toRadians(90.0); //spin animation
-var extraRotate = 135; //spin animation
+          var extraRotate = -(-0.5 + rotfac0to1) * toRadians(90.0); //spin animation
+
           //clip to sliwly show the claw
-		ctx.rotate(this.angle);
-			      ctx.translate(imX + imW * -imAnchorX, imY + imH * -imAnchorY);
+          var rad = this.rad * 0.6;
+          ctx.rotate(this.angle);
           ctx.rotate(extraRotate);
-					      ctx.translate(0, -7 * (imY + imH * -imAnchorY));
-		          ctx.rotate(extraRotate2);
+          var imX = 0,
+            imY = this.rad;
+          var imW = rad * 2.0 / 1.39198508906,
+            imH = rad * 2.0; // * fac0to1;
+          var imAnchorX = 0.75,
+            imAnchorY = 0.95; //top-left= 0,0, bottom-right=1,1 (canvas coords)
 
           ctx.drawImage(
             theImg,
-            0,
-            7 * (imY + imH * -imAnchorY),
+            imX + imW * -imAnchorX,
+            imY + imH * -imAnchorY,
             imW,
             imH
           );
-				          ctx.rotate(-extraRotate2);
-									      ctx.translate(0, 7 * (imY + imH * -imAnchorY));
-		          ctx.rotate(-extraRotate);
-          ctx.drawImage(
+		          ctx.drawImage(
             theImg2,
-            0,
-           0,
+            imX + imW * -imAnchorX,
+            imY + imH * -imAnchorY,
             imW,
             imH
           );
-		
 
-								ctx.translate(-(imX + imW * -imAnchorX), -(imY + imH * -imAnchorY));
           //console.log("drawing banana");
         }
 
