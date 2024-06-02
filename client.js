@@ -14513,7 +14513,7 @@ case ability_thunderbirdAttack:
       }
       break;
             */
-
+      /*
     case ability_elephantTrunkSmack:
       {
         ctx.save();
@@ -14583,6 +14583,46 @@ extraRotate = 0;
         ctx.restore();
       }
       break;
+      */
+
+		  
+
+		       
+    case ability_elephantTrunkSmack:
+    {
+                 var theImg = getLoadedImg("img/lobster/claw.png");
+	         var theImg2 = getLoadedImg("img/lobster/claw2.png");
+	              var rotfac0to1 = clamp(
+            (timestamp - this.spawnTime) / 300.0,
+            0.0,
+            1.0
+          ); //delay rotate animation a bit
+          var extraRotate = -(-0.5 + rotfac0to1) * toRadians(45.0); //spin animation
+                  if (theImg) {
+                    ctx.save();
+                    var rad = this.rad;
+                  ctx.rotate(this.angle - toRadians(-45.0));
+			                    ctx.rotate(extraRotate);
+          ctx.drawImage(theImg, -rad, -rad, 2 * rad / 1.39198508906, 2 * rad);
+                    ctx.restore();
+            
+                    //console.log("drawing banana");
+
+
+                  if (theImg2) {
+	 ctx.rotate(-extraRotate + toRadians(-45.0));
+                    ctx.save();
+                    var rad = this.rad;
+          ctx.drawImage(theImg2, -rad, -rad, 2 * rad / 1.39198508906, 2 * rad);
+                    ctx.restore();
+            
+                    //console.log("drawing banana");
+                  }
+
+			  
+                  }
+                }
+      break 
 		  
       case ability_kickandram:
       {
