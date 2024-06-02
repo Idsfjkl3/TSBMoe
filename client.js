@@ -14597,7 +14597,7 @@ extraRotate = 0;
             0.0,
             1.0
           ); //delay rotate animation a bit
-          var extraRotate = -(-0.5 + rotfac0to1) * toRadians(45.0); //spin animation
+          var extraRotate = -(-0.5 + rotfac0to1) * toRadians(-45.0); //spin animation
                   if (theImg) {
                     ctx.save();
                     var rad = this.rad;
@@ -14608,9 +14608,9 @@ extraRotate = 0;
             
                     //console.log("drawing banana");
 
-
+	 ctx.rotate(-extraRotate);
+			  	 ctx.rotate(toRadians(-45.0));
                   if (theImg2) {
-	 ctx.rotate(-extraRotate + toRadians(-45.0));
                     ctx.save();
                     var rad = this.rad;
           ctx.drawImage(theImg2, -rad, -rad, 2 * rad / 1.39198508906, 2 * rad);
