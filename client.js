@@ -20285,7 +20285,7 @@ InfVoid.superClass=superClass; //'class' var
 
 
 InfVoid.prototype.updateZ = function() {
-    this.z = -0.001;
+    this.z = 999.9999999999;
 }
 
 //custom data for this class (must be matched by server-side write of this data!)
