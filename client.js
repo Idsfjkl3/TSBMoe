@@ -20433,47 +20433,7 @@ GameObjType.setCustomClassForGameObjType(Sandbox, o_sandbox);
 
 
 
-var superClass = GameObj;
-InfVoid.prototype = Object.create(superClass.prototype); //properly inherit prototype of superclass
-InfVoid.prototype.constructor = InfVoid;
-InfVoid.superClass=superClass; //'class' var
 
-
-InfVoid.prototype.updateZ = function() {
-    this.z = -0.001;
-}
-
-//custom data for this class (must be matched by server-side write of this data!)
-InfVoid.prototype.readCustomData_onUpdate = function(msg) {
-
-}
-
-//override draw (things like other effects are drawn seperately)
-InfVoid.prototype.customDraw = function(batchDrawOutline){
-  ctx.save();
-
-
-  var theImg = getLoadedImg("img/infinitevoid.png");
-  if (theImg) {
-    var rad = this.rad;
-    ctx.rotate(this.rPer * Math.PI * 2.0);
-    ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad);
-  }
-  ctx.restore();
-}
-
-//custom data for this class (must be matched by server-side write of this data!)
-InfVoid.prototype.readCustomData_onNewlyVisible = function(msg) {
-	
-}
-
-function InfVoid(){
-  SpiderWeb.superClass.call(this, o_spiderWeb);
-
-}
-window.InfVoid=InfVoid;
-//add this file as a class! (make sure to call require!)
-GameObjType.setCustomClassForGameObjType(InfVoid, o_infinitevoid);
 
 
 
