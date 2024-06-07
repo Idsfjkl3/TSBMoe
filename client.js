@@ -20313,7 +20313,7 @@ InfVoid.prototype.readCustomData_onNewlyVisible = function(msg) {
 }
 
 function InfVoid(){
-  SpiderWeb.superClass.call(this, o_spiderWeb);
+InfVoid.superClass.call(this, o_infinitevoid);
 
 }
 window.InfVoid=InfVoid;
