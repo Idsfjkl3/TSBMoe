@@ -20281,7 +20281,7 @@ GameObjType.setCustomClassForGameObjType(Animal, o_animal);
 
 
 
-          );
+
           ctx.fill();
 
           ctx.beginPath(); //bottom right
