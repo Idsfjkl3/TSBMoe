@@ -172,6 +172,7 @@ o_battleroyale = 120;
 o_eastereggs = 121;
 o_bombexplosion = 122;
 o_cloud = 123;
+o_infinitevoid = 124;
 //o_hat = 99;
 var GameObjType = {
   //makes it easy to add new subclasses- each class will add itself!
@@ -20279,99 +20280,7 @@ GameObjType.setCustomClassForGameObjType(Animal, o_animal);
 ///////
 
 
-var superClass = GameObj;
-Lake.prototype = Object.create(superClass.prototype); //properly inherit prototype of superclass
-Lake.prototype.constructor = Lake;
-Lake.superClass=superClass; //'class' var
-
-
-Lake.prototype.updateZ = function() {
-  if (this.specType != 2) {
-    this.z = -157;
-  } else {
-        this.z = -157.01;
-  }
-}
-
-Lake.prototype.readCustomData_onUpdate = function(msg) {
-
-  this.LakeDirt = msg.readUInt8();
-
-}
-
-
-//custom data for this class (must be matched by server-side write of this data!)
-var mix = 0
-//override draw (things like other effects are drawn seperately)
-Lake.prototype.customDraw = function(batchDrawOutline){
-        ctx.save();
-        if (!options_lowGraphics) ctx.rotate(this.rPer * 2 * Math.PI);
-
-        var rShift = 0;
-        var tSinceSpawn = (timestamp - this.spawnTime) / 1000.0;
-        var period = 4.0;
-        var shiftAm = 5.5;
-        rShift = shiftAm * Math.sin(((2.0 * Math.PI) / period) * tSinceSpawn);
-        //sand 'outline'
-        var strokeW = 4;
-  if (this.specType == 1) {
-        ctx.fillStyle = "#74512D";
-  } else {
-        ctx.fillStyle = col_ocean_sand;
-  }
-  if (this.specType != 2) {
-        ctx.beginPath();
-        ctx.arc(0, 0, this.rad, 0, Math.PI * 2);
-        ctx.fill(); 
-}
-
-        //ctx.fillStyle = "#73602A"; //98803A";
-        var  bushBgCol = col_wat2;
-        switch (this.curBiome) {
-          case biome_jungle:
-            bushBgCol = "#37936F";
-            break;
-          case biome_arctic:
-            bushBgCol = "#8da0d6";
-            break;
-          default:
-
-        }
-
-mix += (this.LakeDirt/100 - mix) * 0.03;
-          var red1 = 55;
-          var red2 = 14;
-          var blue1 = 111;
-          var blue2 = 66;
-          var green1 = 147;
-          var green2 = 99;
-  /*
-          var R = red1*mix+red2*(1-mix)
-          var G = green1*mix+green2*(1-mix)
-          var B = blue1*mix+blue2*(1-mix)
-           */
-     var R = red1 + (red2 - red1)*mix
-     var G = green1 + (green2 - green1)*mix
-     var B = blue1 + (blue2 - blue1)*mix
-     if (this.specType == 1) {
-            bushBgCol = "rgb("+R+", "+G+", "+B+")";
-          }
-                     
-        if (this.curBiome == biome_arctic) ctx.fillStyle = "#8da0d6";
-        else ctx.fillStyle = bushBgCol; //98803A";
-        //ctx.globalAlpha = 1;
-        ctx.beginPath();
-        ctx.arc(0, 0, Math.max(0, this.rad - strokeW + rShift), 0, Math.PI * 2);
-        ctx.fill();
-
-        if (!options_lowGraphics) {
-          ctx.beginPath(); //top right
-          ctx.arc(
-            this.rad * 0.45,
-            -this.rad * 0.45 + 15.0 * this.rPer,
-            Math.max(0, this.rad * 0.5 + rShift),
-            0,
-            2 * Math.PI
+ee
           );
           ctx.fill();
 
@@ -20520,6 +20429,52 @@ function Sandbox() {
 
 window.Sandbox = Sandbox; //make class global!
 GameObjType.setCustomClassForGameObjType(Sandbox, o_sandbox);
+
+
+
+
+var superClass = GameObj;
+InfVoid.prototype = Object.create(superClass.prototype); //properly inherit prototype of superclass
+InfVoid.prototype.constructor = InfVoid;
+InfVoid.superClass=superClass; //'class' var
+
+
+InfVoid.prototype.updateZ = function() {
+    this.z = -0.001;
+}
+
+//custom data for this class (must be matched by server-side write of this data!)
+InfVoid.prototype.readCustomData_onUpdate = function(msg) {
+
+}
+
+//override draw (things like other effects are drawn seperately)
+InfVoid.prototype.customDraw = function(batchDrawOutline){
+  ctx.save();
+
+
+  var theImg = getLoadedImg("img/infinitevoid.png");
+  if (theImg) {
+    var rad = this.rad;
+    ctx.rotate(this.rPer * Math.PI * 2.0);
+    ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad);
+  }
+  ctx.restore();
+}
+
+//custom data for this class (must be matched by server-side write of this data!)
+InfVoid.prototype.readCustomData_onNewlyVisible = function(msg) {
+	
+}
+
+function InfVoid(){
+  SpiderWeb.superClass.call(this, o_spiderWeb);
+
+}
+window.InfVoid=InfVoid;
+//add this file as a class! (make sure to call require!)
+GameObjType.setCustomClassForGameObjType(InfVoid, o_infinitevoid);
+
 
 
 var superClass = GameObj;
