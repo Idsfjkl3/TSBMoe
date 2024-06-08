@@ -20525,34 +20525,6 @@ DMG.prototype.customDraw = function (batchDrawOutline) {
 	
     //this.arenaRadUpdate();
     ctx.save();
-    ctx.globalAlpha = 0.3;
-    ctx.beginPath();
-    ctx.arc(0, 0, this.rad + 2, 0, 2 * Math.PI, false);
-    ctx.arc(0, 0, this.rad, 0, 2 * Math.PI, true);
-    ctx.fillStyle = "#32ff00";
-    ctx.closePath();
-    ctx.fill();
-    ctx.restore();
-
-    ctx.save();
-    ctx.globalAlpha = 0.095;
-
-    ctx.beginPath();
-    ctx.arc(0, 0, this.rad, 0, 2 * Math.PI, false);
-    ctx.arc(0, 0, this.rad, 0, 2 * Math.PI, true);
-    ctx.fillStyle = "red";
-    ctx.closePath();
-    ctx.fill();
-    // ctx.globalAlpha = 0.15;
-    // ctx.strokeStyle = "red";
-    // ctx.stroke();
-    ctx.restore();
-    ctx.save();
-    var angleDelta = 1.0;
-    var dChange = angleDelta * 0.1; //* a;
-    this.r += dChange;
-
-    ctx.rotate(toRadians(-this.r));
     this.setTitle();
     ctx.restore();
 };
