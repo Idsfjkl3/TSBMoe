@@ -20499,7 +20499,7 @@ DMG.prototype.updateZ = function () {
 DMG.prototype.setTitle = function () {
     var txt = 0;
 if (this.specType != 0) {
-txt = this.specType
+txt = " " + this.specType
 }
     //ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad);
     var fontSize = this.rad * 2;
@@ -20555,7 +20555,6 @@ DMG.prototype.customDraw = function (batchDrawOutline) {
     ctx.rotate(toRadians(-this.r));
     this.setTitle();
     ctx.restore();
-
 };
 
 
