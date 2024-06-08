@@ -20522,7 +20522,7 @@ txt = this.specType
 
 
 DMG.prototype.customDraw = function (batchDrawOutline) {
-	/*
+	
     //this.arenaRadUpdate();
     ctx.save();
     ctx.globalAlpha = 0.3;
@@ -20555,7 +20555,7 @@ DMG.prototype.customDraw = function (batchDrawOutline) {
     ctx.rotate(toRadians(-this.r));
     this.setTitle();
     ctx.restore();
-*/
+
 };
 
 
