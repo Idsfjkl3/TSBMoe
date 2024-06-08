@@ -20525,6 +20525,7 @@ DMG.prototype.customDraw = function (batchDrawOutline) {
 	
     //this.arenaRadUpdate();
     ctx.save();
+	    ctx.globalAlpha = 0.3;
     this.setTitle();
     ctx.restore();
 };
