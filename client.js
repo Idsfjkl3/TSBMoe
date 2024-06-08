@@ -173,6 +173,7 @@ o_eastereggs = 121;
 o_bombexplosion = 122;
 o_cloud = 123;
 o_infinitevoid = 124;
+o_damagesignal = 125;
 //o_hat = 99;
 var GameObjType = {
   //makes it easy to add new subclasses- each class will add itself!
@@ -13047,7 +13048,7 @@ case o_battleroyale:
       case o_fir:
       this.z = 1300;
       break;
-      
+	  case o_damagesignal:
       case o_sandbox:
       this.z = 100000;
       break;
@@ -20483,6 +20484,89 @@ function Lake(){
 window.Lake=Lake;
 //add this file as a class! (make sure to call require!)
 GameObjType.setCustomClassForGameObjType(Lake, o_lake);
+
+
+
+var superClass = GameObj;
+DMG.prototype = Object.create(superClass.prototype); //properly inherit prototype of superclass
+DMG.prototype.constructor = DMG;
+DMG.superClass = superClass; //'class' var
+DMG.prototype.r = 0;
+DMG.prototype.updateZ = function () {
+    this.z = 100002; // above everything
+};
+
+DMG.prototype.setTitle = function () {
+    var txt = 0;
+if (this.specType != 0) {
+txt = this.specType
+}
+    //ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad);
+    var fontSize = this.rad * 2;
+    if (null == this.timerTxt) {
+        this.timerTxt = new CachedText(fontSize, "#ff0000"); //"#043400");
+        this.timerTxt.strokeW = 2;
+        this.timerTxt.multiLine = true;
+        this.timerTxt.renderScale = 5.0; //render larger to undo 'zoom of 3x'
+        this.timerTxt.setText(txt);
+    } else {
+        this.timerTxt.setFontSize(fontSize);
+        this.timerTxt.setText(txt);
+    }
+
+    this.timerTxt.x = -this.rad;
+    this.timerTxt.y = -this.rad;
+    this.timerTxt.draw();
+
+};
+
+
+DMG.prototype.customDraw = function (batchDrawOutline) {
+	/*
+    //this.arenaRadUpdate();
+    ctx.save();
+    ctx.globalAlpha = 0.3;
+    ctx.beginPath();
+    ctx.arc(0, 0, this.rad + 2, 0, 2 * Math.PI, false);
+    ctx.arc(0, 0, this.rad, 0, 2 * Math.PI, true);
+    ctx.fillStyle = "#32ff00";
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+
+    ctx.save();
+    ctx.globalAlpha = 0.095;
+
+    ctx.beginPath();
+    ctx.arc(0, 0, this.rad, 0, 2 * Math.PI, false);
+    ctx.arc(0, 0, this.rad, 0, 2 * Math.PI, true);
+    ctx.fillStyle = "red";
+    ctx.closePath();
+    ctx.fill();
+    // ctx.globalAlpha = 0.15;
+    // ctx.strokeStyle = "red";
+    // ctx.stroke();
+    ctx.restore();
+    ctx.save();
+    var angleDelta = 1.0;
+    var dChange = angleDelta * 0.1; //* a;
+    this.r += dChange;
+
+    ctx.rotate(toRadians(-this.r));
+    this.setTitle();
+    ctx.restore();
+*/
+};
+
+
+
+function DMG() {
+    DMG.superClass.call(this, o_damagesignal);
+}
+
+window.Sandbox = Sandbox; //make class global!
+GameObjType.setCustomClassForGameObjType(DMG, o_damagesignal);
+
 
 
 var superClass = GameObj;
