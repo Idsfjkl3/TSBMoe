@@ -15736,8 +15736,7 @@ var max2 =-3
 
         ctx.globalAlpha = 1.0 * oldA;
 
-        var theImg = getLoadedImg("img/ability_trexBite" + this.specType2 + ".png");
-
+        var theImg = getLoadedImg("img/ability_trexBite" + (this.specType2 == 0 ? "" : this.specType2) + ".png");
         if (theImg) {
           var fac0to1 = Math.min(1.0, (timestamp - this.spawnTime) / 200.0);
 
@@ -15784,7 +15783,7 @@ var max2 =-3
 
         if (_gameMode.isHalloween) skinFolder = "skins/ability_skins";
 
-        var theImg = getLoadedImg(skinFolder + "/trex-head" + this.specType2 + ".png");
+        var theImg = getLoadedImg(skinFolder + "/trex-head" + (this.specType2 == 0 ? "" : this.specType2) + ".png");
         if (theImg) {
           var fac0to1 = Math.min(1.0, (timestamp - this.spawnTime) / 200.0);
 
