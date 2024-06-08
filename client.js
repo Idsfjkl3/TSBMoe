@@ -20502,7 +20502,10 @@ if (this.specType != 0) {
 txt = " " + this.specType
 }
     //ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad);
-    var fontSize = this.rad * 2;
+			     var time = (timestamp - this.spawnTime)
+	     var deathtime = 600
+          ctx.globalAlpha = 1 * Math.max((deathtime - time)/deathtime, 0)
+    var fontSize = this.rad * (1.0 + time/500);
     if (null == this.timerTxt) {
         this.timerTxt = new CachedText(fontSize, "#ff0000"); //"#043400");
         this.timerTxt.strokeW = 2;
