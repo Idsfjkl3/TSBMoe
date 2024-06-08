@@ -20514,8 +20514,8 @@ txt = this.specType
         this.timerTxt.setText(txt);
     }
 
-    this.timerTxt.x = -this.rad;
-    this.timerTxt.y = -this.rad;
+    this.timerTxt.x = 0;
+    this.timerTxt.y = 0;
     this.timerTxt.draw();
 
 };
