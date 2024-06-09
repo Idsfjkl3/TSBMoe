@@ -20502,7 +20502,7 @@ txt = " " + this.specType
 }
 	if (this.specType2 != 0) {
 var txt2 = this.specType2/10
-txt2.toString().slice(1, txt2.length);
+txt2 = txt2.toString().slice(1, txt2.length);
 		console.log(txt2)
 txt += txt2
 		console.log(txt)
