@@ -20501,7 +20501,7 @@ if (this.specType != 0) {
 txt = " " + this.specType
 }
 	if (this.specType2 != 0) {
-txt += "." + this.specType2/10
+txt += this.specType2/10
 	}
     //ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad);
 			     var time = (timestamp - this.spawnTime)
