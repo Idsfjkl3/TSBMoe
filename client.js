@@ -20502,7 +20502,7 @@ txt = " " + this.specType
 }
 	if (this.specType2 != 0) {
 var txt2 = this.specType2/10
-txt2.slice(1, txt2.length);
+txt2.toString().slice(1, txt2.length);
 txt += txt2
 	}
     //ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad);
