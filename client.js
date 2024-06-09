@@ -172,6 +172,8 @@ o_battleroyale = 120;
 o_eastereggs = 121;
 o_bombexplosion = 122;
 o_cloud = 123;
+o_infinitevoid = 124;
+o_damagesignal = 125;
 //o_hat = 99;
 var GameObjType = {
   //makes it easy to add new subclasses- each class will add itself!
@@ -419,6 +421,7 @@ a_testsnake = 135;
 a_easterbunny = 136;
 a_frogfish = 137;
 a_marlin = 138;
+a_lobster = 139;
 var infoForAnimalType = function (aniT) {
     var infoO = {};
     switch (aniT) {
@@ -1004,10 +1007,18 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
 		    		     case a_marlin:
             infoO.aniName = "Marlin";
             infoO.aniDesc = "";
-            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n Swimming in one direction passively increases your speed!";
+            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n Swimming in one direction passively increases your speed you can also instantly dash and slice prey!";
             infoO.aniCol = "#231f18";
             infoO.skinName = "marlin/0/marlin";
             break;
+		    		     case a_lobster:
+            infoO.aniName = "Losbter";
+            infoO.aniDesc = "";
+            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n Use your giant claws to pull and crush prey!";
+            infoO.aniCol = "#FF0000";
+            infoO.skinName = "lobster";
+            break;
+		  
         
                                                             case a_clownfish:
             infoO.aniName = "Clownfish";
@@ -3738,6 +3749,7 @@ var options_noNames = false;
 var options_lowGraphics = false; //main optimizations: next shadows off,
 var options_noJoystick = false;
 var options_leftHanded = false;
+var options_NoDayNight = false;
 var options_SeeIDS = false;
 var options_noXpPopup = false;
 var options_musicMuted = false;
@@ -3761,6 +3773,7 @@ addDOMOptionHtml("options_noImages", "No Animal images  ", "black");
 addDOMOptionHtml("options_noNames", "No Names & Chat  ", "black");
 addDOMOptionHtml("options_lowGraphics", "Use Low graphics ", "black");
 addDOMOptionHtml("options_SeeIDS", "See ID's ", "black");
+addDOMOptionHtml("options_NoDayNight", "Remove NightTime ", "black");
 if (isTouchEnabled) {
   addDOMOptionHtml("options_noJoystick", "No Joystick", "#194614");
   addDOMOptionHtml("options_leftHanded", "LEFT-handed Joystick", "#194614");
@@ -3799,7 +3812,13 @@ if (window.localStorage) {
   if (theDOM) {
     theDOM.checked = options_SeeIDS;
   }
-
+	
+options_NoDayNight =
+    window.localStorage.getItem("options_NoDayNight") + 0 > 0;
+  var theDOM = document.getElementById("options_NoDayNight");
+  if (theDOM) {
+    theDOM.checked = options_NoDayNight;
+  }
 
   options_leftHanded =
     window.localStorage.getItem("options_leftHanded") + 0 > 0;
@@ -3951,6 +3970,29 @@ if (theDom)
       console.log(
         "options_SeeIDS: saved as " +
           window.localStorage.getItem("options_SeeIDS")
+      );
+    }
+  };
+
+
+var theDom = document.getElementById("options_NoDayNight");
+if (theDom)
+  theDom.onchange = function() {
+    if (window.localStorage) {
+      options_NoDayNight = this.checked;
+      try {
+        window.localStorage.setItem(
+          "options_NoDayNight",
+          options_NoDayNight ? 1 : 0
+        );
+      } catch (err) {} //no localStorage
+
+      //resize canvas
+      onResize();
+
+      console.log(
+        "options_NoDayNight: saved as " +
+          window.localStorage.getItem("options_NoDayNight")
       );
     }
   };
@@ -4780,9 +4822,10 @@ function drawGameInterface() {
   //flashing LOW water animation
 	if (!impactblindness) {
 	daynight = 6 + ((Date.now() - daynightstamp)/(1000 * 60/2)) % 24
-		if (oldmope) {
+		if (oldmope || options_NoDayNight) {
 	daynight = 10
 		}
+		
 			stages = 0
 	if (daynight < 6) {
 				stages = 2
@@ -6612,7 +6655,6 @@ addServerDef("US", "mope.is-retarded.lol/?ModeActivate=true", reg,"80");
 		    } else {
 addServerDef("US", "127.0.0.1", reg,"80"); 
 		    }
-addServerDef("US", "mope.is-retarded.lol/?ModeActivate=true", reg,"80"); 
 		    }
 //addServerDef("EU", "4304-24-49-53-140.ngrok-free.app/?ModeActivate=true", reg,"80");
         }
@@ -13006,7 +13048,7 @@ case o_battleroyale:
       case o_fir:
       this.z = 1300;
       break;
-      
+	  case o_damagesignal:
       case o_sandbox:
       this.z = 100000;
       break;
@@ -14354,7 +14396,7 @@ case ability_thunderbirdAttack:
         ctx.restore();
       }
       break;
-      
+      /*
     case ability_elephantTrunkSmack:
       {
         ctx.save();
@@ -14406,7 +14448,183 @@ case ability_thunderbirdAttack:
         ctx.restore();
       }
       break;
-      
+      */
+/*
+		      case ability_elephantTrunkSmack:
+      {
+        ctx.save();
+        var oldA = ctx.globalAlpha;
+
+        ctx.globalAlpha = 0.05 * oldA;
+        drawCircle(0, 0, this.rad, "#E4E7C8");
+
+        ctx.globalAlpha = 1.0 * oldA;
+
+        var skinFolder = "img";
+
+        if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
+
+         var theImg = getLoadedImg(
+          skinFolder + "/lobster/claw.png"
+        );
+	               var theImg2 = getLoadedImg(
+          skinFolder + "/lobster/claw2.png"
+        );
+        if (theImg) {
+          //var fac0to1 = Math.min(1.0, (timestamp - this.spawnTime) / 300.0);
+
+          var rotfac0to1 = clamp(
+            (timestamp - this.spawnTime) / 300.0,
+            0.0,
+            1.0
+          ); //delay rotate animation a bit
+          var extraRotate = -(0.5 + rotfac0to1) * toRadians(90.0); //spin animation
+
+          //clip to sliwly show the claw
+          var rad = this.rad * 0.6;
+		          var imX = 0,
+            imY = this.rad;
+          var imW = rad * 2.0 / 1.39198508906,
+            imH = rad * 2.0; // * fac0to1;
+          var imAnchorX = 0.75,
+            imAnchorY = 0.95; //top-left= 0,0, bottom-right=1,1 (canvas coords)
+				ctx.translate(imX + imW * -imAnchorX, imY + imH * -imAnchorY);
+          ctx.rotate(this.angle + extraRotate);
+          ctx.drawImage(
+            theImg,
+            imX + imW * -imAnchorX,
+            imY + imH * -imAnchorY,
+            imW,
+            imH
+          );
+          ctx.rotate(-extraRotate - 90);
+		if (theImg2) {
+		          ctx.drawImage(
+            theImg2,
+            imX + imW * -imAnchorX,
+            imY + imH * -imAnchorY,
+            imW,
+            imH
+          );
+		}
+
+          //console.log("drawing banana");
+        }
+
+        ctx.restore();
+      }
+      break;
+            */
+      /*
+    case ability_elephantTrunkSmack:
+      {
+        ctx.save();
+        var oldA = ctx.globalAlpha;
+
+        ctx.globalAlpha = 0.05 * oldA;
+        drawCircle(0, 0, this.rad, "#E4E7C8");
+
+        ctx.globalAlpha = 1.0 * oldA;
+
+        var skinFolder = "img";
+          var rad = this.rad;
+          var imX = 0,
+            imY = this.rad;
+          var imW = rad * 2.0 / 1.39198508906,
+            imH = rad * 2.0; // * fac0to1;
+          var imAnchorX = 0.75,
+            imAnchorY = 0.95; //top-left= 0,0, bottom-right=1,1 (canvas coord
+        if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
+         var theImg = getLoadedImg(
+          skinFolder + "/lobster/claw.png"
+        );
+	               var theImg2 = getLoadedImg(
+          skinFolder + "/lobster/claw2.png"
+        );
+        if (theImg) {
+          //var fac0to1 = Math.min(1.0, (timestamp - this.spawnTime) / 300.0);
+
+          var rotfac0to1 = clamp(
+            (timestamp - this.spawnTime) / 300.0,
+            0.0,
+            1.0
+          ); //delay rotate animation a bit
+          var extraRotate = -(-0.5 + rotfac0to1) * toRadians(90.0); //spin animation
+extraRotate = 0;
+          //clip to sliwly show the claw
+          var rad = this.rad * 0.6;
+          ctx.rotate(this.angle);
+          ctx.rotate(extraRotate);
+		       drawCircle((imX + imW * -imAnchorX) + imW, (imY + imH * -imAnchorY) + imH, rad/10, "blue");
+          var imX = 0,
+            imY = this.rad;
+          var imW = rad * 2.0 / 1.39198508906,
+            imH = rad * 2.0; // * fac0to1;
+          var imAnchorX = 0.75,
+            imAnchorY = 0.95; //top-left= 0,0, bottom-right=1,1 (canvas coords)
+
+          ctx.drawImage(
+            theImg,
+            imX + imW * -imAnchorX,
+            imY + imH * -imAnchorY,
+            imW,
+            imH
+          );
+		          ctx.rotate(-extraRotate);
+		          ctx.drawImage(
+            theImg2,
+            imX + imW * -imAnchorX,
+            imY + imH * -imAnchorY,
+            imW,
+            imH
+          );
+
+          //console.log("drawing banana");
+        }
+
+        ctx.restore();
+      }
+      break;
+      */
+
+		  
+
+		       
+    case ability_elephantTrunkSmack:
+    {
+                 var theImg = getLoadedImg("img/lobster/claw.png");
+	         var theImg2 = getLoadedImg("img/lobster/claw2.png");
+	              var rotfac0to1 = clamp(
+            (timestamp - this.spawnTime) / 300.0,
+            0.0,
+            1.0
+          ); //delay rotate animation a bit
+          var extraRotate = -(-0.5 + rotfac0to1) * toRadians(-45.0); //spin animation
+                  if (theImg) {
+                    ctx.save();
+                    var rad = this.rad;
+                  ctx.rotate(this.angle);
+			                    ctx.rotate(extraRotate);
+          ctx.drawImage(theImg, -rad, -rad, 2 * rad / 1.39198508906, 2 * rad);
+                    ctx.restore();
+            
+                    //console.log("drawing banana");
+
+	 ctx.rotate(-extraRotate);
+                  if (theImg2) {
+                    ctx.save();
+                    var rad = this.rad;
+          ctx.drawImage(theImg2, -rad, -rad, 2 * rad / 1.39198508906, 2 * rad);
+                    ctx.restore();
+            
+                    //console.log("drawing banana");
+                  }
+
+			  
+                  }
+                }
+      break 
+		  
       case ability_kickandram:
       {
         ctx.save();
@@ -15518,8 +15736,7 @@ var max2 =-3
 
         ctx.globalAlpha = 1.0 * oldA;
 
-        var theImg = getLoadedImg("img/ability_trexBite" + this.specType2 + ".png");
-
+        var theImg = getLoadedImg("img/ability_trexBite" + (this.specType2 == 0 ? "" : this.specType2) + ".png");
         if (theImg) {
           var fac0to1 = Math.min(1.0, (timestamp - this.spawnTime) / 200.0);
 
@@ -15566,7 +15783,7 @@ var max2 =-3
 
         if (_gameMode.isHalloween) skinFolder = "skins/ability_skins";
 
-        var theImg = getLoadedImg(skinFolder + "/trex-head" + this.specType2 + ".png");
+        var theImg = getLoadedImg(skinFolder + "/trex-head" + (this.specType2 == 0 ? "" : this.specType2) + ".png");
         if (theImg) {
           var fac0to1 = Math.min(1.0, (timestamp - this.spawnTime) / 200.0);
 
@@ -16310,7 +16527,7 @@ var superClass = AbilityObj;
 thisClass.prototype = Object.create(superClass.prototype); //properly inherit prototype of superclass
 thisClass.prototype.constructor = thisClass;
 thisClass.superClass = superClass; //'class' var
-
+/*
 //subclassable part of draw()
 AbilityObjElephant.prototype.customDraw = function(batchDrawOutline) {
   ctx.save();
@@ -16353,7 +16570,7 @@ AbilityObjElephant.prototype.customDraw = function(batchDrawOutline) {
   }
 
   ctx.restore();
-};
+}; */
 
 //override this to read in custom spawn data
 AbilityObjElephant.prototype.readCustomData_onNewlyVisible = function(msg) {
@@ -17218,6 +17435,14 @@ You got firestream that burns your victim alive! Watch your tail and slap them h
             infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n Swimming in one direction passively increases your speed!";
             infoO.aniCol = "#231f18";
             infoO.skinName = "marlin/0/marlin";
+            break;
+
+		  		    		     case a_lobster:
+            infoO.aniName = "Losbter";
+            infoO.aniDesc = "";
+            infoO.upgradeText = "UPGRADED to " + infoO.aniName + "!\n Use your giant claws to pull and crush prey!";
+            infoO.aniCol = "#FF0000";
+            infoO.skinName = "lobster";
             break;
       
                                                         case a_cakemonster:
@@ -20053,7 +20278,47 @@ GameObjType.setCustomClassForGameObjType(Animal, o_animal);
 ///////
 // file: js_src/gameobj/SpiderWeb.js
 ///////
+var superClass = GameObj;
+InfVoid.prototype = Object.create(superClass.prototype); //properly inherit prototype of superclass
+InfVoid.prototype.constructor = InfVoid;
+InfVoid.superClass=superClass; //'class' var
 
+
+InfVoid.prototype.updateZ = function() {
+    this.z = 999.9999999999;
+}
+
+//custom data for this class (must be matched by server-side write of this data!)
+InfVoid.prototype.readCustomData_onUpdate = function(msg) {
+
+}
+
+//override draw (things like other effects are drawn seperately)
+InfVoid.prototype.customDraw = function(batchDrawOutline){
+  ctx.save();
+
+
+  var theImg = getLoadedImg("img/infinitevoid.png");
+  if (theImg) {
+    var rad = this.rad;
+    ctx.rotate(this.rPer * Math.PI * 2.0);
+    ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad);
+  }
+  ctx.restore();
+}
+
+//custom data for this class (must be matched by server-side write of this data!)
+InfVoid.prototype.readCustomData_onNewlyVisible = function(msg) {
+	
+}
+
+function InfVoid(){
+InfVoid.superClass.call(this, o_infinitevoid);
+
+}
+window.InfVoid=InfVoid;
+//add this file as a class! (make sure to call require!)
+GameObjType.setCustomClassForGameObjType(InfVoid, o_infinitevoid);
 
 var superClass = GameObj;
 Lake.prototype = Object.create(superClass.prototype); //properly inherit prototype of superclass
@@ -20218,6 +20483,69 @@ function Lake(){
 window.Lake=Lake;
 //add this file as a class! (make sure to call require!)
 GameObjType.setCustomClassForGameObjType(Lake, o_lake);
+
+
+
+var superClass = GameObj;
+DMG.prototype = Object.create(superClass.prototype); //properly inherit prototype of superclass
+DMG.prototype.constructor = DMG;
+DMG.superClass = superClass; //'class' var
+DMG.prototype.r = 0;
+DMG.prototype.updateZ = function () {
+    this.z = 100002; // above everything
+};
+
+DMG.prototype.setTitle = function () {
+    var txt = "";
+if (this.specType != 0) {
+txt = " " + this.specType
+}
+	if (this.specType2 != 0) {
+var txt2 = this.specType2/10
+txt2 = txt2.toString().slice(1, txt2.length);
+txt += txt2
+	}
+    //ctx.drawImage(theImg, -rad, -rad, 2 * rad, 2 * rad);
+			     var time = (timestamp - this.spawnTime)
+	     var deathtime = 600
+          ctx.globalAlpha = 1 * Math.max((deathtime - time)/deathtime, 0)
+	
+    var fontSize = this.rad * (1.0 + time/500);
+    if (null == this.timerTxt) {
+        this.timerTxt = new CachedText(fontSize, "#ff0000"); //"#043400");
+        this.timerTxt.strokeW = 2;
+        this.timerTxt.multiLine = true;
+        this.timerTxt.renderScale = 5.0; //render larger to undo 'zoom of 3x'
+        this.timerTxt.setText(txt);
+    } else {
+        this.timerTxt.setFontSize(fontSize);
+        this.timerTxt.setText(txt);
+    }
+
+    this.timerTxt.x = 0;
+    this.timerTxt.y = 0;
+    this.timerTxt.draw();
+
+};
+
+
+DMG.prototype.customDraw = function (batchDrawOutline) {
+	
+    //this.arenaRadUpdate();
+    ctx.save();
+    this.setTitle();
+    ctx.restore();
+};
+
+
+
+function DMG() {
+    DMG.superClass.call(this, o_damagesignal);
+}
+
+window.Sandbox = Sandbox; //make class global!
+GameObjType.setCustomClassForGameObjType(DMG, o_damagesignal);
+
 
 
 var superClass = GameObj;
@@ -24637,6 +24965,30 @@ function Hippo() {
 window.Hippo = Hippo;
 //add this file as a class! (make sure to call require!)
 GameObjType.setCustomClassForGameObjType(Hippo, o_animal, a_hippo);
+
+
+var Croc = Croc;
+var superClass = Animal;
+Croc.prototype = Object.create(superClass.prototype); //properly inherit prototype of superclass
+Croc.prototype.constructor = Croc;
+Croc.superClass = superClass; //'class' var
+
+Croc.prototype.getSkinName = function() {
+  var skin =
+    "croc/" +
+    this.animalSpecies +
+    "/croc"
+
+
+  return skin;
+};
+
+function Croc() {
+Croc.superClass.call(this, o_animal);
+}
+window.Croc = Croc;
+//add this file as a class! (make sure to call require!)
+GameObjType.setCustomClassForGameObjType(Croc, o_animal, a_croc);
 
 
 
