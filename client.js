@@ -20496,7 +20496,7 @@ DMG.prototype.updateZ = function () {
 };
 
 DMG.prototype.setTitle = function () {
-    var txt = 0;
+    var txt = "";
 if (this.specType != 0) {
 txt = " " + this.specType
 }
