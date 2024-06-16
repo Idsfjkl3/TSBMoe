@@ -32278,7 +32278,7 @@ function controlsPressEvent(cNum, isNowPressed) {
            if (cNum_key1used != isNowPressed)
         if (serverCon_aliveInAGame) {
           var mes = new MsgWriter(2);
-          mes.writeUInt8(45);
+          mes.writeUInt8(46);
           mes.writeUInt8(isNowPressed ? 1 : 0); //1=down, 0=up
           wsSendMsg(mes);
           
