@@ -4952,7 +4952,7 @@ function drawGameInterface() {
   else if (animalBarType == 3) barTxt = lowBarPerc ? "LOW ENERGY" : "ENERGY";
   
   else {
-    barTxt = waterBarPerc > 99 ? "FINALE" : "FINALE [Q] ";
+    barTxt = waterBarPerc > 99 ? "FINALE [Q] " : "FINALE";
   }
 
   waterBarTXT.setText(barTxt);
