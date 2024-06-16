@@ -3671,7 +3671,8 @@ var rawMouseX = 0, //in CANVAS coordinates (multiplied by pix ratio)
 var controls_leftClicked = false,
   controls_rightClicked = false,
     cNum_keyEused = false,
-cNum_keyDused = false;
+cNum_keyDused = false,
+cNum_key1used = false,
 cNum_keyQused = false;
 //game size, vars, get set on game join
 var canvasW = 0;
@@ -4142,6 +4143,12 @@ button_q.onButtonTouchStart = function() {
   controlsPressEvent(cNum_keyQ, true);
 };
 allTouchButtons.push(button_q);
+
+var button_1 = new TouchButton("1");//in sandbox
+button_1.onButtonTouchStart = function() {
+  controlsPressEvent(cNum_key1, true);
+};
+allTouchButtons.push(button_1);
 
 var button_SBdowngrade = new TouchButton("DOWN↓"); //in sandbox
 button_SBdowngrade.onButtonTouchStart = function() {
@@ -31865,6 +31872,14 @@ document.onkeydown = function(ev) {
           controlsPressEvent(cNum_leftClick, true); //1= left click
         }
         break;
+		    
+		          case 49:
+        {
+          //1- right click
+          ev.preventDefault();
+          controlsPressEvent(cNum_key1, true); //1= left click
+        }
+        break;
       case 81:
         {
           //Q- right click
@@ -31965,6 +31980,13 @@ document.onkeyup = function(ev) {
           //Q- right click
           ev.preventDefault();
           controlsPressEvent(cNum_keyQ, false); //1= left click
+        }
+        break;
+		      		          case 49:
+        {
+          //1- right click
+          ev.preventDefault();
+          controlsPressEvent(cNum_key1, false); //1= left click
         }
         break;
         case 87:
@@ -32211,7 +32233,8 @@ var cNum_leftClick = 1,
   cNum_SBdowngrade = 4,
   cNum_watershoot = 5,
   cNum_keyD = 6,
-  cNum_keyE = 7;
+  cNum_keyE = 7,
+  cNum_key1 = 8,
   cNum_keyQ = 8;
 
 function controlsPressEvent(cNum, isNowPressed) {
@@ -32249,6 +32272,20 @@ function controlsPressEvent(cNum, isNowPressed) {
       }
       break;
 
+
+		      case cNum_key1:
+      {
+           if (cNum_key1used != isNowPressed)
+        if (serverCon_aliveInAGame) {
+          var mes = new MsgWriter(2);
+          mes.writeUInt8(45);
+          mes.writeUInt8(isNowPressed ? 1 : 0); //1=down, 0=up
+          wsSendMsg(mes);
+          
+          cNum_key1used = isNowPressed
+        }
+      }
+      break;
     case cNum_keyQ:
       {
            if (cNum_keyQused != isNowPressed)
