@@ -14471,7 +14471,7 @@ case ability_thunderbirdAttack:
  
 
 		  
-    case ability_elephantTrunkSmack:
+    case ability_rattail:
       {
         ctx.save();
         var oldA = ctx.globalAlpha;
