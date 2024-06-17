@@ -1578,6 +1578,7 @@ ability_spitrock = 140,
 ability_flamethrower = 141,
 ability_frogfishabil = 142,
 ability_marlin = 143,
+ability_rattail = 144,
   ability_none = 0;
 var infoForAbilityT = function(abilT) {
   var infoO = {};
@@ -1984,7 +1985,14 @@ var imgType = Math.ceil(((timestamp) % 1000)/500);
         infoForAnimalType(myPlayerLastAniT).skinName +
         ".png";
       break;
-      
+	  case ability_rattail:
+		        infoO.abilName = "Rat Tail Slap";
+      infoO.abilImg =
+        "skins/" +
+        zombieFolder +
+        infoForAnimalType(myPlayerLastAniT).skinName +
+        ".png";
+      break;
     case ability_elephantTrunkSmack:
       infoO.abilName = "Trunk Hit";
       infoO.abilImg =
@@ -12978,6 +12986,7 @@ case o_cakesplash:
         this.type == ability_finalhit ||
         this.type == ability_alligatorslap||
         this.type == ability_elephantTrunkSmack ||
+        this.type ==  ability_rattail ||
         this.type == ability_crabSmash ||
         this.type == ability_crocWaterGrab ||
         this.type == ability_alligatorgrab ||
@@ -13500,6 +13509,7 @@ AbilityObj.prototype.updateZ = function() {
     this.abilityType == ability_alligatorslap||
      this.abilityType == ability_freezeprey||
     this.abilityType == ability_elephantTrunkSmack ||
+    this.abilityType == ability_rattail ||
     this.abilityType == ability_crabSmash ||
     this.abilityType == ability_giantinktop ||
     this.abilityType == ability_crocWaterGrab ||
@@ -14461,7 +14471,57 @@ case ability_thunderbirdAttack:
  
 
 		  
+    case ability_elephantTrunkSmack:
+      {
+        ctx.save();
+        var oldA = ctx.globalAlpha;
 
+        ctx.globalAlpha = 0.05 * oldA;
+        drawCircle(0, 0, this.rad, "#E4E7C8");
+
+        ctx.globalAlpha = 1.0 * oldA;
+
+        var skinFolder = "img";
+
+        if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
+
+         var theImg = getLoadedImg(
+          skinFolder + "/rattail.png"
+        );
+        if (theImg) {
+          //var fac0to1 = Math.min(1.0, (timestamp - this.spawnTime) / 300.0);
+
+          var rotfac0to1 = clamp(
+            (timestamp - this.spawnTime) / 300.0,
+            0.0,
+            1.0
+          ); //delay rotate animation a bit
+          var extraRotate = -(-0.5 + rotfac0to1) * toRadians(90.0); //spin animation
+
+          //clip to sliwly show the claw
+          var rad = this.rad * 0.6;
+          ctx.rotate(this.angle + extraRotate);
+          var imX = 0,
+            imY = this.rad;
+          var imW = rad * 2.0 * 0.7,
+            imH = rad * 2.0; // * fac0to1;
+          var imAnchorX = 0.75,
+            imAnchorY = 0.95; //top-left= 0,0, bottom-right=1,1 (canvas coords)
+
+          ctx.drawImage(
+            theImg,
+            imX + imW * -imAnchorX,
+            imY + imH * -imAnchorY,
+            imW,
+            imH
+          );
+
+          //console.log("drawing banana");
+        }
+
+        ctx.restore();
+      }
+      break;
 		       
 		  
       case ability_kickandram:
