@@ -12600,7 +12600,10 @@ GameObj.prototype.moveUpdate = function() {
   //  console.log("a=" + a);
   this.x = a * (this.nx - this.ox) + this.ox;
   this.y = a * (this.ny - this.oy) + this.oy;
-
+if (this.flag_nointerpos) {
+  this.x = this.nx
+  this.y = this.ny
+}
   //if(this.oType==o_abilityGObj)
   //console.log("(dead? "+this.dead+") a= "+a+"x="+this.x+" nx "+this.nx+" ox "+this.ox);
 if (this.oType == 116) {
@@ -20079,6 +20082,7 @@ for (var J = 0; J < cnt; J++) {
 	this.flag_swallowed = aniFlags.includes(50)
 	this.flag_inCloud = aniFlags.includes(51)
 	this.flag_tts = aniFlags.includes(52)
+	this.flag_nointerpos = aniFlags.includes(53)
         this.wins1v1 = msg.readUInt8();
 
     if (this.isAbility1v1Active && this.flag_can1v1) {
