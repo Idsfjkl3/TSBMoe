@@ -19824,6 +19824,7 @@ Animal.prototype.getSkinName = function() {
     case a_titanboa:
     case a_boaConstrictor:
     case a_hedgehog:
+    case a_mouse:
           case a_gaur:
       var skinFolder = "";
       
