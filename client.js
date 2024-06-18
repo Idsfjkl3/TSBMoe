@@ -14423,7 +14423,7 @@ case ability_thunderbirdAttack:
         var oldA = ctx.globalAlpha;
 
         ctx.globalAlpha = 0.05 * oldA;
-        drawCircle(0, 0, this.rad, "#E4E7C8");
+        //drawCircle(0, 0, this.rad, "#E4E7C8");
 
         ctx.globalAlpha = 1.0 * oldA;
 
@@ -14432,7 +14432,7 @@ case ability_thunderbirdAttack:
         if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
 
          var theImg = getLoadedImg(
-          skinFolder + "/ability_elephantTrunkSmack.png"
+          skinFolder + "/ability_mousepunch.png"
         );
         if (theImg) {
           //var fac0to1 = Math.min(1.0, (timestamp - this.spawnTime) / 300.0);
@@ -14445,7 +14445,7 @@ case ability_thunderbirdAttack:
           var extraRotate = -(-0.5 + rotfac0to1) * toRadians(90.0); //spin animation
 
           //clip to sliwly show the claw
-          var rad = this.rad * 0.6;
+          var rad = this.rad * 500/340;
           ctx.rotate(this.angle + extraRotate);
           var imX = 0,
             imY = this.rad;
