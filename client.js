@@ -1579,6 +1579,7 @@ ability_flamethrower = 141,
 ability_frogfishabil = 142,
 ability_marlin = 143,
 ability_rattail = 144,
+ability_punch = 145,
   ability_none = 0;
 var infoForAbilityT = function(abilT) {
   var infoO = {};
@@ -1605,6 +1606,14 @@ var infoForAbilityT = function(abilT) {
 
 		  		                                          case ability_marlin:
       infoO.abilName = "Instant Dash";
+      infoO.abilImg =
+        "skins/" +
+        zombieFolder +
+        infoForAnimalType(myPlayerLastAniT).skinName +
+        ".png";
+      break;
+		  		  		                                          case ability_punch:
+      infoO.abilName = Punch";
       infoO.abilImg =
         "skins/" +
         zombieFolder +
@@ -12987,6 +12996,7 @@ case o_cakesplash:
         this.type == ability_alligatorslap||
         this.type == ability_elephantTrunkSmack ||
         this.type ==  ability_rattail ||
+	this.type ==  ability_punch ||
         this.type == ability_crabSmash ||
         this.type == ability_crocWaterGrab ||
         this.type == ability_alligatorgrab ||
@@ -13510,6 +13520,7 @@ AbilityObj.prototype.updateZ = function() {
      this.abilityType == ability_freezeprey||
     this.abilityType == ability_elephantTrunkSmack ||
     this.abilityType == ability_rattail ||
+    this.abilityType == ability_punch ||
     this.abilityType == ability_crabSmash ||
     this.abilityType == ability_giantinktop ||
     this.abilityType == ability_crocWaterGrab ||
@@ -14416,6 +14427,59 @@ case ability_thunderbirdAttack:
         ctx.restore();
       }
       break;
+		      case ability_punch:
+      {
+        ctx.save();
+        var oldA = ctx.globalAlpha;
+
+        ctx.globalAlpha = 0.05 * oldA;
+        //drawCircle(0, 0, this.rad, "#E4E7C8");
+
+        ctx.globalAlpha = 1.0 * oldA;
+
+        var skinFolder = "img";
+
+        if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
+
+         var theImg = getLoadedImg(
+          skinFolder + "/mousepunch" + this.specType2 + ".png"
+        );
+        if (theImg) {
+          //var fac0to1 = Math.min(1.0, (timestamp - this.spawnTime) / 300.0);
+
+          var rotfac0to1 = clamp(
+            (timestamp - this.spawnTime) / 300.0,
+            0.0,
+            1.0
+          ); //delay rotate animation a bit
+          var extraRotate = -(-0.5 + rotfac0to1) * toRadians(85.0); //spin animation
+if (this.specType2 == 0) {
+extraRotate = -(-0.5 + rotfac0to1) * toRadians(-85.0); //spin animat
+}
+          //clip to sliwly show the claw
+          var rad = this.rad * 500/340;
+          ctx.rotate(this.angle + extraRotate);
+          var imX = 0,
+            imY = this.rad;
+          var imW = rad * 2.0 * 0.7,
+            imH = rad * 2.0; // * fac0to1;
+          var imAnchorX = 0.75,
+            imAnchorY = 0.95; //top-left= 0,0, bottom-right=1,1 (canvas coords)
+
+          ctx.drawImage(
+            theImg,
+            imX + imW * -imAnchorX,
+            imY + imH * -imAnchorY,
+            imW,
+            imH
+          );
+
+          //console.log("drawing banana");
+        }
+
+        ctx.restore();
+      }
+      break;
 
     case ability_elephantTrunkSmack:
       {
@@ -14432,7 +14496,7 @@ case ability_thunderbirdAttack:
         if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
 
          var theImg = getLoadedImg(
-          skinFolder + "/mousepunch.png"
+          skinFolder + "/ability_elephantTrunkSmack.png"
         );
         if (theImg) {
           //var fac0to1 = Math.min(1.0, (timestamp - this.spawnTime) / 300.0);
@@ -14445,7 +14509,7 @@ case ability_thunderbirdAttack:
           var extraRotate = -(-0.5 + rotfac0to1) * toRadians(90.0); //spin animation
 
           //clip to sliwly show the claw
-          var rad = this.rad * 500/340;
+          var rad = this.rad * 0.6;
           ctx.rotate(this.angle + extraRotate);
           var imX = 0,
             imY = this.rad;
