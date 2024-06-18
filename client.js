@@ -1613,7 +1613,7 @@ var infoForAbilityT = function(abilT) {
         ".png";
       break;
 		  		  		                                          case ability_punch:
-      infoO.abilName = Punch";
+      infoO.abilName = "Punch";
       infoO.abilImg =
         "skins/" +
         zombieFolder +
