@@ -14475,7 +14475,19 @@ extraRotate = -(-0.5 + rotfac0to1) * toRadians(-85.0); //spin animat
             imW,
             imH
           );
-
+if (this.specType2 == 2) {
+ctx.rotate(-(this.angle + extraRotate))
+extraRotate = -(-0.5 + rotfac0to1) * toRadians(-85.0); //spin animat
+ctx.rotate(this.angle + extraRotate);
+		ctx.scale(-1, 1);
+	          ctx.drawImage(
+            theImg,
+            imX + imW * -imAnchorX,
+            imY + imH * -imAnchorY,
+            imW,
+            imH
+          );
+}
           //console.log("drawing banana");
         }
 
