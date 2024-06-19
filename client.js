@@ -14448,7 +14448,7 @@ case ability_thunderbirdAttack:
           //var fac0to1 = Math.min(1.0, (timestamp - this.spawnTime) / 300.0);
 
           var rotfac0to1 = clamp(
-            (timestamp - this.spawnTime) / 300.0,
+            (timestamp - this.spawnTime) / 200.0,
             0.0,
             1.0
           ); //delay rotate animation a bit
