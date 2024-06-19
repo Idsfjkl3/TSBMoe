@@ -32224,7 +32224,7 @@ function controlsPressEvent(cNum, isNowPressed) {
     case cNum_leftClick:
       {
         //clicked left
-        if (controls_leftClicked != isNowPressed)
+        if (controls_leftClicked != isNowPressed || 1 == 1)
           if (wsIsOpen() && serverCon_aliveInAGame) {
             //key changed
             if (isNowPressed) sendMouseCoords(); //send mouse coords for accurate water shooting
