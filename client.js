@@ -32588,7 +32588,7 @@ canvas.onmousedown = function(event) {
   resetAfk();
   if (event.which == 1) {
     //LEFT click
-	  var holdingleftclick = true
+	  holdingleftclick = true
     controlsPressEvent(cNum_leftClick, true);
   }
 
@@ -32600,7 +32600,7 @@ canvas.onmousedown = function(event) {
   event.preventDefault();
 };
 canvas.onmouseup = function(event) {
-		  var holdingleftclick = false
+holdingleftclick = false
   //console.log("Mouse up");
   if (event.which == 1) {
     //released left click
