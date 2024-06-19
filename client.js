@@ -14454,7 +14454,6 @@ case ability_thunderbirdAttack:
           ); //delay rotate animation a bit
           var extraRotate = -(-0.5 + rotfac0to1) * toRadians(85.0); //spin animation
 if (this.specType2 == 0) {
-	ctx.scale(-1, 1);
 extraRotate = -(-0.5 + rotfac0to1) * toRadians(-85.0); //spin animat
 }
           //clip to sliwly show the claw
@@ -14466,7 +14465,7 @@ extraRotate = -(-0.5 + rotfac0to1) * toRadians(-85.0); //spin animat
             imH = rad * 2.0; // * fac0to1;
           var imAnchorX = 0.75,
             imAnchorY = 0.95; //top-left= 0,0, bottom-right=1,1 (canvas coords)
-
+	ctx.scale(-1, 1);
           ctx.drawImage(
             theImg,
             imX + imW * -imAnchorX,
