@@ -32222,6 +32222,7 @@ function controlsPressEvent(cNum, isNowPressed) {
     case cNum_leftClick:
       {
         //clicked left
+	      console.log("ws");
         if (controls_leftClicked != isNowPressed)
           if (wsIsOpen() && serverCon_aliveInAGame) {
             //key changed
@@ -32587,10 +32588,12 @@ canvas.onmousedown = function(event) {
   resetAfk();
   if (event.which == 1) {
     //LEFT click
+	  /*
             var mes2 = new MsgWriter(2);
             mes2.writeUInt8(21); //MSGTYPE sendLeftClick
             mes2.writeUInt8(1); //1=down, 0=up
             wsSendMsg(mes2);
+	  */
     controlsPressEvent(cNum_leftClick, true);
   }
 
