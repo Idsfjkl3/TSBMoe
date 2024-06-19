@@ -8,7 +8,7 @@ var oldmope = true
 var daynightstamp = Date.now()
 var daynight = 6
 var stages = 0
-var holdingleftclick = false
+//var holdingleftclick = false
 var brtimerx = 0
 var impactblindness = false
 var badpiggiesplay = recover = 0
@@ -31843,9 +31843,7 @@ document.onkeydown = function(ev) {
   //console.log("key down " + key);
 
   if (!chatOpen && serverCon_aliveInAGame) {
-	  if (holdingleftclick) {
-	    controlsPressEvent(cNum_leftClick, true);
-}
+
     switch (key) {
       case 32:
         {
@@ -32224,7 +32222,7 @@ function controlsPressEvent(cNum, isNowPressed) {
     case cNum_leftClick:
       {
         //clicked left
-        if (controls_leftClicked != isNowPressed || 1 == 1)
+        if (controls_leftClicked != isNowPressed)
           if (wsIsOpen() && serverCon_aliveInAGame) {
             //key changed
             if (isNowPressed) sendMouseCoords(); //send mouse coords for accurate water shooting
@@ -32589,7 +32587,10 @@ canvas.onmousedown = function(event) {
   resetAfk();
   if (event.which == 1) {
     //LEFT click
-
+            var mes2 = new MsgWriter(2);
+            mes2.writeUInt8(21); //MSGTYPE sendLeftClick
+            mes2.writeUInt8(1); //1=down, 0=up
+            wsSendMsg(mes2);
     controlsPressEvent(cNum_leftClick, true);
   }
 
@@ -32603,7 +32604,6 @@ canvas.onmousedown = function(event) {
 canvas.onmouseup = function(event) {
   //console.log("Mouse up");
   if (event.which == 1) {
-console.log("skibidi slicers");
     //released left click
     controlsPressEvent(cNum_leftClick, false);
 
