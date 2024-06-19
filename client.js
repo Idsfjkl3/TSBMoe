@@ -32441,9 +32441,9 @@ canvas.ontouchmove = function(e) {
         );
         var oldPressed = button_run.pressed;
         button_run.pressed = newPressed;
-        if (newPressed && !oldPressed) {
+        if (newPressed) {
           controlsPressEvent(cNum_leftClick, true); //just pressed it
-        } else if (!newPressed && oldPressed) {
+        } else if (!newPressed) {
           controlsPressEvent(cNum_leftClick, false); //just pressed it
         }
       }
