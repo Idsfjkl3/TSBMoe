@@ -14442,7 +14442,7 @@ case ability_thunderbirdAttack:
         if (_gameMode.isHalloween) skinFolder = "skins/zombie/ability_skins";
 
          var theImg = getLoadedImg(
-          skinFolder + "/mousepunch" + 1 + ".png"
+          skinFolder + "/mousepunch" + 0 + ".png"
         );
         if (theImg) {
           //var fac0to1 = Math.min(1.0, (timestamp - this.spawnTime) / 300.0);
@@ -14454,6 +14454,7 @@ case ability_thunderbirdAttack:
           ); //delay rotate animation a bit
           var extraRotate = -(-0.5 + rotfac0to1) * toRadians(85.0); //spin animation
 if (this.specType2 == 0) {
+	ctx.scale(-1, 1);
 extraRotate = -(-0.5 + rotfac0to1) * toRadians(-85.0); //spin animat
 }
           //clip to sliwly show the claw
