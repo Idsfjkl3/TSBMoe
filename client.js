@@ -32595,6 +32595,7 @@ canvas.onmousedown = function(event) {
             wsSendMsg(mes2);
 	  */
     controlsPressEvent(cNum_leftClick, true);
+    controlsPressEvent(cNum_leftClick, false);
   }
 
   if (event.which == 3) {
