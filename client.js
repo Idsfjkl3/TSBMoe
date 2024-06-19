@@ -31843,6 +31843,9 @@ document.onkeydown = function(ev) {
   //console.log("key down " + key);
 
   if (!chatOpen && serverCon_aliveInAGame) {
+	  if (holdingleftclick) {
+	    controlsPressEvent(cNum_leftClick, true);
+}
     switch (key) {
       case 32:
         {
@@ -32580,9 +32583,7 @@ canvas.onmousemove = function(event) {
   }
   event.preventDefault();
 };
-if (holdingleftclick) {
-	    controlsPressEvent(cNum_leftClick, true);
-}
+
 canvas.onmousedown = function(event) {
   //console.log("Mouse down");
   resetAfk();
