@@ -8,6 +8,7 @@ var oldmope = true
 var daynightstamp = Date.now()
 var daynight = 6
 var stages = 0
+var holdingleftclick = false
 var brtimerx = 0
 var impactblindness = false
 var badpiggiesplay = recover = 0
@@ -32441,9 +32442,9 @@ canvas.ontouchmove = function(e) {
         );
         var oldPressed = button_run.pressed;
         button_run.pressed = newPressed;
-        if (newPressed) {
+        if (newPressed && !oldPressed) {
           controlsPressEvent(cNum_leftClick, true); //just pressed it
-        } else if (!newPressed) {
+        } else if (!newPressed && oldPressed) {
           controlsPressEvent(cNum_leftClick, false); //just pressed it
         }
       }
@@ -32579,12 +32580,15 @@ canvas.onmousemove = function(event) {
   }
   event.preventDefault();
 };
-
+if (holdingleftclick) {
+	    controlsPressEvent(cNum_leftClick, true);
+}
 canvas.onmousedown = function(event) {
   //console.log("Mouse down");
   resetAfk();
   if (event.which == 1) {
     //LEFT click
+	  var holdingleftclick = true
     controlsPressEvent(cNum_leftClick, true);
   }
 
@@ -32596,6 +32600,7 @@ canvas.onmousedown = function(event) {
   event.preventDefault();
 };
 canvas.onmouseup = function(event) {
+		  var holdingleftclick = false
   //console.log("Mouse up");
   if (event.which == 1) {
     //released left click
