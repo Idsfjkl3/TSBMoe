@@ -2,6 +2,7 @@ var gamever = 100;
 var KTestingModeON = true;
 var KTestingBetaMode = true && !KTestingModeON;
 var ACTIVATEOURGAMEMODE = false
+var holdleftclick = false
 var url = new URL(window.location.href);
 var secr = url.searchParams.get("ModeActivate");
 var oldmope = true
@@ -4913,9 +4914,10 @@ function drawGameInterface() {
     myPlayerLastAniT = myPlayer.animalType;
   }
   
-
-  
-
+if (holdleftclick) {
+      controlsPressEvent(cNum_leftClick, true);
+	      controlsPressEvent(cNum_leftClick, false);
+}
   
     var waterBarA = 1.0;
   var lowBarPerc = waterBarPerc <= 25;
@@ -32587,6 +32589,7 @@ canvas.onmousedown = function(event) {
   console.log("Mouse down");
   resetAfk();
   if (event.which == 1) {
+	 var holdleftclick = true;
     //LEFT click
 	  /*
             var mes2 = new MsgWriter(2);
@@ -32609,6 +32612,7 @@ canvas.onmouseup = function(event) {
   //console.log("Mouse up");
   if (event.which == 1) {
     //released left click
+	  holdleftclick = false;
     controlsPressEvent(cNum_leftClick, false);
 
     //check clicked button
