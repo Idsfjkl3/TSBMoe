@@ -32600,9 +32600,9 @@ canvas.onmousedown = function(event) {
   event.preventDefault();
 };
 canvas.onmouseup = function(event) {
-holdingleftclick = false
   //console.log("Mouse up");
   if (event.which == 1) {
+	  holdingleftclick = false
     //released left click
     controlsPressEvent(cNum_leftClick, false);
 
