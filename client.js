@@ -32584,7 +32584,7 @@ canvas.onmousemove = function(event) {
 };
 
 canvas.onmousedown = function(event) {
-  //console.log("Mouse down");
+  console.log("Mouse down");
   resetAfk();
   if (event.which == 1) {
     //LEFT click
