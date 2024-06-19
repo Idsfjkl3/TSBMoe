@@ -32589,7 +32589,7 @@ canvas.onmousedown = function(event) {
   resetAfk();
   if (event.which == 1) {
     //LEFT click
-	  holdingleftclick = true
+
     controlsPressEvent(cNum_leftClick, true);
   }
 
@@ -32603,7 +32603,7 @@ canvas.onmousedown = function(event) {
 canvas.onmouseup = function(event) {
   //console.log("Mouse up");
   if (event.which == 1) {
-	  holdingleftclick = false
+console.log("skibidi slicers");
     //released left click
     controlsPressEvent(cNum_leftClick, false);
 
