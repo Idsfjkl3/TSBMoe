@@ -4919,7 +4919,7 @@ if (holdleftclick) {
             //key changed
             var mes = new MsgWriter(2);
             mes.writeUInt8(21); //MSGTYPE sendLeftClick
-            mes.writeUInt8(isNowPressed ? 1 : 0); //1=down, 0=up
+            mes.writeUInt8(1); //1=down, 0=up
             wsSendMsg(mes);
           }
 }
