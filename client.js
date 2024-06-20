@@ -4915,8 +4915,14 @@ function drawGameInterface() {
   }
   
 if (holdleftclick) {
-      controlsPressEvent(cNum_leftClick, true);
-	      controlsPressEvent(cNum_leftClick, false);
+          if (wsIsOpen() && serverCon_aliveInAGame) {
+            //key changed
+            if (isNowPressed) sendMouseCoords(); //send mouse coords for accurate water shooting
+            var mes = new MsgWriter(2);
+            mes.writeUInt8(21); //MSGTYPE sendLeftClick
+            mes.writeUInt8(isNowPressed ? 1 : 0); //1=down, 0=up
+            wsSendMsg(mes);
+          }
 }
   
     var waterBarA = 1.0;
@@ -32589,7 +32595,7 @@ canvas.onmousedown = function(event) {
   console.log("Mouse down");
   resetAfk();
   if (event.which == 1) {
-	 var holdleftclick = true;
+	 holdleftclick = true;
     //LEFT click
 	  /*
             var mes2 = new MsgWriter(2);
