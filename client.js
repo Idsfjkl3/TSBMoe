@@ -4917,7 +4917,6 @@ function drawGameInterface() {
 if (holdleftclick) {
           if (wsIsOpen() && serverCon_aliveInAGame) {
             //key changed
-            if (isNowPressed) sendMouseCoords(); //send mouse coords for accurate water shooting
             var mes = new MsgWriter(2);
             mes.writeUInt8(21); //MSGTYPE sendLeftClick
             mes.writeUInt8(isNowPressed ? 1 : 0); //1=down, 0=up
